@@ -1,0 +1,129 @@
+<div class="tutor-filter">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="form-group">
+                <div class="input-wrap">
+                    <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="{{'select-language' | translate}}" name="langaugeName" [(ngModel)]="language" (change)="filterTeacher()">
+                            <mat-option *ngFor="let language of languages" [value]="language.counrty">
+                                {{language.counrty}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="form-group">
+                <div class="input-wrap">
+                    <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="{{'select-country' | translate}}" name="countryName" [(ngModel)]="countryName" (change)="filterTeacher()" multiple>
+                            <mat-option *ngFor="let c of countryList" [value]="c.name">
+                                {{c.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="form-group">
+                <div class="input-wrap">
+                    <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="Availability" multiple>
+                                <mat-optgroup *ngFor="let group of timingOfDay" [label]="group.name" [disabled]="group.disabled">
+                                        <mat-option *ngFor="let timing of group.timing" [value]="timing.value">
+                                            {{ timing.viewValue }}
+                                        </mat-option>
+                                    </mat-optgroup>
+                            <mat-optgroup *ngFor="let group of timingOfDay" [label]="group.name" [disabled]="group.disabled">
+                                <mat-option *ngFor="let timing of group.timing" [value]="timing.value">
+                                    {{ timing.viewValue }}
+                                </mat-option>
+                            </mat-optgroup>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 border-right">
+            <div class="price-filter-wrap">
+                <div class="slider_line animation_12_a0" style="height: 0px;"></div>
+                <div class="slider_line animation_12_a1" style="height: 0px;"></div>
+                <div class="slider_line animation_12_a2" style="height: 0.925926px;"></div>
+                <div class="slider_line animation_12_a3" style="height: 0.925926px;"></div>
+                <div class="slider_line animation_12_a4" style="height: 0.925926px;"></div>
+                <div class="slider_line animation_12_a5" style="height: 4.62963px;"></div>
+                <div class="slider_line animation_12_a6" style="height: 1.85185px;"></div>
+                <div class="slider_line animation_12_a7" style="height: 19.4444px;"></div>
+                <div class="slider_line animation_12_a8" style="height: 11.1111px;"></div>
+                <div class="slider_line animation_12_a9" style="height: 11.1111px;"></div>
+                <div class="slider_line animation_12_a10" style="height: 48.1481px;"></div>
+                <div class="slider_line animation_12_a11" style="height: 30.5556px;"></div>
+                <div class="slider_line animation_12_a12" style="height: 44.4444px;"></div>
+                <div class="slider_line animation_12_a13" style="height: 50.9259px;"></div>
+                <div class="slider_line animation_12_a14" style="height: 100px;"></div>
+                <div class="slider_line animation_12_a15" style="height: 97.2222px;"></div>
+                <div class="slider_line animation_12_a16" style="height: 15.7407px;"></div>
+                <div class="slider_line animation_12_a17" style="height: 39.8148px;"></div>
+                <div class="slider_line animation_12_a18" style="height: 24.0741px;"></div>
+                <div class="slider_line animation_12_a19" style="height: 23.1481px;"></div>
+                <div class="slider_line animation_12_a20" style="height: 71.2963px;"></div>
+                <div class="slider_line animation_12_a21" style="height: 14.8148px;"></div>
+                <div class="slider_line animation_12_a22" style="height: 14.8148px;"></div>
+                <div class="slider_line animation_12_a23" style="height: 14.8148px;"></div>
+                <div class="slider_line animation_12_a24" style="height: 7.40741px;"></div>
+                <div class="slider_line animation_12_a25" style="height: 32.4074px;"></div>
+                <div class="slider_line animation_12_a26" style="height: 0.925926px;"></div>
+                <div class="slider_line animation_12_a27" style="height: 6.48148px;"></div>
+                <div class="slider_line animation_12_a28" style="height: 3.7037px;"></div>
+                <div class="slider_line animation_12_a29" style="height: 1.85185px;"></div>
+                <div class="slider_line animation_12_a30" style="height: 14.8148px;"></div>
+                <div class="slider_line animation_12_a31" style="height: 2.77778px;"></div>
+                <div class="slider_line animation_12_a32" style="height: 0px;"></div>
+                <div class="slider_line animation_12_a33" style="height: 0.925926px;"></div>
+                <div class="slider_line animation_12_a34" style="height: 1.85185px;"></div>
+                <div class="slider_line animation_12_a44" style="height: 0px;"></div>
+                <div class="slider_line animation_12_a45" style="height: 1.85185px;"></div>
+                <div class="slider_line animation_12_a46" style="height: 2px;"></div>
+                <div class="slider_line animation_12_a47" style="height: 5px;"></div>
+                <div class="slider_line animation_12_a48" style="height: 14.5px;"></div>
+                <div class="slider_line animation_12_a63" style="height: 15.4px;"></div>
+                <div class="slider_line animation_12_a64" style="height: 14px;"></div>
+                <div class="slider_line animation_12_a65" style="height: 1.2px;"></div>
+                <div class="slider_line animation_12_a66" style="height: 30px;"></div>
+                <div class="slider_line animation_12_a67" style="height: 35px;"></div>
+                <div class="slider_line animation_12_a68" style="height: 40px;"></div>
+                <div class="slider_line animation_12_a69" style="height: 9px;"></div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="form-group extraspace">
+                <div class="input-wrap">
+                    <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="Specialty" multiple>
+                            <mat-option>None</mat-option>
+                            <mat-option value="option1">Option 1</mat-option>
+                            <mat-option value="option2">Option 2</mat-option>
+                            <mat-option value="option3">Option 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="form-group extraspace">
+                <div class="input-wrap">
+                    <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="Recommend for you" multiple>
+                            <mat-option>None</mat-option>
+                            <mat-option value="option1">Option 1</mat-option>
+                            <mat-option value="option2">Option 2</mat-option>
+                            <mat-option value="option3">Option 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

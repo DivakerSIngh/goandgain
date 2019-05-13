@@ -1,0 +1,159 @@
+<!-- <div class="studygroup-detail clearfix" *ngIf="groupDetails"> -->
+        <div class="studygroup-detail clearfix">
+    <div class="titleheading small" (click)="test()">{{'find-your-study-group' | translate}} </div>
+    <h2 class="main title"> {{'lets-study' | translate}} {{groupDetails.name}} {{'together' | translate}}
+
+
+        <ng-container *ngIf="isLoggedIn&&!isMember else pendingRequest">
+        <span *ngIf="groupDetails.members">
+            <button type="submit" class="custom-btn gradient-lr request" *ngIf="isLoggedIn&&!isMember && groupDetails.members.length!=10 && !existsButPending" (click)="requestToJoin()">Request To Join</button>
+            <button type="submit" class="custom-btn gradient-lr request" *ngIf="isLoggedIn&&!isMember && groupDetails.members.length==10">Group is already full</button>
+        </span>
+        </ng-container>
+
+        <ng-template #pendingRequest>
+            <ng-container *ngIf="isLoggedIn&&isMember">
+                <button type="submit" class="custom-btn gradient-lr request" *ngIf="isLoggedIn&&isMember"> Request has been sent.</button>
+
+            </ng-container>
+        </ng-template>
+        <ng-template #third></ng-template>
+
+    </h2>
+    <h2 class="hansang title">{{createrName}}</h2>
+    <span class="hits"> {{'hits' | translate}}:
+        <strong>{{totalHits}}</strong>
+    </span>
+    <div class="section-wrap">
+        <h2 class="title">{{'category-name' | translate}}</h2>
+        <div class="sub-title">{{groupDetails.category}}</div>
+        <h2 class="title">{{'sub-category-name' | translate}}</h2>
+        <div class="sub-title">{{groupDetails.subCategory}}</div>
+        <h2 class="title">{{'timezone' | translate}}</h2>
+        <div class="sub-title">{{groupDetails.country}}</div>
+        <h2 class="title">{{'description' | translate}}</h2>
+        <div class="description-detail">
+            <p>{{groupDetails.description}}
+            </p>
+        </div>
+        <div class="clearfix commentWrapper">
+            <div class="chatColumn">
+                <div class="leftIn">
+                    <div class="write-comment" *ngIf="isLoggedIn">
+                        <h2 class="write-head">Write A Comment</h2>
+                        <div class="write-chat-inner clearfix">
+                            <figure>
+                                <img class="userimage" [src]="studetnImage" alt="">
+                            </figure>
+                            <textarea maxlength="200" name="comment" id="" [(ngModel)]="comment" cols="30" rows="3"></textarea>
+                            <button [disabled]="isEntered()" (click)="postComment()" type="submit" class="custom-btn gradient-lr">Post Comment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chatColumn" *ngIf="outerComment.length<=0">{{'no-comments' | translate}}</div>
+            <div class="chatColumn" *ngFor="let com of outerComment;let i=index">
+                <figure class="userimage" [style.background-image]="'url('+ com.userId.image +')'"></figure>
+
+                <div class="leftIn">
+                    <div class="chatcolumn-section">
+                        <h2 class="head">{{com.userId.firstName}} {{com.userId.lastName}}</h2>
+                        <label class="datetime">{{com.created | date : 'dd MMM yyyy'}} at {{ com.created | date:'mediumTime' }}</label>
+                        <a href="javascript:void(0);" class="reply" *ngIf="isLoggedIn" data-toggle="collapse" (click)="openCloseCollaps(com._id)">Reply</a>
+                        <p> {{com.comment}}</p>
+                       
+                        <a href="javascript:void(0);" *ngIf="isLoggedIn&&isMainCommentCreator(i)" class="comment-options" mat-icon [matMenuTriggerFor]="menu">
+                            <i class="fa fa-circle"></i>
+                            <i class="fa fa-circle"></i>
+                            <i class="fa fa-circle"></i>
+                        </a>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item *ngIf="isLoggedIn&&isMainCommentCreator(i)" (click)="ConfirmCommentDelete(com._id,i)">Delete</button>
+                            <button mat-menu-item *ngIf="isLoggedIn&&isMainCommentCreator(i)" (click)="openCloseCollapsEditMainComment(com._id,i,com.comment)">Edit</button>
+                        </mat-menu>
+                    </div>
+                    <div [id]="com._id" class="collapse">
+                        <div class="write-comment">
+                            <h2 class="write-head">Reply to {{com.userId.firstName}} {{com.userId.lastName}}</h2>
+                            <div class="write-chat-inner clearfix">
+                                <figure>
+                                    <img class="userimage" [src]="studetnImage" alt="">
+                                </figure>
+                                <textarea maxlength="200" name="innerComment" [(ngModel)]="innerComment" id="" cols="30" rows="3"></textarea>
+                                <button type="submit" class="custom-btn gradient-lr" [disabled]="isInnerCommentInserted()" (click)="SaveInnerComment(innerComment,com._id,i)">Post Comment</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div [id]="i" class="collapse">
+                        <div class="write-comment">
+                            <h2 class="write-head">Edit Comment</h2>
+                            <div class="write-chat-inner clearfix">
+                                <figure>
+                                    <img class="userimage" [src]="studetnImage" alt="">
+                                </figure>
+                                <textarea maxlength="200" name="innerComment" [(ngModel)]="innerComment" id="" cols="30" rows="3"></textarea>
+                                <button type="submit" class="custom-btn gradient-lr" [disabled]="isInnerCommentInserted()" (click)="editMainComment(innerComment,com._id,i)">Edit Comment</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chatReply" *ngFor="let innerCom of com.replyData;let innerIndex=index">
+                        <figure class="userimage" [style.background-image]="'url('+ innerCom.userId.image +')'"></figure>
+                        <div class="leftIn">
+                            <div class="chatcolumn-section">
+                                <a href="javascript:void(0);" *ngIf="isLoggedIn&&isInnerCommentCreator(i,innerIndex)" class="comment-options" mat-icon [matMenuTriggerFor]="menu">
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
+                                </a>
+                                <mat-menu #menu="matMenu">
+                                    <button mat-menu-item *ngIf="isLoggedIn&&isInnerCommentCreator(i,innerIndex)" (click)="ConfirmInnerCommentDelete(innerCom._id,innerIndex,i,com._id)">Delete</button>
+                                </mat-menu>
+                                <h2 class="head">{{innerCom.userId.firstName}} {{innerCom.userId.lastName}}</h2>
+                                <label class="datetime">{{innerCom.created | date : 'dd MMM yyyy'}} at {{ innerCom.created | date:'mediumTime' }}</label>
+                                <p>{{innerCom.comment}}</p>
+                            </div>
+                            <div [id]="innerCom._id" class="collapse">
+                                <div class="write-comment">
+                                    <h2 class="write-head">Edit Comment</h2>
+                                    <div class="write-chat-inner clearfix">
+                                        <figure>
+                                            <img class="userimage" [src]="studetnImage" alt="">
+                                        </figure>
+                                        <textarea maxlength="200" name="innerComment" [(ngModel)]="innerComment" id="" cols="30" rows="3"></textarea>
+                                        <button type="submit" class="custom-btn gradient-lr" [disabled]="isInnerCommentInserted()" (click)="SaveInnerComment(innerComment,com._id,i)">Edit Comment</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- <app-modal></app-modal> -->
+<div class="modal fade" id="deletePopUp" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm create-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-cross" data-dismiss="modal" type="button">
+                    <img  alt="close" src="assets/images/cancel.png">
+                </button>
+                <h4 class="modal-title">Confirmation</h4>
+            </div>
+            <div class="modal-body text-center">
+                <p>Are you sure want to delete the comment?</p>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="custom-btn gradient save" (click)="deleteComment()">Confirm</button>
+                <button type="button" class="custom-btn delete" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

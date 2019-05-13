@@ -1,0 +1,67 @@
+<div class="grouplist">
+    <div class="searchWrapper2 m-minus clearfix">
+        <button class="searchbtn custom-btn gradient-lr pull-right" (click)="searchGroups()" type="submit">Find a Group</button>
+        <div class="overflow">
+            <div class="input-wrap">
+                <input class="search" [(ngModel)]="search" (change)="searchGroups()" placeholder="Search Group by Name" type="text">
+                <div class="searchbtnicon">
+                    <img alt="" src="assets/images/search.png">
+                </div>
+                <span *ngIf="search.length>0" (click)="resetSearch()" class="search-cross withbtn"><img src="assets/images/cancel.png" alt=""></span>
+
+            </div>
+        </div>
+    </div>
+    <div class="friendlist-col">
+
+        <!-- <div class="userdetail-column clearfix" *ngIf="myGroups.length<=0 && !noRecordFound">
+
+            <div class="leftin">
+               
+                <h3>Loading...</h3>
+            </div>
+
+        </div> -->
+
+        <div class="userdetail-column clearfix" *ngIf="noRecordFound">
+
+            <div class="leftin">
+                <h3>No group(s) found</h3>
+
+            </div>
+
+        </div>
+
+        <div class="userdetail-column clearfix" *ngFor="let group of myGroups;let i=index">
+            <figure class="image" [style.background-image]="'url('+ group.image +')'"></figure>
+            <div class="leftin">
+                <h3>
+
+
+                    <!-- this.router.navigate(['../student/student-profile/friends-group/group-details/' + groupId]); -->
+
+                    <a href="javascript:void(0);" [routerLink]="['../../group-details',group._id]">
+                            {{group.name}} 
+                        </a>
+                </h3>
+                <label class="label-withicon">
+                            <span class="icon"><img alt="" src="assets/images/member-icon.png"></span>
+                            <strong> Member:</strong>  
+                            <!-- {{group.members.length}} -->
+                            {{getMemberCount(group.members)}}
+                        </label>
+                <label class="label-withicon">
+                            <span class="icon"><img alt="" src="assets/images/topic-icon.png"></span>
+                             <strong> Category: </strong>  {{group.category}}
+                        </label>
+
+                <label class="label-withicon" *ngIf="isAdmin(group.userId._id)">
+                                <span class="icon"><img alt="" src="assets/images/topic-icon.png"></span>
+                                 <strong> Admin: </strong> 
+                            </label>
+            </div>
+        </div>
+
+
+
+    </div>

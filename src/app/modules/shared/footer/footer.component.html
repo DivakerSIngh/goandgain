@@ -1,0 +1,61 @@
+<a href="javascript:void(0);" class="scrollTopBtn" *ngIf="isScrollButton" (click)="scrollTopBtn">
+    <img src="assets/images/up-arrow.svg" alt="">
+</a>
+<!-- footer -->
+<footer *ngIf="IsFooterShow">
+    <div class="footer-listing">
+        <ul class="innerlinks">
+            <h3 class="heading">KoalaTalk</h3>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);">{{'about-us'| translate}}</a>
+            </li>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);"> {{'privacy-policy'| translate}}</a>
+            </li>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);"> {{'contact-us'| translate}}</a>
+            </li>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);"> {{'press'| translate}}</a>
+            </li>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);"> {{'blog'| translate}}</a>
+            </li>
+        </ul>
+        <ul class="innerlinks">
+            <h3 class="heading">{{'tutors'| translate}}</h3>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);"> {{'english-tutor'| translate}}</a>
+            </li>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);"> {{'spanish-tutor'| translate}}</a>
+            </li>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);"> {{'chinese-tutor'| translate}}</a>
+            </li>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);">{{'korean-tutor'| translate}}</a>
+            </li>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);"> {{'japanese-tutor'| translate}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="footer-copyright clearfix">
+        <div class="container">
+            <p>© 2017 KoalaTalk. {{'all-rights-reserved'| translate}}.</p>
+            <ul class="social-icons">
+                <li>
+                    <a [class.disabled]="allowOrNot" href="javascript:void(0);"><img src="assets/images/facebook.png" alt="facebook"></a>
+                </li>
+                <li>
+                    <a [class.disabled]="allowOrNot" href="javascript:void(0);"><img src="assets/images/twitter.png" alt="twitter"></a>
+                </li>
+                <li>
+                    <a [class.disabled]="allowOrNot" href="javascript:void(0);"><img src="assets/images/google-plus.png" alt="google-plus"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->

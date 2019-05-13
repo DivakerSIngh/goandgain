@@ -1,0 +1,211 @@
+<div class="requestlist">
+    <div class="friendlist-col">
+        <div class="userdetail-column clearfix" *ngIf="requestList.length<=0">
+            <div class="leftin">
+                <h3>No request found</h3>
+            </div>
+        </div>
+        <div class="userdetail-column clearfix" *ngFor="let req of requestList; let i=index">
+         
+               <!-- Student Request start -->
+            <div *ngIf="!req.studyGroupRequest">
+                <figure class="image" [style.background-image]="'url('+ req.senderId.image +')'"></figure>
+                <div class="pull-right">
+                    <button class="custom-btn decline" type="submit" (click)="decline(req._id,i,0)">Decline</button>
+                    <button class="custom-btn gradient-lr" type="submit" (click)="accept(req._id,i)">Accept </button>
+                </div>
+                <div class="leftin">
+                    <h3>
+                        <a href="javascript:void(0)"> {{req.senderId.firstName}} {{req.senderId.lastName}} </a>
+                    </h3>
+
+                    <label class="label-withicon">
+                        <span class="icon">
+                            <img alt="" src="assets/images/marker.png">
+                        </span>
+                        <strong> From:</strong> United States
+                    </label>
+                    <label class="label-withicon">
+                        <span class="icon">
+                            <img alt="" src="assets/images/edu-icon.png">
+                        </span>
+                        <strong> Learning:</strong> English
+                    </label>
+                </div>
+            </div>
+               <!-- Student Request End -->
+
+
+            <!-- Group Request start -->
+            <div *ngIf="req.studyGroupRequest">
+                <figure class="image" [style.background-image]="'url('+ req?.image +')'"></figure>
+                <div class="pull-right">
+                    <button class="custom-btn decline" type="submit" (click)="OnClickToDeclineRequest(req,i)">Decline</button>
+                    <button class="custom-btn gradient-lr" type="submit" (click)="OnClickToAcceptRequest(req,i)">Accept </button>
+                </div>
+                <div class="leftin">
+                    <h3>
+                        <a  (click)="ViewGroupDetails(req,i)" href="javascript:void(0)"> {{req.name}} </a>
+                    </h3>
+
+                    <label class="label-withicon">
+                        <span class="icon">
+                            <img alt="" src="assets/images/marker.png">
+                        </span>
+                        <strong> From:</strong> ({{req.timeZone}}){{req.country}}
+                    </label>
+                    <label class="label-withicon">
+                        <span class="icon">
+                            <img alt="" src="assets/images/edu-icon.png">
+                        </span>
+                        <strong> Category:</strong> {{req.category}}
+                    </label>
+                </div>
+            </div>
+            <!-- Group Request end -->
+
+        </div>
+
+
+  
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="popupGroupRequestDetails" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="heading">Group Details</h2>
+                    <button type="button" class="modal-cross" data-dismiss="modal">
+                        <img src="assets/images/cancel.png" alt="close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <figure class="profileimage">
+                        <img alt="User" [src]="groupImage">
+                    </figure>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4">
+                            <label for="" class="input-label">Group Name: </label>
+                        </div>
+                        <div class="col-sm-12 col-md-8">
+                            <label for="" class="label-form">{{groupName}}</label>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <label for="" class="input-label">Group Subject:</label>
+                        </div>
+                        <div class="col-sm-12 col-md-8">
+                            <label for="" class="label-form">
+                                    {{groupSubject}}                                   
+                            </label>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <label for="" class="input-label">Category Name: </label>
+                        </div>
+                        <div class="col-sm-12 col-md-8">
+                            <label for="" class="label-form">{{categoryName}}</label>
+                        </div>
+
+                        <div class="col-sm-12 col-md-4">
+                                <label for="" class="input-label">Sub Category Name: </label>
+                            </div>
+                            <div class="col-sm-12 col-md-8">
+                                <label for="" class="label-form">
+                                        {{subCategoryName}}
+                                </label>
+                            </div>
+
+                        <div class="col-sm-12 col-md-4">
+                            <label for="" class="input-label">Group TimeZone: </label>
+                        </div>
+                        <div class="col-sm-12 col-md-8">
+                            <label for="" class="label-form"> {{groupTimeZone}}</label>
+                        </div>
+
+                        <div class="col-sm-12 col-md-4">
+                                <label for="" class="input-label">Group Langauge: </label>
+                            </div>
+                            <div class="col-sm-12 col-md-8">
+                                <label for="" class="label-form"> {{groupLangauge}}</label>
+                            </div>
+
+                        <div class="col-sm-12 col-md-4">
+                            <label for="" class="input-label">Hits: </label>
+                        </div>
+                        <div class="col-sm-12 col-md-8">
+                            <label for="" class="label-form">
+                                    {{groupHits}}</label>
+                        </div>
+                        <!-- <div class="col-sm-12 col-md-4">
+                            <label for="" class="input-label">Member: </label>
+                        </div>
+                        <div class="col-sm-12 col-md-8">
+                            <label for="" class="label-form">
+                                    {{groupActiveMmber}}</label> 
+                        </div>-->
+                        <div class="col-sm-12 col-md-4">
+                            <label for="" class="input-label">Description</label>
+                        </div>
+                        <div class="col-sm-12 col-md-8">
+                            <label for="" class="label-form">{{groupDescription}} </label>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                                <label for="" class="input-label">Created By</label>
+                            </div>
+                            <div class="col-sm-12 col-md-8">
+                                <label for="" class="label-form">{{createdBy}} </label>
+                            </div>
+
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button class="custom-btn decline" type="submit" (click)="DeclineGroupRequest(groupRequestId,groupId,currentIndex)">Decline</button>
+                        <button class="custom-btn gradient-lr"  (click)="AccepteGroupRequest(groupRequestId,groupId,currentIndex)" type="submit">Accept </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="declineFriendRequest" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-sm create-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="modal-cross" data-dismiss="modal" type="button">
+                            <img  alt="close" src="assets/images/cancel.png">
+                        </button>
+                        <h4 class="modal-title">Confirmation</h4>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p>Are you sure want to Decline the request?</p>
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button type="button" class="custom-btn gradient save" (click)="confirmDecline()">Confirm</button>
+                        <button type="button" class="custom-btn delete" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="declineGroupRequestPopUp" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-sm create-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="modal-cross" data-dismiss="modal" type="button">
+                                <img  alt="close" src="assets/images/cancel.png">
+                            </button>
+                            <h4 class="modal-title">Confirmation</h4>
+                        </div>
+                        <div class="modal-body text-center">
+                            <p>Are you sure want to Decline the request?</p>
+                        </div>
+                        <div class="modal-footer text-center">
+                            <button type="button" class="custom-btn gradient save" (click)="confirmDeclineGroupRequest()">Confirm</button>
+                            <button type="button" class="custom-btn delete" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>

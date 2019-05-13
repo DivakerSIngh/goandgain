@@ -1,0 +1,47 @@
+.rating-wrapper .column {
+    position: relative;
+    padding: 0 0 0 75px;
+    border-bottom: solid 1px #ebebeb;
+    margin: 20px 0;
+}
+
+.rating-wrapper .column:last-child {
+    border-bottom: none;
+}
+
+.rating-wrapper .user-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.rating-wrapper .user-name {
+    font-size: 18px;
+    color: #52686e;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.rating-wrapper .user-name small {
+    color: #8499a2;
+    font-weight: 400;
+}
+
+.rating-wrapper .datetime {
+    color: #b0b3b5;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.rating-wrapper p {
+    font-weight: 300;
+    font-size: 16px;
+    color: #8499a2;
+    margin: 10px 0;
+}

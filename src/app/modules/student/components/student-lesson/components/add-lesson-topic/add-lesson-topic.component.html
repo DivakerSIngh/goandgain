@@ -1,0 +1,106 @@
+<div class="custom-tabs withbg clearfix">
+    <a href="javascript:void(0);" routerLinkActive="active" class="tabs_1">Free Talking</a>
+    <a href="javascript:void(0);" routerLinkActive="active" class="tabs_2">Topic Study</a>
+    <a href="javascript:void(0);" routerLinkActive="active" class="tabs_3">Speaking Test</a>
+    <a href="javascript:void(0);" routerLinkActive="active" class="tabs_4">Interview Preparation</a>
+    <div class="underline"></div>
+</div>
+
+<div class="filters">
+    <div class="row">
+        <div class="col-sm-12 col-md-3 col-lg-4 pd">
+            <div class="input-wrap selectWraper">
+                <mat-form-field class="mselectpicker">
+                    <mat-select placeholder="Select Language" name="langaugeName" [(ngModel)]="language" (change)="findTopic()">
+                        <mat-option value="0">
+                            Select Language
+                        </mat-option>
+                        <mat-option *ngFor="let lang of languageList" [value]="lang.counrty">
+                            {{lang.counrty}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-5 col-lg-4 pd">
+            <div class="input-wrap selectWraper">
+                <mat-form-field class="mselectpicker">
+                    <mat-select placeholder="Select Sub Category" name="subCategory" [(ngModel)]="topicSubCategory" (change)="findTopic()">
+                        <mat-option value="0">
+                            Select Sub Category
+                        </mat-option>
+                        <mat-option *ngFor="let sub of topicSubcategoryList" [value]="sub._id">
+                            {{sub.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 pd">
+            <div class="input-wrap selectWraper">
+                <mat-form-field class="mselectpicker">
+                    <mat-select placeholder=" Recommend for you" name="Recommend">
+                        <mat-option value="0">
+                            Recommend for you
+                        </mat-option>
+                        <mat-option>option 1</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article-section">
+    <div class="userdetail-column clearfix">
+        <figure class="image" style="background-image: url(assets/images/user1.jpg);"></figure>
+        <div class="pull-right">
+            <button class="custom-btn gradient-lr" type="submit">Add </button>
+        </div>
+        <div class="leftin">
+            <h3>Sharon Doe</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem totam fugiat ducimus similique, mollitia quidem, et omnis accusantium voluptatem eligendi at soluta, laudantium enim ab rem iste quae consequatur perferendis!</p>
+        </div>
+    </div>
+    <div class="userdetail-column clearfix">
+        <figure class="image" style="background-image: url(assets/images/user1.jpg);"></figure>
+        <div class="pull-right">
+            <button class="custom-btn gradient-lr" type="submit">Add </button>
+        </div>
+        <div class="leftin">
+            <h3>Sharon Doe</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem totam fugiat ducimus similique, mollitia quidem, et omnis accusantium voluptatem eligendi at soluta, laudantium enim ab rem iste quae consequatur perferendis!</p>
+        </div>
+    </div>
+    <div class="userdetail-column clearfix">
+        <figure class="image" style="background-image: url(assets/images/user1.jpg);"></figure>
+        <div class="pull-right">
+            <button class="custom-btn gradient-lr" type="submit">Add </button>
+        </div>
+        <div class="leftin">
+            <h3>Sharon Doe</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem totam fugiat ducimus similique, mollitia quidem, et omnis accusantium voluptatem eligendi at soluta, laudantium enim ab rem iste quae consequatur perferendis!</p>
+        </div>
+    </div>
+    <div class="userdetail-column clearfix">
+        <figure class="image" style="background-image: url(assets/images/user1.jpg);"></figure>
+        <div class="pull-right">
+            <button class="custom-btn gradient-lr" type="submit">Add </button>
+        </div>
+        <div class="leftin">
+            <h3>Sharon Doe</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem totam fugiat ducimus similique, mollitia quidem, et omnis accusantium voluptatem eligendi at soluta, laudantium enim ab rem iste quae consequatur perferendis!</p>
+        </div>
+    </div>
+    <div class="userdetail-column clearfix">
+        <figure class="image" style="background-image: url(assets/images/user1.jpg);"></figure>
+        <div class="pull-right">
+            <button class="custom-btn gradient-lr" type="submit">Add </button>
+        </div>
+        <div class="leftin">
+            <h3>Sharon Doe</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem totam fugiat ducimus similique, mollitia quidem, et omnis accusantium voluptatem eligendi at soluta, laudantium enim ab rem iste quae consequatur perferendis!</p>
+        </div>
+    </div>
+
+</div>

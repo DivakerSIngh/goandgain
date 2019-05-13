@@ -1,0 +1,155 @@
+<app-instant-tutoring-mark ></app-instant-tutoring-mark>
+<div class="datasecwrapper-inner">
+    <div class="text-center" *ngIf="isChecked">
+        <h1 class="titleheading small">Instant Tutoring</h1>
+    </div>
+    <div class="sub-wrapper" *ngIf="isChecked">
+        <h2 class="sub-heading">How much would you want to charge for instant tutoring?</h2>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="form-group">
+                    <div class="input-wrap">
+                        <div class="input-inner">
+                            <span class="side-btn doller">$</span>
+                            <span class="side-btn mins"> 15 mins</span>
+                            <input type="text" maxlength="5" name="InstantMins15" [(ngModel)]="InstantMins15"  onPaste="return false" (keypress)="restrictNumeric($event)" class="input" placeholder="Price">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="form-group">
+                    <div class="input-wrap">
+                        <div class="input-inner">
+                            <span class="side-btn doller">$</span>
+                            <span class="side-btn mins"> 30 mins</span>
+                            <input type="text" maxlength="5" name="InstantMins30" [(ngModel)]="InstantMins30" onPaste="return false" (keypress)="restrictNumeric($event)" class="input" placeholder="Price">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="form-group">
+                    <div class="input-wrap">
+                        <div class="input-inner">
+                            <span class="side-btn doller">$</span>
+                            <span class="side-btn mins"> 60 mins</span>
+                            <input type="text" maxlength="5" name="InstantMins60" [(ngModel)]="InstantMins60" onPaste="return false" (keypress)="restrictNumeric($event)" class="input" placeholder="Price">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span *ngIf="ifNoInstantAdded" style="color:red">Please enter price</span>
+        </div>
+     
+    </div>
+
+    <div class="text-center">
+        <h1 class="titleheading small">Trial Lessons</h1>
+    </div>
+    <div class="sub-wrapper">
+        <h2 class="sub-heading">How much would you want to charge for Trial Lessons?</h2>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="form-group">
+                    <!-- <label for="" class="input-label">Trial</label> -->
+                    <div class="input-wrap">
+                        <div class="input-inner">
+                            <span class="side-btn doller">$</span>
+                            <span class="side-btn mins"> 15 mins</span>
+                            <input type="text" maxlength="5" name="trialLessons15" [(ngModel)]="trialLessons15" onPaste="return false" (keypress)="restrictNumeric($event)" class="input" placeholder="Price">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="form-group">
+                    <!-- <label for="" class="input-label">1 Lesson</label> -->
+                    <div class="input-wrap">
+                        <div class="input-inner">
+                            <span class="side-btn doller">$</span>
+                            <span class="side-btn mins"> 30 mins</span>
+                            <input type="text" maxlength="5" name="trialLessons30" [(ngModel)]="trialLessons30" onPaste="return false" (keypress)="restrictNumeric($event)" class="input" placeholder="Price">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="form-group">
+                    <!-- <label for="" class="input-label">5 Lessons</label> -->
+                    <div class="input-wrap">
+                        <div class="input-inner">
+                            <span class="side-btn doller">$</span>
+                            <span class="side-btn mins"> 60 mins</span>
+                            <input type="text" maxlength="5"  name="trialLessons60" [(ngModel)]="trialLessons60" onPaste="return false" (keypress)="restrictNumeric($event)" class="input" placeholder="Price">
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <div class="text-center">
+        <h1 class="titleheading small">Regular Lessons</h1>
+    </div>
+    <div class="sub-wrapper">
+        <h2 class="sub-heading">How much would you want to charge for your lessons?</h2>
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="" class="input-label">1 Lessons</label>
+                    <div class="input-wrap">
+                        <div class="input-inner">
+                            <span class="side-btn doller">$</span>
+                            <span class="side-btn mins"> 60 mins</span>
+                            <input type="text" maxlength="5" name="regularLessonsForOneLesson" [(ngModel)]="regularLessonsForOneLesson" onPaste="return false" (keypress)="restrictNumeric($event)"  class="input" placeholder="Price">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="" class="input-label">5 Lesson</label>
+                    <div class="input-wrap">
+                        <div class="input-inner">
+                            <span class="side-btn doller">$</span>
+                            <span class="side-btn mins"> 60 mins</span>
+                            <input type="text" maxlength="5" name="regularLessonsForFiveLesson" [(ngModel)]="regularLessonsForFiveLesson" onPaste="return false" (keypress)="restrictNumeric($event)"  class="input" placeholder="Price">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="" class="input-label">10 Lessons</label>
+                    <div class="input-wrap">
+                        <div class="input-inner">
+                            <span class="side-btn doller">$</span>
+                            <span class="side-btn mins"> 60 mins</span>
+                            <input type="text" maxlength="5" name="regularLessonsForTenLesson" [(ngModel)]="regularLessonsForTenLesson" onPaste="return false" (keypress)="restrictNumeric($event)" class="input" placeholder="Price">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="" class="input-label">10 Lessons</label>
+                    <div class="input-wrap">
+                        <div class="input-inner">
+                            <span class="side-btn doller">$</span>
+                            <span class="side-btn mins"> 90 mins</span>
+                            <input type="text" value="" name="" class="input" placeholder="Price">
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <span *ngIf="ifNoRegularPriceAdded" style="color:red">Please enter price</span>
+        
+    </div>
+    <div class="text-center btn-mar">
+        <button type="button" class="custom-btn gradient-lr" (click)="saveRates()">Save</button>
+    </div>
+</div>

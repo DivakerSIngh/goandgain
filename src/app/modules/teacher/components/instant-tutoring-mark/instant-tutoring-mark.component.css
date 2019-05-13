@@ -1,0 +1,96 @@
+/* Comment */
+
+.toggle-active {
+    margin: 0 0 20px 0;
+    background: #f7f7f7;
+    border: solid 1px #ececec;
+    border-radius: 6px;
+    overflow: hidden;
+    padding: 15px 20px;
+    color: #52686e;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    position: relative;
+}
+
+.toggle-active .wrap-toggle {
+    padding: 0 90px 0 0;
+    position: relative;
+    display: inline-block;
+}
+
+.toggle-active .switch-slidetoggle {
+    margin: -3px 0 0 0;
+}
+
+
+/* Comment */
+
+.switch-slidetoggle {
+    position: absolute;
+    display: inline-block;
+    width: 75px;
+    height: 38px;
+    right: 0;
+    top: 0;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 6px;
+    padding: 5px 0;
+    overflow: hidden;
+}
+
+.switch-slidetoggle .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e6e6e6;
+    -webkit-transition: .4s;
+    transition: .4s;
+    padding: 5px 0;
+}
+
+.switch-slidetoggle .slider:before {
+    position: absolute;
+    content: "";
+    height: 32px;
+    width: 35px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #fff;
+    transition: .4s;
+    border-radius: 4px;
+    background-image: url('../../../../../assets/images/black-check.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: .4s;
+}
+
+.switch-slidetoggle input:checked+.slider:before {
+    left: 37px;
+}
+
+.switch-slidetoggle .slider .on {
+    opacity: 0;
+}
+
+.switch-slidetoggle .slider .off {
+    opacity: 1;
+}
+
+.switch-slidetoggle input:checked+.slider {
+    background-color: #77b149;
+    color: #fff;
+}
+
+.switch-slidetoggle input:checked+.slider .on {
+    opacity: 1;
+}
+
+.switch-slidetoggle input:checked+.slider .off {
+    opacity: 0;
+}

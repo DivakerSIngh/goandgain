@@ -1,0 +1,24 @@
+.teacher-applicationform h2 {
+    font-size: 22px;
+    text-align: center;
+    line-height: 1.4;
+    font-weight: 100;
+}
+
+.teacher-applicationform h2.bold {
+    font-weight: 400;
+}
+
+.teacher-applicationform .para {
+    font-size: 18px;
+    color: #8499a2;
+    font-weight: 100;
+    text-align: left;
+    margin: 25px 0 0 0;
+    text-align: justify;
+}
+
+.teacher-applicationform .button-wrapper {
+    margin: 60px auto;
+    text-align: center;
+}

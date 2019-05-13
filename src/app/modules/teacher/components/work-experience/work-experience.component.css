@@ -1,0 +1,27 @@
+.error-edu-inputmsg {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #ff0000;
+}
+
+.profile-wrapper.teacher .form-group {
+    margin-bottom: 20px;
+}
+
+textarea {
+    padding-bottom: 30px;
+}
+
+.char-count-textarea {
+    position: absolute;
+    right: 20px;
+    bottom: 3px;
+    color: #adadad;
+}
+
+.sub-inputwrap {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,33 @@
+.datasecwrapper-inner {
+    padding: 40px 80px 50px;
+}
+
+.button-wrapper {
+    text-align: center;
+    margin: 60px 0 30px 0;
+}
+
+.button-wrapper .custom-btn {
+    min-width: 200px;
+    margin: 0 -3px;
+    padding: 12px;
+    font-size: 18px;
+}
+
+.custom-btn.left {
+    border-radius: 4px 0 0 4px;
+}
+
+.custom-btn.right {
+    border-radius: 0 4px 4px 0;
+}
+
+.custom-btn.active {
+    background: #79b24b;
+    border: solid 1px #79b24b;
+    color: #ffffff;
+    background: -moz-linear-gradient(left, #79b24b 0%, #4d9316 100%);
+    background: -webkit-linear-gradient(left, #79b24b 0%, #4d9316 100%);
+    background: linear-gradient(to right, #79b24b 0%, #4d9316 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#79b24b', endColorstr='#4d9316', GradientType=1);
+}

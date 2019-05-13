@@ -1,0 +1,70 @@
+<div class="modal fade" id="InviteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="heading">Invite Friends</h2>
+                <button type="button" class="modal-cross" data-dismiss="modal">
+                    <img src="assets/images/close.svg" alt="close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="searchWrapper2 m-minus clearfix">
+                    <button class="searchbtn custom-btn gradient-lr pull-right" (click)="searchFriend()" type="submit">Search Friend</button>
+                    <div class="overflow">
+                        <div class="input-wrap">
+                            <input class="search" [(ngModel)]="search" (keydown)="searchFriendsByKeyDown($event)" placeholder="Search Group by Name" type="text">
+                            <div class="searchbtnicon">
+                                <img alt="" src="assets/images/search.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="userdetail-column clearfix" *ngFor="let fr of myFriends;let i=index">
+                    <!-- <figure class="image" style="background-image: url(assets/images/user1.jpg);"></figure> -->
+
+                    <figure class="image" [style.background-image]="'url('+ fr.image +')'"></figure>
+                    <button class="custom-btn border" (click)="sendRequestToJoin(fr._id,i)" type="submit">Send Request To Join</button>
+                    <div class="leftin">
+                        <h3>{{fr.firstName}} {{fr.lastName}}</h3>
+                        <label class="label-withicon">
+                          <span class="icon"><img alt="" src="assets/images/marker.png"></span>
+                          <strong> From:</strong> {{fr.countryName}}
+                      </label>
+                        <label class="label-withicon">
+                          <span class="icon"><img alt="" src="assets/images/edu-icon.png"></span>
+                           <strong> Learn:</strong> {{fr.mainlanguage}}
+                      </label>
+                    </div>
+                </div>
+                <div class="userdetail-column clearfix" *ngIf="norecordFound">
+                    <div class="leftin">
+                        <h3>No record found</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="groupAddedMemberPopup" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="heading">Members</h2>
+                <button type="button" class="modal-cross" data-dismiss="modal">
+                    <img src="assets/images/close.svg" alt="close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="member-list">
+                    <li *ngFor="let im of groupAddedMembers;let i=index">
+                        <div class="member-column clearfix">
+                            <figure [style.background-image]="'url('+ im.userId.image +')'"></figure>
+                            <h3>{{im.userId.firstName}} {{im.userId.lastName}}</h3>
+                            <button *ngIf="!canLeave && isAdmin(im.userId._id)" (click)="RemoveMember(im._id,i)">Remove</button> </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

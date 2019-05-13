@@ -1,0 +1,89 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+/*---------- chart ---*/
+
+.learning-graph {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.learning-graph .barchart {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.learning-graph .barchart li {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.learning-graph .barchart li span {
+    background: #ebebeb;
+    width: 20px;
+    display: block;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.barchart li.active span {
+    background: #589b24 !important;
+}
+
+.barchart li:first-child span {
+    height: 50px;
+}
+
+.barchart li:nth-child(2) span {
+    height: 70px;
+}
+
+.barchart li:nth-child(3) span {
+    height: 95px;
+}
+
+.barchart li:nth-child(4) span {
+    height: 125px;
+}
+
+.barchart li:nth-child(5) span {
+    height: 145px;
+}
+
+.barchart li:nth-child(6) span {
+    height: 160px;
+}
+
+.progress-wrap {
+    position: relative;
+}
+
+.progress-wrap .pointer {
+    width: 20px;
+    height: 20px;
+    background: #589b24;
+    border-radius: 50%;
+    display: block;
+    float: left;
+    cursor: pointer;
+    margin-top: -7px;
+}
+
+.progressbar {
+    width: 100%;
+    background: #5c5c5c;
+    height: 6px;
+    border-radius: 8px;
+}
+
+.progress-wrap .datapoint {
+    position: relative;
+    margin: 10px -45px;
+    text-align: center;
+}
+
+.datapoint li {
+    float: left;
+    width: 16.6%;
+    font-size: 14px;
+    color: #8499a2;
+}

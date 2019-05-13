@@ -1,0 +1,85 @@
+/*------------- calendar-wrapper  ----*/
+
+.calendar-wrapper {
+    max-width: 800px;
+    width: 100%;
+    border: solid 1px #ebebeb;
+    margin: 10px auto -40px;
+    position: relative;
+}
+
+.table-wrapper .table {
+    margin: 20px 0 0;
+}
+
+.table-wrapper tr th {
+    border-right: solid 1px #eeeeee;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+    border-bottom: none;
+    width: 100px;
+}
+
+.table-wrapper thead tr th {
+    color: #000;
+}
+
+.table-wrapper tr th img {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.table-wrapper tr th span {
+    color: #52686e;
+    font-weight: 600;
+}
+
+.table-wrapper tr td {
+    border-right: solid 1px #eeeeee;
+}
+
+.table-wrapper tr td:last-child,
+.table-wrapper thead tr th:last-child {
+    border-right: none;
+}
+
+.table-wrapper tr td.check {
+    padding: 0;
+    position: relative;
+}
+
+.table-checkbox [type="checkbox"]:checked+label:before,
+.table-checkbox [type="checkbox"]:not(:checked)+label:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.table-checkbox [type="checkbox"]:checked+label,
+.table-checkbox [type="checkbox"]:not(:checked)+label {
+    position: initial;
+    padding-left: 0;
+    display: block;
+}
+
+.table-checkbox [type="checkbox"]:checked+label:after,
+.table-checkbox [type="checkbox"]:not(:checked)+label:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: none;
+    top: 0;
+    left: 0;
+    background-color: #a5d281;
+    transform: scale(0);
+}
+
+.table-checkbox [type="checkbox"]:checked+label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}

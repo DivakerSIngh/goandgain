@@ -1,0 +1,15 @@
+<div class="profile-wrapper">
+    <div class="custom-tabs withbg clearfix">
+        <a href="javascript:void(0);" [routerLink]="[ './general']" routerLinkActive="active" class="tabs_1">General</a>
+        <a href="javascript:void(0);" [routerLink]="[ './language']" routerLinkActive="active" class="tabs_2">Language</a>
+        <a href="javascript:void(0);" [routerLink]="[ './education']" routerLinkActive="active" class="tabs_3">Education</a>
+        <a href="javascript:void(0);" [routerLink]="[ './certification']" routerLinkActive="active" class="tabs_4">Certification</a>
+        <a href="javascript:void(0);" [routerLink]="[ './work-experience']" routerLinkActive="active" class="tabs_5">Work Experience</a>
+        <a href="javascript:void(0);" [routerLink]="[ './introduction']" routerLinkActive="active" class="tabs_6">Introduction</a>
+        <div class="underline"></div>
+    </div>
+
+    <div class="section-wrapper">
+        <router-outlet></router-outlet>
+    </div>
+</div>

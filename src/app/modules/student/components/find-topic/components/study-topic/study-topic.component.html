@@ -1,0 +1,159 @@
+<div class="filters">
+    <div class="row">
+        <div class="col-sm-12 col-md-3 col-lg-3 pd">
+            <div class="input-wrap selectWraper">
+                <mat-form-field class="mselectpicker">
+                    <mat-select placeholder="Select Language" name="langaugeName" [(ngModel)]="language" (change)="findTopic()">
+                        <mat-option value="0">
+                            Select Language
+                        </mat-option>
+                        <mat-option *ngFor="let lang of languageList" [value]="lang.counrty">
+                            {{lang.counrty}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-5 col-lg-5 pd">
+            <div class="input-wrap selectWraper">
+                <mat-form-field class="mselectpicker">
+                    <mat-select placeholder="Select Sub Category" name="subCategory" [(ngModel)]="topicSubCategory" (change)="findTopic()">
+                        <mat-option value="0">
+                            Select Sub Category
+                        </mat-option>
+                        <mat-option *ngFor="let sub of topicSubcategoryList" [value]="sub._id">
+                            {{sub.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 pd">
+            <div class="input-wrap selectWraper">
+                <mat-form-field class="mselectpicker">
+                    <mat-select placeholder=" Recommend for you" name="Recommend">
+                        <mat-option value="0">
+                            Recommend for you
+                        </mat-option>
+                        <mat-option>option 1</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="find-topic-col">
+    <div class="userdetail-column clearfix" *ngFor="let topic of findTopicDetails">
+        <!-- <figure class="article-image" style="background-image: url(assets/images/user1.jpg);"></figure> -->
+        <figure class="article-image" [style.background-image]="'url('+ topic.image +')'"></figure>
+        <!-- <button class="custom-btn gradient-lr" data-toggle="modal" data-target="#discussTopic" type="button">Discuss This</button> -->
+        <button class="custom-btn gradient-lr" (click)="OpenDiscussPopUp(topic._id)" type="button">Discuss This</button>
+        <div class="leftin">
+            <ng-container *ngIf="topic.createType==1">
+                <h3><a href="{{topic.url}}" target="_blank"> {{topic.title}} </a></h3>
+            </ng-container>
+            <ng-container *ngIf="topic.createType==0">
+                <!-- <h3><a href="javascript:void(0)" (click)="viewTopicInPopUp(topic)" data-toggle="modal" data-target="#ShowtopicDetail"> {{topic.title}} </a></h3> -->
+                <h3><a href="javascript:void(0)" (click)="viewTopicInPopUp(topic)"> {{topic.title}} </a></h3>
+            </ng-container>
+
+            <p>{{topic.description}}
+            </p>
+        </div>
+    </div>
+
+    <div class="userdetail-column clearfix" *ngIf="noTopicFound">
+
+        <div class="leftin">
+
+            <h3><a href="javascript:void(0)"> No Topic Found </a></h3>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="discussTopic" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-customize" role="document">
+        <div class="modal-content">
+            <div class="modal-header green">
+                <h2 class="heading">Select Tutor</h2>
+                <button type="button" class="modal-cross" data-dismiss="modal">
+                        <img src="assets/images/cancel.svg" alt="close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="userdetail-column clearfix">
+                    <figure class="image" style="background-image: url(assets/images/user1.jpg);"></figure>
+                    <button class="custom-btn gradient-lr" type="submit">Book Lesson</button>
+                    <div class="leftin">
+                        <h3> Jennifer Winget
+                            <span class="rating-star"><span style="width:76%"></span></span>
+                            <span class="count">(100)</span>
+                        </h3>
+                        <label for="" class="country">USA</label>
+                        <p><span class="doller">$23 - 25</span> USD/h</p>
+                    </div>
+                </div>
+                <div class="userdetail-column clearfix">
+                    <figure class="image" style="background-image: url(assets/images/user1.jpg);"></figure>
+                    <button class="custom-btn gradient-lr" type="submit">Book Lesson</button>
+                    <div class="leftin">
+                        <h3> Jennifer Winget
+                            <span class="rating-star"><span style="width:76%"></span></span>
+                            <span class="count">(100)</span>
+                        </h3>
+                        <label for="" class="country">England</label>
+                        <p><span class="doller">$23 - 25</span> USD/h</p>
+                    </div>
+                </div>
+                <div class="userdetail-column clearfix">
+                    <figure class="image" style="background-image: url(assets/images/user1.jpg);"></figure>
+                    <button class="custom-btn gradient-lr" type="submit">Book Lesson</button>
+                    <div class="leftin">
+                        <h3> Jennifer Winget
+                            <span class="rating-star"><span style="width:76%"></span></span>
+                            <span class="count">(100)</span>
+                        </h3>
+                        <label for="" class="country">England</label>
+                        <p><span class="doller">$23 - 25</span> USD/h</p>
+                    </div>
+                </div>
+                <div class="userdetail-column clearfix">
+                    <figure class="image" style="background-image: url(assets/images/user1.jpg);"></figure>
+                    <button class="custom-btn gradient-lr" type="submit">Book Lesson</button>
+                    <div class="leftin">
+                        <h3> Jennifer Winget
+                            <span class="rating-star"><span style="width:76%"></span></span>
+                            <span class="count">(100)</span>
+                        </h3>
+                        <label for="" class="country">England</label>
+                        <p><span class="doller">$23 - 25</span> USD/h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="ShowtopicDetail" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-customize" role="document">
+        <div class="modal-content">
+            <button type="button" class="modal-cross" data-dismiss="modal">
+                    <img src="assets/images/cancel.png" alt="close">
+            </button>
+            <div class="modal-body">
+                <div class="userdetail-column clearfix">
+                    <h3>{{selectedTopicTitle}}</h3>
+                    <figure class="articlefull-image">
+                        <img [src]="selectedTopicImage" alt="">
+                    </figure>
+                    <p class="articlefull-detail">{{selectedtopicDescription}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

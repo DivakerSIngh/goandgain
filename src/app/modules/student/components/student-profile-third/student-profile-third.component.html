@@ -1,0 +1,61 @@
+<div class="profile-wrapper">
+    <div class="text-center">
+        <h1 class="titleheading small"> {{'what-you-want-to-learn' | translate}}</h1>
+    </div>
+    <div class="section-wrapper">
+        <div class="form-group">
+            <label class="profile-label text-center">
+                    {{'what-language-are-you-learning' | translate}}
+                </label>
+            <div class="input-wrap maxwidth-select">
+                <!-- <span class="selectpicker-btn"></span> -->
+
+                <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="{{'select-language' | translate}}" name="langaugeName" [(ngModel)]="speakingLanguage" (change)="ChangeLanguage()">
+                            <mat-option   *ngFor="let language of languageYouAreLeaning" [value]="language.counrty">
+                                    {{language.counrty}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                <span *ngIf="noLanguageSelction" class="errorlog-inputmsg" style="display:block">{{'please-select-language-you-are-learning' | translate}} </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="parag bold text-center">{{'millions-of-native-speakers' | translate}} </p>
+            <p class="parag text-center"> {{'you-can-add-more-languages-in-your-settings-later' | translate}}</p>
+        </div>
+        <label class="profile-label text-center" *ngIf="speakingLanguage!='0'">{{'how-well-do-you-speak' | translate}} {{speakingLanguage}}?</label>
+        <div class="form-group">
+            <div class="learning-graph">
+                <ul class="barchart clearfix">
+                    <li [ngClass]="{'active': sliderValue >= '0'}" (click)="ChangeValue(1)"><span></span></li>
+                    <li [ngClass]="{'active':sliderValue >= '21'}" (click)="ChangeValue(2)"><span></span></li>
+                    <li [ngClass]="{'active':sliderValue >= '41'}" (click)="ChangeValue(3)"><span></span></li>
+                    <li [ngClass]="{'active':sliderValue >= '61'}" (click)="ChangeValue(4)"><span></span></li>
+                    <li [ngClass]="{'active':sliderValue >= '81'}" (click)="ChangeValue(5)"><span></span></li>
+                    <li [ngClass]="{'active':sliderValue >= '99'}" (click)="ChangeValue(6)"><span></span></li>
+
+                </ul>
+                <div class="progress-wrap">
+                    <mat-slider min="1" max="100" step="20" #slider1 [(ngModel)]="sliderValue"></mat-slider>
+                    <ul class="datapoint">
+                        <li>{{'a1' | translate}}</li>
+                        <li>{{'a2' | translate}}</li>
+                        <li>{{'b1' | translate}}</li>
+                        <li>{{'b2' | translate}}</li>
+                        <li>{{'c1' | translate}}</li>
+                        <li>{{'c2' | translate}}</li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="button-wrapper withbg text-right">
+            <a (click)="goToSecondStep()" class="custom-btn small prev pull-left">{{'previous' | translate}}</a>
+            <a (click)="goToFourthStep()" class="gradient custom-btn small">{{'next' | translate}}</a>
+        </div>
+    </div>
+</div>

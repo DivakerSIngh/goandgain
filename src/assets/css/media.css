@@ -1,0 +1,175 @@
+/* ************  @media css start here *******************/
+
+@media (max-width: 1366px) {
+    .body-wrapper {
+        padding-top: 60px;
+    }
+}
+
+@media (min-width: 1220px) {
+    .container {
+        width: 1200px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1480px) {
+    .titleheading {
+        font-size: 28px;
+    }
+    .titleheading.small {
+        font-size: 24px;
+    }
+    .append-langlist li {
+        padding: 6px 35px 6px 15px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 991px) {
+    .titleheading {
+        font-size: 22px;
+        font-weight: 400;
+    }
+    .input-label {
+        font-size: 14px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+    .custom-selectpicker {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+    /* modal css */
+    .custom-modal {
+        width: 450px;
+        max-width: 100%;
+    }
+    .custom-modal .image-section {
+        display: none;
+    }
+    .modal-head {
+        font-size: 24px;
+        font-weight: 400;
+    }
+    .modal-para {
+        font-size: 14px;
+    }
+    .footer-modal .para {
+        font-size: 14px;
+    }
+    /* modal css end */
+    /* teacher section */
+    .teacherprofile .input-label {
+        padding: 8px 0;
+    }
+    .teacherprofile .input-label {
+        position: relative;
+        left: auto;
+        top: auto;
+        text-align: left;
+        display: block;
+    }
+    .teacherprofile .form-group {
+        position: relative;
+        padding-left: 0;
+    }
+    .profile-wrapper .form-group {
+        margin-bottom: 20px;
+    }
+    /* teacher section end */
+    .profileimage {
+        width: 130px;
+        height: 130px;
+    }
+    .body-wrapper {
+        padding-bottom: 240px;
+    }
+    /*--- error msg --*/
+    .custom-modal .errorlog-inputmsg {
+        top: auto;
+        bottom: -36px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        padding: 8px 20px;
+        border-width: thin;
+        z-index: 1;
+    }
+    .custom-modal .errorlog-inputmsg:before {
+        content: '';
+        right: auto;
+        top: -10px;
+        left: 50%;
+        border-bottom-width: 6px;
+        border-top-width: 6px;
+        border-left: 6px solid #a94442;
+        transform: translateX(50%) rotate(-90deg);
+    }
+    .custom-modal .errorlog-inputmsg.right:before {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .custom-btn {
+        padding: 12px 30px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-btn {
+        padding: 10px 20px;
+    }
+    .titleheading {
+        font-size: 18px;
+        font-weight: 400;
+    }
+    .titleheading.small {
+        font-size: 16px;
+    }
+    /* modal css */
+    .custom-modal .col50 {
+        width: 100%;
+    }
+    .custom-modal .col50left {
+        margin-left: 0;
+    }
+    .custom-modal .col50right {
+        margin-right: 0;
+    }
+    .custom-modal .content-section {
+        padding: 25px 25px 0;
+    }
+    .modal-head {
+        font-size: 18px;
+    }
+    .modal-para {
+        font-size: 13px;
+    }
+    .custom-modal .forgot-psw {
+        font-size: 12px;
+    }
+    .modal-cross {
+        padding: 10px;
+    }
+    /* modal css end */
+    .social-icon a {
+        padding: 4px 20px;
+        font-size: 20px;
+        min-width: 60px;
+    }
+    .other-option {
+        font-size: 12px;
+    }
+    .body-wrapper {
+        padding-bottom: 315px;
+    }
+}

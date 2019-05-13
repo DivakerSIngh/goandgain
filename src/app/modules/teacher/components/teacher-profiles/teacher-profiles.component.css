@@ -1,0 +1,15 @@
+.leftbarwrapper {
+    width: 300px;
+    float: left;
+    padding: 10px;
+}
+
+.datasecwrapper {
+    overflow: hidden;
+    padding: 10px;
+}
+
+.leftrightcombinator {
+    position: relative;
+    padding: 15px 0;
+}

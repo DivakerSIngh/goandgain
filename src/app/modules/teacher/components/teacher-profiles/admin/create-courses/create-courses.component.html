@@ -1,0 +1,96 @@
+<!-- <app-instant-tutoring-mark></app-instant-tutoring-mark> -->
+<div class="datasecwrapper-inner">
+    <ul class="breadcrumb">
+        <li>
+            <a href="javascript:void(0);" [routerLink]="['../courses']">Course</a>
+
+            
+        </li>
+        <li> Create Course</li>
+    </ul>
+    <form>
+        <div class="editprofile">
+            <div class="form-group">
+                <label class="input-label">Language:</label>
+                <div class="input-wrap">
+                    <mat-form-field class="mselectpicker">
+                            <mat-select placeholder="Select Language " name="langaugeName" [(ngModel)]="language" (change)="filterTeacher()">
+                                    <mat-option *ngFor="let language of languages" [value]="language.counrty">
+                                        {{language.counrty}}
+                                    </mat-option>
+                                </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="input-label">Target Student Level:</label>
+                <div class="input-wrap">
+                    <mat-form-field  class="mselectpicker">
+                        <mat-select placeholder="Select" name="level" [(ngModel)]="level">
+                            <mat-option value="Beginner">Beginner</mat-option>
+                            <mat-option value="Intermediate">Intermediate</mat-option>
+                            <mat-option value="Expert">Expert</mat-option>                            
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="input-label">Type:</label>
+                <div class="input-wrap">
+                    <input  [(ngModel)]="type" name="type"  placeholder="" required="" type="text" class="">
+
+                    <!-- <mat-form-field  class="mselectpicker">
+                        <mat-select placeholder="Select" name="type" [(ngModel)]="type">
+                            <mat-option value="Audio">Audio</mat-option>
+                            <mat-option value="video">Video</mat-option>
+                        </mat-select>
+                    </mat-form-field> -->
+                    
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="input-label">Course Title:</label>
+                <div class="input-wrap">
+                    <input [(ngModel)]="title" name="title" placeholder="" required="" type="text" class="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="input-label">Course Description:</label>
+                <div class="input-wrap">
+                    <textarea [(ngModel)]="description" name="description" maxlength="500" id="" cols="30" rows="4"></textarea>
+                    <span class="char-count-textarea">{{500-description.length}} Character</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="input-label">Number of Lessons:</label>
+                <div class="input-wrap">
+                    <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="Select" [(ngModel)]="noOfLession" name="noOfLession" >
+                            <mat-option value="1">1</mat-option>
+                            <mat-option value="2">2</mat-option>
+                            <mat-option value="3">3</mat-option>
+                            <mat-option value="4">4</mat-option>
+                            <mat-option value="5">5</mat-option>
+                            <mat-option value="6">6</mat-option>
+                            <mat-option value="7">7</mat-option>
+                            <mat-option value="8">8</mat-option>
+                            <mat-option value="9">9</mat-option>
+                            <mat-option value="10">10</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="input-label">Price of Lessons:</label>
+                <div class="input-wrap price-label">
+                    <input [(ngModel)]="priceOfLession" maxlength="5" onPaste="return false" (keypress)="restrictAlpha($event)" name="priceOfLession"  placeholder="" required="" type="text" class="input">
+                    <div class="doller-btn">$</div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center btnmargin">
+            
+            <button type="submit"  (click)="createCourse()" [disabled]="isDisabled()" class="custom-btn gradient-lr">Create</button>
+        </div>
+    </form>
+</div>

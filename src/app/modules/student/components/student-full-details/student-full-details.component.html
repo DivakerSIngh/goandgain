@@ -1,0 +1,168 @@
+<div class="datasecwrapper">
+    <div class="datasecwrapper-inner ptn">
+        <ul class="breadcrumb">
+            <li>
+                <a [routerLink]="['../../../student-profile/friends-group/tabs/friends']"> Friends </a>
+            </li>
+            <li> Friend Details</li>
+        </ul>
+        <div class="basic-profile">
+            <div class="left">
+                
+                <figure class="circle-image" [style.background-image]="'url('+ friendDetails?.image +')'"></figure>
+                <h2 class="name">{{friendDetails?.firstName}} {{friendDetails?.lastName}}</h2>
+                
+            </div>
+            <div class="right">
+                <h3 class="head">About</h3>
+                <p class="label">{{friendDetails.additionalInfo}}
+                </p>
+                <div class="column">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <h3 class="head">Language Skills:</h3>
+                            <label class="label">{{friendDetails?.languages}}</label>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <h3 class="head">Learning</h3>
+                            <label class="label">{{friendDetails?.mainlanguage}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <h3 class="head">Location</h3>
+                            <label class="label">{{friendDetails?.countryName}}</label>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <h3 class="head">Time</h3>
+                            <label class="label">({{friendDetails?.timeZone}}){{friendDetails.counrty}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="datasecwrapper-inner">
+        <div class="sub-wrapper">
+            <h2 class="sub-heading">Lessons History As:</h2>
+            <div class="student-table">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Last Month</th>
+                            <th>Last 3 Month </th>
+                            <th>All Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rating </td>
+                            <td>5.0</td>
+                            <td>5.0</td>
+                            <td>4.5</td>
+                        </tr>
+                        <tr>
+                            <td>Scheduled Tutoring </td>
+                            <td>50</td>
+                            <td>20</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Instant Tutoring</td>
+                            <td>5</td>
+                            <td>20</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td> Completed Lessons</td>
+                            <td>200</td>
+                            <td>20</td>
+                            <td>40</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="datasecwrapper-inner">
+        <div class="sub-wrapper">
+            <h2 class="sub-heading">Tutors:</h2>
+            <ul class="profilegroup-wrap clearfix">
+                
+                <li *ngFor="let follow of frdfollowData;let i=index">
+                   <div *ngIf="i<=4">
+                    <a href="javascript:void(0);">
+                        <figure class="circle-image" [style.background-image]="'url('+ follow.image +')'"></figure>
+                        <p class="imageuser-name">{{follow?.firstName}} {{follow?.lastName}}</p>
+                        <span class="rating-star">
+                            <span [style.width]="getRating(follow?.rating)"></span>
+                        </span>
+                    </a>
+
+                    <div class="profile-hover">
+                        <div class="column text-center">
+                            <h3>{{follow?.firstName}} {{follow?.lastName}}</h3>
+                            <span>({{follow?.timeZone}}) {{follow?.country}}</span>
+                        </div>
+                        <div class="column text-center">
+                            <button type="submit" [routerLink]="['../../../../teacher/details',follow._id]" class="custom-btn">Book a Lesson</button>
+                        </div>
+                        <div class="column">
+                            <label class="label-class">Teaches:</label>
+                            <span>{{follow?.teachLanguage}}</span>
+                        </div>
+                       
+                        <div class="icon-wrap clearfix">
+                            <div class="col-100">
+                                <a href="" class=""><img src="assets/images/message.png" alt=""></a>
+                            </div>
+                            <div class="col-100">
+                                <a href="" class=""><img src="assets/images/message.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </li>
+               
+            </ul>
+            <a href="javascript:void(0);" *ngIf="moreFollowTeacher" [routerLink]="['../../friends-group/friend-tutor',friendId]" class="view-all">View All</a>
+        </div>
+    </div>
+
+    <div class="datasecwrapper-inner">
+        <div class="sub-wrapper">
+            <h2 class="sub-heading">Friends:</h2>
+            <ul class="profilegroup-wrap clearfix">
+                <li *ngFor="let fr of frdOfFrnd">
+                    <a href="javascript:void(0);">
+                        <figure class="circle-image" [style.background-image]="'url('+ fr.image +')'"></figure>
+                        <p class="imageuser-name">{{fr.firstName}} {{fr.lastName}}</p>
+                    </a>
+                </li>
+            </ul>
+            <a href="javascript:void(0);" *ngIf="moreFriend" [routerLink]="['../../friends-group/friend-of-friend']" class="view-all">View All</a>
+        </div>
+    </div>
+
+    <div class="datasecwrapper-inner">
+        <div class="sub-wrapper">
+            <h2 class="sub-heading">Groups:</h2>
+            <ul class="profilegroup-wrap clearfix">
+                <li *ngFor="let group of frdGroups">
+                    <a href="javascript:void(0);" [routerLink]="['../../../../study-group/study-group-detail/',group._id]">
+                        <figure class="circle-image" [style.background-image]="'url('+ group.image +')'"></figure>
+                        <p class="imageuser-name">{{group.name}}</p>
+                    </a>
+                </li>
+                <li>
+            </ul>
+            <a href="javascript:void(0);" *ngIf="moreGroup" [routerLink]="['../../friends-group/friend-group']" class="view-all">View All</a>
+        </div>
+    </div>
+
+</div>

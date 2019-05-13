@@ -1,0 +1,21 @@
+<div class="calendar-wrapper">
+    <p class="parag text-center">{{'all-times-listed-are-in-your-local-timezones' | translate}}</p>
+    <ul class="calendar-inner">
+        <li class="head">{{'sun' | translate}}</li>
+        <li class="head">{{'mon' | translate}}</li>
+        <li class="head">{{'tue' | translate}}</li>
+        <li class="head">{{'wed' | translate}}</li>
+        <li class="head">{{'thu' | translate}}</li>
+        <li class="head">{{'fri' | translate}}</li>
+        <li class="head">{{'sat' | translate}}</li>
+    </ul>
+    <ul class="calendar-inner" *ngFor="let av of availableTime">
+        <li [ngClass]="{'checked':av.availability.Sunday==true}">{{av.time}}</li>
+        <li [ngClass]="{'checked':av.availability.Monday==true}">{{av.time}}</li>
+        <li [ngClass]="{'checked':av.availability.Tuesday==true}">{{av.time}}</li>
+        <li [ngClass]="{'checked':av.availability.Wednesday==true}">{{av.time}}</li>
+        <li [ngClass]="{'checked':av.availability.Thursday==true}">{{av.time}}</li>
+        <li [ngClass]="{'checked':av.availability.Friday==true}">{{av.time}}</li>
+        <li [ngClass]="{'checked':av.availability.Saturday==true}">{{av.time}}</li>
+    </ul>
+</div>

@@ -1,0 +1,33 @@
+<div class="profile-wrapper">
+    <div class="text-center">
+        <h1 class="titleheading small"> {{'introduction' | translate}}</h1>
+    </div>
+    <div class="section-wrapper">
+        <form action="">
+            <div class="maxwidth-select">
+                <label for="" class="profile-label text-center">{{'youtube-link-to-introduction-video' | translate}}</label>
+                <div class="input-wrap form-group">
+                    <input type="text" [disabled]="IsFile" value="" name="introductionUrl" placeholder="{{'paste-youtube-video-url-here' | translate}}" [(ngModel)]="introductionUrlText" />
+                    <span class="teacher-introduction-error" style="display:block;padding-top: 10px;" *ngIf="noVideo">{{'please-enter-youtube-valid-url-here' | translate}}</span>
+                    <div class="input-addion"><img src="assets/images/attachment.png" alt=""></div>
+
+                </div>
+                <div class="form-group-small">
+                    <label class="profile-label text-center pn pt30">{{'write-about-yourself-and-your-qualifications' | translate}}</label>
+                    <p class="parag text-center">{{'about-me' | translate}}</p>
+                </div>
+                <div class="form-group">
+                    <textarea name="aboutYourSelf" maxlength="500" id="" cols="200" rows="10" [(ngModel)]="aboutYourSelf"></textarea>
+                    <span class="char-count-textarea">{{500-aboutYourSelf.length}} {{'characters' | translate}} </span>
+                    <span class="error-msg" style="display:block" *ngIf="noAboutYourSelf">{{'this-field-is-required' | translate}} </span>
+
+                </div>
+            </div>
+            <div class="button-wrapper withbg">
+                <button type="submit" (click)="goToPreviouseStep()" name="" value="" class="custom-btn prev small">{{'previous' | translate}}</button>
+                <button type="submit" (click)="goToNextStep()" name="" value="" class="gradient custom-btn small pull-right">{{'next' | translate}}</button>
+                <button type="submit" (click)="skipStep()" name="" value="" class="custom-btn small skip  pull-right">{{'skip' | translate}}</button>
+            </div>
+        </form>
+    </div>
+</div>

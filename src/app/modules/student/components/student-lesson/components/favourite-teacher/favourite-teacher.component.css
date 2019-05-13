@@ -1,0 +1,115 @@
+.favourite-wrap {}
+
+.favourite-wrap {
+    margin: 0 0 20px 0;
+    padding: 0 25px 25px;
+}
+
+.favourite-wrap .column {
+    border: solid 1px #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 20px -5px 0;
+    position: relative;
+    text-align: center;
+}
+
+.profileimage {
+    width: 120px;
+    height: 120px;
+    margin: 20px auto 0;
+}
+
+.favourite-wrap h2 {
+    font-size: 20px;
+    color: #52686e;
+    font-weight: 500;
+    line-height: 1.5;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0 0 5px 0;
+}
+
+.message {
+    font-size: 14px;
+    color: #89bd60;
+    display: block;
+    padding: 5px 0;
+}
+
+.favourite-wrap .label-form {
+    font-size: 16px;
+    color: #52686e;
+    display: block;
+    margin: 5px 0 0;
+    font-weight: 500;
+}
+
+.label-form span {
+    font-weight: 400;
+    color: #8499a2;
+}
+
+.doller-value {
+    font-size: 18px;
+    color: #4098c8;
+    font-weight: 500;
+}
+
+.details-wrap {
+    border-top: solid 1px #eaeaea;
+    padding: 3px;
+    margin: 10px 0 0 0;
+}
+
+.details-wrap li {
+    background: #f8f8f8;
+    text-align: left;
+    width: 50%;
+    float: left;
+    border: solid 3px #fff;
+    padding: 10px 10px 0;
+}
+
+.label-withicon {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.label-withicon span {
+    color: #52686e;
+    font-weight: 500;
+}
+
+.book-btn {
+    width: 100%;
+    background: #89bd60;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 0 0 4px 4px;
+    padding: 15px;
+    border: none;
+}
+
+.unfriend-icon {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.view-more {
+    color: #89bd60;
+    border: solid 1px #89bd60;
+    padding: 8px 40px;
+    display: inline-block;
+    margin: 20px auto 30px;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+.view-more:hover,
+.view-more:focus {
+    background: #74a051;
+    color: #ffffff;
+}

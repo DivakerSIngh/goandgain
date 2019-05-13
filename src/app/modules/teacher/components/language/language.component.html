@@ -1,0 +1,87 @@
+<div class="profile-wrapper">
+    <div class="text-center">
+        <h1 class="titleheading small">
+                {{'languages-you-teach-and-speak' | translate}}
+            </h1>
+    </div>
+    <div class="section-wrapper">
+        <div class="form-group pb30">
+            <label class="profile-label text-center">    {{'what-language-do-you-want-to-teach' | translate}}</label>
+            <div class="input-wrap maxwidth-select">
+                <!-- <span class="selectpicker-btn"></span> -->
+                <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="{{'select-language' | translate}}" name="teachLanguage" [(ngModel)]="teachLanguage"  (change)="changeLanguageYouTeach()">
+                            <mat-option *ngFor="let language of languagesYouSpeakAndTeach;" [value]="language.counrty">
+                                    {{language.counrty}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                <span *ngIf="noTachLanguageSelction" class="errorlog-inputmsg" style="display:block"> {{'please-select-languages-you-teach' | translate}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="section-wrapper">
+        <div class="form-group pb30">
+            <label class="profile-label text-center">
+                    {{'languages-you-speak' | translate}} </label>
+            <div class="input-wrap maxwidth-select">
+                <!-- <span class="selectpicker-btn"></span> -->
+
+                <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="{{'select-language' | translate}}" name="speakLanguage" [(ngModel)]="speakLanguage" (change)="changeLanguageYouSpeak($event)">
+                            <mat-option  *ngFor="let language of languagesYouSpeakAndTeach" [value]="language.counrty">
+                                    {{language.counrty}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                <span *ngIf="noSpeakLanguageSelction" class="errorlog-inputmsg" style="display:block"> {{'please-select-languages-you-speak' | translate}} </span>
+                <span *ngIf="noMoreThanFive" class="errorlog-inputmsg" style="display:block"> {{'you-can-select-only-5-languages-you-speak' | translate}} </span>
+            </div>
+            <ul class="append-langlist">
+                <li *ngFor="let language of languagesYouSpeakSelection;let i=index">
+                    {{language.value}}
+                    <span class="cross-image" (click)="removeLanguageFromList(i)">
+                        <img src="./assets/images/select-cross.png" alt="">
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="text-center">
+        <h1 class="titleheading small">{{'interests' | translate}}</h1>
+    </div>
+    <div class="section-wrapper">
+
+        <label class="profile-label mn"> {{'select-your-interests' | translate}} : {{'select-upto-5-Interests' | translate}}</label>
+        <ul class="interest-list clearfix">
+            <li *ngFor="let i of allIntrest;let index=index" [ngClass]="{'intrestactive':intrestCheck == i._id}">
+                <a href="javascript:void(0);" [ngClass]="{'active':checkForIntrest(i._id)}" (click)="changeIntrest(i._id, 'change')" [ngStyle]="{'background': 'url(' + i.imageUrl + ')'}">
+                    <div class="overlay">
+                        <h4 class="detail">{{i.name}}</h4>
+                        <div class="right-check" (click)="changeIntrest(i._id, 'remove')">
+                            <img src="./assets/images/tick.png" alt="">
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="interest-listresult">
+            <h4 class="head">{{intrestName}}</h4>
+            <div class="custom-check-wrap" *ngFor="let inner of allInrestInner;let index=index">
+                <input type="checkbox" value="" name="check" id="{{inner._id}}" [checked]="isCheckedOrNot(inner._id)" (change)="addRemoveSelection(inner._id,$event)">
+                <label for="{{inner._id}}">{{inner.name}} </label>
+            </div>
+
+        </div>
+        <div class="button-wrapper withbg text-right">
+            <div class="interest-errormsg" *ngIf="validationStatus!=''">
+                <!-- {{validationStatus}} -->
+            <span *ngIf="ifNointerests">{{'please-check-at-least-1-interest' | translate}}</span>
+            <span *ngIf="ifMoreThanFive">{{'you-can-select-maximum-upto-5-interest' | translate}}</span>
+            </div>
+            <a [routerLink]="['../generalprofile',varificationId]" class="prev custom-btn small pull-left">{{'previous' | translate}}</a>
+            <button (click)="goToThirdStep()" type="submit" name="" value="" class="gradient custom-btn small">{{'next' | translate}}</button>
+        </div>
+    </div>
+</div>

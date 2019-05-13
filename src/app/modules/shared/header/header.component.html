@@ -1,0 +1,506 @@
+<!-- header -->
+<div class="fixed-bodywrapper"></div>
+<header class="header-wrapper">
+    <div class="container-fluid clearfix">
+        <!-- <a href="/" class="logo-wrpper for-desktop" [class.disabled]="allowOrNot">
+            <img src="assets/images/logo.png" alt="Koala Talk" [class.disabled]="allowOrNot">
+        </a> -->
+
+        <a href="/" class="logo-wrpper for-desktop">
+            <img src="assets/images/logo.png" alt="Koala Talk">
+        </a>
+        <a href="/" class="logo-wrpper for-mobile" [class.disabled]="allowOrNot">
+            <img src="assets/images/logo-mobile.png" alt="Koala Talk" [class.disabled]="allowOrNot">
+        </a>
+        <div class="menubar-wrapper clearfix">
+            <ul class="navbar-buttons" *ngIf="isLoggedIn">
+                <li class="notification">
+                    <a href="javascript:void(0);" class="notification-click">
+                        <img src="assets/images/bell.png" alt="bell">
+                        <span class="badge">0</span>
+                    </a>
+                    <div class="notification-header">
+                        <div class="column read">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <span>Yesterday, 11:00 AM</span>
+                        </div>
+                        <div class="column">
+                            <p>Alias sed earum, corrupti amet fugit quibusdam, doloribus voluptatum culpa officiis omnis quaerat </p>
+                            <span>Yesterday, 11:00 AM</span>
+                        </div>
+                        <div class="column read">
+                            <p>totam praesentium eius dolores ipsam provident saepe. At, fuga.</p>
+                            <span>Yesterday, 11:00 AM</span>
+                        </div>
+                        <div class="column">
+                            <p>totam praesentium eius dolores ipsam provident saepe. At, fuga.</p>
+                            <span>Yesterday, 11:00 AM</span>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="custom-btn gradient-lr" [routerLink]="['./student/student-profile/student-notification']">View All</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="message-wrap">
+                    <a href="javascript:void(0);">
+                        <img src="assets/images/message.png" alt="message">
+                        <span class="badge">0</span>
+                    </a>
+                </li>
+                <li class="user-image showdropdown user-profile" *ngIf="userRole==4">
+                    <a href="javascript:void(0);">
+                        <figure [style.background-image]="'url('+ userProfilePic +')'"></figure>
+                        <div class="username">{{userFullName}} </div>
+                    </a>
+                    <ul class="menudropdown">
+                        <li><a href="javascript:void(0);" [routerLink]="['./student/edit-profile']" routerLinkActive="active">{{'edit-profile' | translate}}</a></li>
+                        <li><a href="javascript:void(0);" (click)="goToStudentDashboard()">{{'dashboard' | translate}}</a></li>
+                        <li class="sub-showdropdown"><a href="javascript:void(0);">{{'language' | translate}}</a>
+                            <ul class="sub-menudropdown">
+                                <li (click)="changeLanguage('en')"><a href="javascript:void(0);">English</a></li>
+                                <li (click)="changeLanguage('es')"><a href="javascript:void(0);" (click)="toggleSideMenu()">Spanish</a></li>
+                                <li (click)="changeLanguage('cn')"><a href="javascript:void(0);" (click)="toggleSideMenu()">Chinese</a></li>
+                                <li (click)="changeLanguage('ko')"><a href="javascript:void(0);" (click)="toggleSideMenu()">Korean</a></li>
+                                <li (click)="changeLanguage('jp')"><a href="javascript:void(0);" (click)="toggleSideMenu()">Japanese</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="javascript:void(0);" (click)="logOut()"> {{'log-out' | translate}}</a></li>
+                    </ul>
+                </li>
+                <li class="user-image showdropdown user-profile" *ngIf="userRole==3">
+                    <a href="javascript:void(0);">
+                        <figure [style.background-image]="'url('+ userProfilePic +')'"></figure>
+                        <div class="username">{{userFullName}}</div>
+                    </a>
+                    <ul class="menudropdown">
+                        <li><a href="javascript:void(0);" [routerLink]="['./teacher/edit-profile']" routerLinkActive="active">{{'edit-profile' | translate}}</a></li>
+                        <li><a href="javascript:void(0);" (click)="goToTeacherDashboard()">{{'dashboard' | translate}}</a></li>
+                        <li class="sub-showdropdown"><a href="javascript:void(0);">{{'language' | translate}}</a>
+                            <ul class="sub-menudropdown">
+                                <li (click)="changeLanguage('en')"><a href="javascript:void(0);">English</a></li>
+                                <li (click)="changeLanguage('es')"><a href="javascript:void(0);" (click)="toggleSideMenu()">Spanish</a></li>
+                                <li (click)="changeLanguage('cn')"><a href="javascript:void(0);" (click)="toggleSideMenu()">Chinese</a></li>
+                                <li (click)="changeLanguage('ko')"><a href="javascript:void(0);" (click)="toggleSideMenu()">Korean</a></li>
+                                <li (click)="changeLanguage('jp')"><a href="javascript:void(0);" (click)="toggleSideMenu()">Japanese</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);" (click)="logOut()">{{'log-out' | translate}}</a></li>
+                    </ul>
+                </li>
+                <li class="toggle-btnwrap">
+                    <div href="javascript:void(0);" class="toggle-button" (click)="toggleSideMenu()" [class.toggle]="isMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-buttons" *ngIf="!isLoggedIn">
+                <li class="login" *ngIf="!allowOrNot">
+                    <a [class.disabled]="allowOrNot" href="javascript:void(0)" (click)="openSecond(loginmodal)">{{'login' | translate}}</a>
+                    <!-- openSecond open -->
+                </li>
+                <li class="signup" *ngIf="!allowOrNot">
+                    <a [class.disabled]="allowOrNot" href="javascript:void(0)" (click)="open(signupmodal)" class="gradient">{{'sign-up' | translate}}</a>
+                </li>
+                <li class="toggle-btnwrap">
+                    <div href="javascript:void(0);" class="toggle-button" (click)="toggleSideMenu()" [class.toggle]="isMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </li>
+                <li class="language showdropdown desktop">
+                    <a href="javascript:void(0);">  {{'select-language' | translate}}</a>
+                    <ul class="menudropdown">
+                        <li (click)="changeLanguage('en')"><a href="javascript:void(0);">English</a></li>
+                        <li (click)="changeLanguage('es')"><a href="javascript:void(0);" (click)="toggleSideMenu()">Spanish</a></li>
+                        <li (click)="changeLanguage('cn')"><a href="javascript:void(0);" (click)="toggleSideMenu()">Chinese</a></li>
+                        <li (click)="changeLanguage('ko')"><a href="javascript:void(0);" (click)="toggleSideMenu()">Korean</a></li>
+                        <li (click)="changeLanguage('jp')"><a href="javascript:void(0);" (click)="toggleSideMenu()">Japanese</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <ul class="navbar-list" [class.mobilemenu]="isMenu">
+            <li class="toggle-btnwrap">
+                <div href="javascript:void(0);" class="toggle-button" (click)="toggleSideMenu()" [class.toggle]="isMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </li>
+            <li class="language showdropdown mobile" *ngIf="!allowOrNot">
+                <a href="javascript:void(0);" (click)="togglelanguagedrop()" [class.toggle]="isToggle">{{'select-language' | translate}}</a>
+                <ul class="menudropdown" [class.show]="isToggle">
+                    <li><a href="javascript:void(0);">English</a></li>
+                    <li><a href="javascript:void(0);">Spanish</a></li>
+                    <li><a href="javascript:void(0);">Chinese</a></li>
+                    <li><a href="javascript:void(0);">Korean</a></li>
+                    <li><a href="javascript:void(0);">Japanese</a></li>
+                </ul>
+            </li>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);" (click)="toggleSideMenu()" [routerLink]="['./teacher/listing']" routerLinkActive="active"> {{'find-a-tutor' | translate}} </a>
+            </li>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);" [routerLink]="['./find-topic']" (click)="toggleSideMenu()">{{'find-a-topic' | translate}}</a>
+            </li>
+            <li class="showdropdown studygroup">
+                <a class="" [class.disabled]="allowOrNot" href="javascript:void(0);" (click)="togglestudy()" [class.toggle]="isStudyToggle"> {{'study-board' | translate}}</a>
+                <ul class="menudropdown" [class.showstudy]="isStudyToggle">
+                    <li><a href="javascript:void(0);" [routerLink]="['./study-group']" (click)="toggleSideMenu()"> {{'study-group' | translate}}</a></li>
+                    <li><a href="javascript:void(0);" [routerLink]="['./practice-room']" (click)="toggleSideMenu()">{{'practice-here' | translate}} </a></li>
+                </ul>
+            </li>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);" [routerLink]="['./bulletin-board']" routerLinkActive="active" (click)="toggleSideMenu()"> {{'bulletin-board' | translate}}</a>
+            </li>
+            <li>
+                <a [class.disabled]="allowOrNot" href="javascript:void(0);" [routerLink]="['./become-a-tutor']" routerLinkActive="active" (click)="toggleSideMenu()">
+                   
+                    {{'become-a-tutor' | translate}}
+                    
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<!-- header end-->
+
+
+<ng-template #loginmodal let-c="close" let-d="dismiss" class="lg-modal">
+    <button type="button" class="modal-cross" aria-label="Close" (click)="d('Cross click')">
+        <img src="assets/images/cancel.png" alt="close">
+    </button>
+    <div class="modal-body">
+        <div class="modal-bg">
+            <div class="LogIn-modal custom-modal clearfix" id="LogInmodal">
+                <div class="modal-inner">
+                    <div class="image-section">
+                        <img src="assets/images/login.png" alt="">
+                    </div>
+                    <div class="content-section">
+                        <div class="email-exist signup" *ngIf="loginStatus!=''"> 
+                            
+                            <span *ngIf="inValidCredentials">{{'email-or-password-may-be-wrong'| translate}} </span>
+                             <span *ngIf="inCompleteRegistation">{{'you-are-not-registered-with-this-account-type'| translate}} </span>
+                           <span *ngIf="networkError">{{'there-is-some-network-issue'| translate}}</span>
+                           <span *ngIf="mailSentSuccessfully">{{'mail-sent-successfully'| translate}}</span>
+                           
+                           <!-- {{loginStatus}} -->
+                            <span *ngIf="inCompleteRegistation"><a href="javascript:void(0);" (click)="resendMail()">{{'click-here'| translate}}</a> {{'to-resend-email'| translate}}</span>
+                        </div>
+
+                        <h2 class="modal-head text-center"> {{'sign-in' | translate}}</h2>
+                        <p class="modal-para">  {{'sign-in-text' | translate}}  </p>
+                        <!-- <form (ngSubmit)="signIn(verification)" #frm="ngForm" novalidate> -->
+                        <form (ngSubmit)="signingIn()" #frmSignIn="ngForm" novalidate>
+                            <div class="custom-radio">
+                                <input type="radio" name="student" value="1" checked="checked" name="radio1" id="student" [(ngModel)]="signIn.isStudent" />
+                                <label for="student">{{'student'| translate}}</label>
+                            </div>
+                            <div class="custom-radio">
+                                <input type="radio" name="tutor" value="0" name="radio1" id="tutor" [(ngModel)]="signIn.isStudent" />
+                                <label for="tutor">{{'tutor'| translate}}</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-wrap">
+
+                                    <!-- <input type="text" name="email" placeholder="Email" (keypress)="changeStatusMessage()"  #mailRef="ngModel" [pattern]="pattern" [(ngModel)]="signIn.email" email required> -->
+
+                                    <input type="email" name="email" maxlength="50" placeholder="{{ 'email' | translate}}" (keypress)="changeStatusMessage()" #mailRef="ngModel" [(ngModel)]="signIn.email" email required>
+
+                                    <!-- {{mailRef.invalid && mailRef.touched && mailRef.dirty && !mailRef.untouched}} -->
+                                    <div *ngIf="mailRef.invalid&&mailRef.touched">
+                                        <span class="errorlog-inputmsg" style="display:block" *ngIf="mailRef?.errors.required"> {{ 'this-field-is-required' | translate}}</span>
+                                        <span class="errorlog-inputmsg" style="display:block" *ngIf="mailRef?.errors.email&&!mailRef?.errors.required">{{ 'please-enter-a-valid-email' | translate}} </span>
+
+
+                                    </div>
+
+                                    <!-- <div *ngIf="emailRef.invalid&&emailRef.touched">
+                                        <span class="" *ngIf="emailRef?.errors.required"> This Field is Required</span>
+                                        <span class="" *ngIf="emailRef?.errors.email&&!emailRef?.errors.required">Please enter a valid email</span>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-wrap">
+                                    <input type="password" minlength="8" maxlength="20" name="password" validattionDirective placeholder="{{ 'password' | translate}}" #passwordRef="ngModel" [(ngModel)]="signIn.password" required>
+                                    <div *ngIf="passwordRef.invalid&&passwordRef.touched">
+                                        <span class="errorlog-inputmsg" style="display:block" *ngIf="passwordRef?.errors.required"> {{ 'this-field-is-required' | translate}}</span>
+                                        <span class="errorlog-inputmsg" style="display:block" *ngIf="passwordRef?.errors.minlength">{{ 'password-must-be-at-least-8-characters-long' | translate}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="custom-check">
+                                <input type="checkbox" value="" name="check" id="Remember" />
+                                <label for="Remember">Remember Me</label>
+                            </div> -->
+                            <a href="javascript:void(0)" (click)="open(forgotmodal)" class="forgot-psw">{{'forgot-password' | translate}}</a>
+                            <!-- <a [routerLink]="['./Forgot']" (click)="d('Cross click')">reset</a> -->
+                            <div class="clearfix"></div>
+                            <div class="button-wrapper text-center">
+                                <!-- <button type="submit" name="" value="" class="gradient custom-btn" [disabled]="frmSignIn.invalid">{{signingInText}}</button> -->
+                                <button type="submit" name="" value="" class="gradient custom-btn" [disabled]="frmSignIn.invalid">{{'sign-in' | translate}}</button>
+                            </div>
+                            <div class="other-option">
+                                <span> {{'or-login-with' | translate}} </span>
+                            </div>
+                            <div class="social-icon">
+                                <a href="javascript:void" (click)="loginWithFacebook(signupmodal)" class="facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="javascript:void" (click)="loginWithGooglePlus(signupmodal)" class="google-plus">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </form>
+                        <div class="footer-modal text-center">
+                            <p class="para"> {{'do-not-have-an-account' | translate}}
+                                <a href="javascript:void(0)" (click)="open(signupmodal)" class="signup">
+                                    {{'sign-up' | translate}} </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #forgotmodal let-c="close" let-d="dismiss" class="lg-modal">
+    <button type="button" class="modal-cross" aria-label="Close" (click)="d('Cross click')">
+        <img src="assets/images/cancel.png" alt="close">
+    </button>
+    <div class="modal-body">
+        <div class="modal-bg">
+            <div class="forgot-modal custom-modal clearfix" id="LogInmodal">
+                <div class="modal-inner">
+
+                    <div class="content-section">
+                        <h2 class="modal-head text-center"> {{'forgot-password' | translate}}</h2>
+                        <p class="modal-para text-center">{{'forgot-password-text' | translate}}</p>
+                        <div class="icon-image">
+                            <figure class="icon-bg">
+                                <img src="assets/images/lock.png" alt="lock">
+                            </figure>
+                        </div>
+                        <form (ngSubmit)="forgotPassword(verification)" #ngforgotForm="ngForm" novalidate>
+                            <div class="form-group">
+                                <div class="input-wrap fixed-widthinput text-center">
+
+                                    <!-- <input type="email" placeholder="Email" name="email" #mailForgotRef="ngModel" [(ngModel)]="forgotMail" [pattern]="pattern" email required/> -->
+                                    <input type="email" maxlength="50" placeholder="{{'email' | translate}}" name="email" #mailForgotRef="ngModel" [(ngModel)]="forgotMail" email required/>
+                                    <div *ngIf="mailForgotRef.invalid&&mailForgotRef.touched">
+                                        <span class="errorlog-inputmsg top" style="display:block" *ngIf="mailForgotRef?.errors.required">{{'this-field-is-required' | translate}}</span>
+                                        <span class="errorlog-inputmsg top" style="display:block" *ngIf="mailForgotRef?.errors.email">{{'please-enter-a-valid-email' | translate}}</span>
+                                    </div>
+                                    <div>
+                                        <span *ngIf="noMailFound" class="errorlog-inputmsg top">
+                                                
+                                                {{'this-email-is-not-register-with-us' | translate}}
+                                        </span>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="button-wrapper text-center">
+                                <button type="submit" name="btnSubmit" class="gradient custom-btn" [disabled]="ngforgotForm.invalid">{{'reset-password'| translate}}</button>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #signupmodal let-c="close" let-d="dismiss" class="lg-modal">
+    <button type="button" class="modal-cross" aria-label="Close" (click)="d('Cross click')">
+        <img src="assets/images/cancel.png" alt="close">
+    </button>
+    <div class="modal-body">
+        <div class="modal-bg">
+            <div class="signup-modal custom-modal clearfix" id="LogInmodal">
+                <div class="modal-inner">
+                    <div class="image-section">
+                        <img src="assets/images/signup.jpg" alt="">
+                    </div>
+
+                    <div class="content-section">
+                        <div class="email-exist signup" *ngIf="registrationResponse!=''">
+                             <!-- {{registrationResponse}} -->
+
+                             <span *ngIf="alredyExists">{{'user-already-exist'| translate}}</span>
+                             </div>
+                        <h2 class="modal-head text-center">{{'sign-up'| translate}}</h2>
+                        <p class="modal-para">{{'sign-up-text'| translate}} </p>
+                        <form (ngSubmit)="signUp(verification)" #frm="ngForm" novalidate>
+                            <div class="custom-radio">
+                                <input type="radio" name="student" value="1" checked="checked" name="radio1" id="student" [(ngModel)]="reg.isStudent" />
+                                <label for="student">{{'student'| translate}}</label>
+                            </div>
+                            <div class="custom-radio">
+                                <input type="radio" name="tutor" value="0" name="radio1" id="tutor" [(ngModel)]="reg.isStudent" />
+                                <label for="tutor">{{'tutor'| translate}}</label>
+                            </div>
+                            <div class="form-group col50">
+                                <div class="input-wrap col50right">
+                                    <input type="text" name="firstName" maxlength="15" placeholder="{{'first-name'| translate}}" #firstNameRef="ngModel" [(ngModel)]="reg.firstName" required/>
+                                    <div *ngIf="firstNameRef.invalid&&firstNameRef.touched">
+                                        <span class="errorlog-inputmsg" style="display:block" *ngIf="firstNameRef?.errors.required">{{'this-field-is-required'| translate}} </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group col50">
+                                <div class="input-wrap col50left">
+                                    <input type="text" name="lastName" maxlength="15" value="" placeholder="{{'last-name'| translate}}" #lastNameRef="ngModel" [(ngModel)]="reg.lastName" required>
+                                    <div *ngIf="lastNameRef.invalid&&lastNameRef.touched">
+                                        <span class="errorlog-inputmsg top" style="display:block" *ngIf="lastNameRef?.errors.required">{{'this-field-is-required'| translate}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="input-wrap">
+
+                                    <!-- <input type="email" name="email" [disabled]="isEmailFalse" placeholder="Email" name="email" #mailRef="ngModel" [pattern]="pattern" [(ngModel)]="reg.email" required> -->
+                                    <input type="email" name="email" maxlength="50" [disabled]="isEmailFalse" placeholder="{{'email'| translate}}" name="email" #mailRef="ngModel" [(ngModel)]="reg.email" required email>
+                                    <div *ngIf="mailRef.invalid&&mailRef.touched">
+                                        <span class="errorlog-inputmsg" style="display:block" *ngIf="mailRef?.errors.required">{{'this-field-is-required'| translate}}</span>
+                                        <span class="errorlog-inputmsg" style="display:block" *ngIf="mailRef?.errors.email">{{'please-enter-a-valid-email'| translate}} </span>
+                                    </div>
+
+                                    <!-- <div *ngIf="emailRef.invalid&&emailRef.touched">
+                                        <span class="" *ngIf="emailRef?.errors.email">Please enter a valid email</span>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-wrap">
+                                    <!-- [pattern]="passwordPattern" -->
+                                    <input type="password" name="password" value="" minlength="8" maxlength="20" placeholder="{{'password'| translate}}" #passwordRef="ngModel" [(ngModel)]="reg.password" required>
+                                    <div *ngIf="passwordRef.invalid&&passwordRef.touched">
+                                        <span class="errorlog-inputmsg" style="display:block" *ngIf="passwordRef?.errors.required">{{'this-field-is-required'| translate}}</span>
+                                        <!-- <span class="errorlog-inputmsg" style="display:block" *ngIf="passwordRef?.errors.maxlength">Please enter a valid Password.</span> -->
+                                        <span class="errorlog-inputmsg" style="display:block" *ngIf="passwordRef?.errors.minlength">{{'password-must-be-at-least-8-characters-long'| translate}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button-wrapper text-center">
+                                <!-- <button type="button" name="" value="" class="gradient custom-btn"  
+                                (click)="open(verification)">Sign Up</button> -->
+                                <button type="submit" name="btnSubmit" class="gradient custom-btn" [disabled]="frm.invalid">{{'sign-up'| translate}}</button>
+                                <!-- <span stype="color:red">{{registrationResponse}}</span> -->
+                            </div>
+                            <div class="other-option">
+                                <span>  {{'connect-with'| translate}}</span>
+                            </div>
+                            <div class="social-icon">
+                                <a href="javascript:void" class="facebook" (click)="connectWithFacebook()">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="javascript:void" class="google-plus" (click)="connectWithGooglePlus()">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+
+                            </div>
+                        </form>
+                        <div class="footer-modal text-center">
+                            <p class="para">{{'already-have-an-account'| translate}}
+                                <a href="javascript:void(0);" (click)="open(loginmodal)" class="signup">
+                                    {{'sign-in'| translate}} </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</ng-template>
+<ng-template #verification let-c="close" let-d="dismiss">
+    <button type="button" class="modal-cross" aria-label="Close" (click)="d('Cross click')">
+        <img src="assets/images/cancel.png" alt="close">
+    </button>
+    <div class="modal-bg">
+        <div class="verification custom-modal clearfix" id="LogInmodal">
+            <div class="modal-inner">
+                <div class="content-section">
+                    <h2 class="modal-head text-center">{{'verification-link-sent' | translate}}</h2>
+                    <p class="modal-para text-center">{{'verification-link-text'| translate}}</p>
+
+                    <a [href]="varificationLink" target="_blank">Click here</a>
+                    <div class="icon-image">
+                        <figure class="icon-bg">
+                            <img src="assets/images/circle-check.png" alt="Check">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+
+<ng-template #resetPassword let-c="close" let-d="dismiss" class="lg-modal">
+    <button type="button" class="modal-cross" aria-label="Close" (click)="d('Cross click')">
+                <img src="assets/images/cancel.png" alt="close">
+            </button>
+    <div class="reset-wrapper">
+        <div class="reset-wrapper-inner">
+            <div class="reset-modal custom-modal clearfix" id="LogInmodal">
+                <div class="modal-inner">
+                    <div class="content-section">
+                        <h2 class="modal-head text-center">{{'reset-password'| translate}} </h2>
+                        <div class="icon-image">
+                            <figure class="icon-bg">
+                                <img src="assets/images/key.png" alt="lock">
+                            </figure>
+                        </div>
+                        <form (ngSubmit)="resetPasswordMethod()" #frmSignIn="ngForm" novalidate>
+                            <div class="form-group">
+                                <div class="input-wrap fixed-widthinput text-center">
+                                    <input type="password" name="newpass" (keypress)="changeMessageNewPass()" minlength="8" placeholder="{{'new-password'| translate}}" #newpass="ngModel" [(ngModel)]="newPassword" required>
+                                    <div *ngIf="newpass.invalid&&newpass.touched">
+                                        <span class="error-inputmsg" style="display:block" *ngIf="newpass?.errors.required">{{'this-field-is-required'| translate}}</span>
+                                        <span class="error-inputmsg" style="display:block" *ngIf="newpass?.errors.minlength">{{'password-must-be-at-least-8-characters-long'| translate}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-wrap fixed-widthinput text-center">
+                                    <input type="password" name="confirmpass" (keypress)="changeMessage()" minlength="8" (blur)="changeMessageConfirmPassword()" placeholder="{{'confirm-new-password'| translate}}" #confirmPass="ngModel" [(ngModel)]="confirmPassword" required>
+                                    <div *ngIf="confirmPass.invalid&&confirmPass.touched">
+                                        <span class="error-inputmsg" style="display:block" *ngIf="confirmPass?.errors.required">{{'this-field-is-required'| translate}}</span>
+                                        <span class="error-inputmsg" style="display:block" *ngIf="confirmPass?.errors.minlength">{{'password-must-be-at-least-8-characters-long'| translate}}</span>
+                                    </div>
+                                    <div *ngIf="passwordDoNotMatch">
+                                        <span class="error-inputmsg" style="display:block">{{'password-does-not-match'|translate}}</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="button-wrapper text-center">
+                                <button type="submit" name="" value="" [disabled]="frmSignIn.invalid" class="gradient custom-btn">{{resetPasswordButton}}</button>
+                                <span class="error-edu-inputmsg" style="display:block;color: red;">{{resetPasswordResponse}}</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

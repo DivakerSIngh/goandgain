@@ -1,0 +1,54 @@
+<div class="requestlist">
+    <div class="friendlist-col">
+        <div class="userdetail-column clearfix" *ngFor="let pending of pendingRequest;let i=index">
+            
+            <figure class="image"[style.background-image]="'url('+ pending?.userInfo?.image +')'"></figure>
+            <div class="pull-right">
+                <button class="custom-btn decline" (click)="openConfirmpopUp(pending?.groupId,pending?._id,i,0)" type="submit">Decline</button>
+                <button class="custom-btn gradient-lr" (click)="responseOnRequest(pending?.groupId,pending?._id,i,1)" type="submit">Accept </button>
+            </div>
+            <div class="leftin">
+                <h3>{{pending?.userInfo?.firstName}} {{pending?.userInfo?.lastName}}</h3>
+                <label class="label-withicon">
+                  <span class="icon"><img alt="" src="assets/images/marker.png"></span>
+                  <strong> From:</strong> {{pending?.userInfo?.countryName}}
+              </label>
+                <label class="label-withicon">
+                  <span class="icon"><img alt="" src="assets/images/edu-icon.png"></span>
+                   <strong> Learning:</strong> {{pending?.userInfo?.mainlanguage}}
+              </label>
+                <label class="label-withicon">
+                  <span class="icon"><img alt="" src="assets/images/member-icon.png"></span>
+                   <strong> Group Name:</strong> {{pending?.groupName}}
+              </label>
+            </div>
+        </div>
+     
+        <div class="userdetail-column clearfix" *ngIf="ifNoRecordFound">       
+            <div class="leftin">
+                <h3>No Request Found</h3>              
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="declineRequest" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm create-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="modal-cross" data-dismiss="modal" type="button">
+                        <img  alt="close" src="assets/images/cancel.png">
+                    </button>
+                    <h4 class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Are you sure want to Decline the request?</p>
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="custom-btn gradient save" (click)="confirmDecline()">Confirm</button>
+                    <button type="button" class="custom-btn delete" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+    
+        </div>
+    </div>

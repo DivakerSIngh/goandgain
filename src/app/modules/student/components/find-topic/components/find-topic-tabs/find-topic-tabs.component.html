@@ -1,0 +1,21 @@
+<ul class="findtopic-tabs">
+    <!-- <li>
+        <a href="javascript:void(0);" [class.active]="currentCategory==1" (click)="findTopic(1)">Free Talking</a>
+    </li>
+    <li>
+            <a href="javascript:void(0);" [class.active]="currentCategory==2" (click)="findTopic(2)">Topic Study</a>
+       
+    </li>
+    <li>
+        <a href="javascript:void(0);"  [class.active]="currentCategory==3" (click)="findTopic(3)">Speaking Test</a>
+    </li>
+    <li>
+        <a href="javascript:void(0);"  [class.active]="currentCategory==4" (click)="findTopic(4)">Interview Preparation </a>
+    </li> -->
+    <li *ngFor="let cat of categoryList">
+        <a href="javascript:void(0);"  [class.active]="currentCategory==cat._id" (click)="findTopic(cat._id)">{{cat.name}} </a>        
+    </li>
+</ul>
+<div class="datasecwrapper-inner">
+    <router-outlet></router-outlet>
+</div>

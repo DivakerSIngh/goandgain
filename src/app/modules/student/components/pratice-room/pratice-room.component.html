@@ -1,0 +1,232 @@
+<div class="centersecwrapper">
+    <div class="container-fluid">
+        <div class="pratice-wrapper">
+            <div class="pratice-inner clearfix">
+                <div class="pull-right" *ngIf="isLoggedIn">
+                    <button type="button" class="custom-btn gradient-lr mtb" [routerLink]="['../practice-create']">Create Pratice Room</button>
+                </div>
+                <h2 class="heading">Select a room below and click to join</h2>
+                <div class="clearfix"></div>
+                <div class="column-wrap">
+                    <div class="filter-wrap">
+                        <div class="input-wrap select-width">
+                                <mat-form-field class="mselectpicker">
+                                        <mat-select placeholder="Select Language " name="praticeLangauge" [(ngModel)]="praticeLanguage">
+                                            <mat-option *ngFor="let language of languageList" [value]="language.counrty">
+                                                {{language.counrty}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                        </div>
+                        <div class="searchWrapper overflow">
+                            <div class="input-wrap search-spacing-btn">
+                                <input class="search ng-untouched ng-pristine ng-valid" [(ngModel)]="search" name="search" placeholder="Search By Title and Subject" type="text">
+                                <div class="searchbtnicon"><img alt="" src="assets/images/search.png"></div>
+                                <button class="custom-btn gradient-lr searchbtn-space" type="submit" (click)="searchPractice()" >Search </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-wrapinner">                       
+                        <div class="column-container" *ngFor="let practice of allPracticeRooms;let i=index">
+                            <button type="button" class="group-btn public" *ngIf="practice.type==0">Public Group</button>
+                            <button type="button" class="group-btn private" *ngIf="practice.type==1">Private Group</button>
+                            <div class="image-section">
+                                    <figure class="profileimage"[style.background-image]="'url('+ practice?.createdBy.image +')'"></figure>
+                                <!-- <figure class="profileimage" style="background-image: url('assets/images/user1.jpg')"></figure> -->
+                                <label for="">Hosted by {{practice?.createdBy.firstName}} {{practice?.createdBy.lastName}}</label>
+                                <button type="submit" class="custom-btn" *ngIf="practice.members.length==maxParticipation">Full </button>
+                                <button type="submit" class="custom-btn gradient-lr" *ngIf="practice.members.length!=maxParticipation" (click)="JoinPracticeRoom(practice._id)" >Join </button>
+                            </div>
+                            <div class="content">
+                                <h2 class="head">{{practice.name}}</h2>
+                                <label class="label">{{practice.level}}</label>
+                                <div class="clearfix"></div>
+                                <div class="row border-top">
+                                    <div class="col-xs-12 col-md-4">
+                                        <h3 class="sub-heading">Language</h3>
+                                        <label class="label">{{practice.language}}</label>
+                                    </div>
+                                    <div class="col-xs-12 col-md-8">
+                                        <h3 class="sub-heading">Subject </h3>
+                                        <label class="label">{{practice.subject}}</label>
+                                    </div>
+                                </div>
+                                <div class="member-group border-top clearfix">
+                                    <div class="pull-left">
+                                        <label class="label-withicon"> Members
+                                            <span class="icon"><img src="assets/images/user-icon.png" alt=""></span>
+                                        </label>
+                                    </div>
+                                    <div class="pull-right">
+                                        <ul class="member-imagelist">
+                                            <li>
+                                                <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                             </li>
+                                            <!--<li>
+                                                <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                            </li>
+                                            <li>
+                                                <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                            </li>
+                                            <li>
+                                                <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                            </li>
+                                            <li>
+                                                <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                            </li>
+                                          
+                                            <li>
+                                                    <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                                </li>
+                                                <li>
+                                                    <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                                </li>
+                                                <li>
+                                                    <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                                </li>
+                                                <li>
+                                                    <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                                </li>
+                                                <li>
+                                                    <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                                </li>
+                                           -->
+                                                  <!-- <li><a href="javascript:void(0);">+5</a></li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="column-container" *ngIf="!allPracticeRooms?.length>0">
+                            No record found
+                        </div>
+
+                        <!--   <div class="column-container">
+                            <button type="button" class="group-btn private">Private Group</button>
+                            <div class="image-section">
+                                <figure class="profileimage" style="background-image: url('assets/images/user1.jpg')"></figure>
+                                <label for="">Hosted by Nina</label>
+                                <button type="submit" class="custom-btn gradient-lr">Join </button>
+                            </div>
+                            <div class="content">
+                                <h2 class="head">TOEFL Study</h2>
+                                <label class="label">Beginner</label>
+                                <div class="clearfix"></div>
+                                <div class="row border-top">
+                                    <div class="col-xs-12 col-md-4">
+                                        <h3 class="sub-heading">Language</h3>
+                                        <label class="label">English</label>
+                                    </div>
+                                    <div class="col-xs-12 col-md-8">
+                                        <h3 class="sub-heading">Subject </h3>
+                                        <label class="label">Let’s pratice Italian!</label>
+                                    </div>
+                                </div>
+                                <div class="member-group border-top clearfix">
+                                    <div class="pull-left">
+                                        <label class="label-withicon"> Members
+                                            <span class="icon"><img src="assets/images/user-icon.png" alt=""></span>
+                                        </label>
+                                    </div>
+                                    <div class="pull-right">
+                                        <ul class="member-imagelist">
+                                            <li>
+                                                <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                            </li>
+                                            <li>
+                                                <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                            </li>
+                                            <li>
+                                                <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                            </li>
+                                            <li>
+                                                <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                            </li>
+                                            <li>
+                                                <figure style="background-image: url('assets/images/user1.jpg');"></figure>
+                                            </li>
+                                            <li><a href="javascript:void(0);">+5</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        
+                        <div class="text-center" *ngIf="isMoreData" >
+                            <a href="javascript:void(0);" (click)="ShowMore()" class="show-more">Show More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <app-advertisement></app-advertisement>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="JoinGroupPopUp" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-sm create-modal">
+           
+           <!-- password required -->
+            <div class="modal-content" *ngIf="isPasswordRequired">
+                <div class="modal-header">
+                    <button class="modal-cross" data-dismiss="modal" type="button">
+                                <img  alt="close" src="assets/images/cancel.png">
+                            </button>
+                    <h4 class="modal-title">Join Practice Room</h4>
+                    
+                </div>
+                <div class="modal-body text-center">
+                    <input type="password" placeholder="Enter password here">
+                    
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="custom-btn gradient save" (click)="unPostNotice()">Join</button>
+                    <button type="button" class="custom-btn delete" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+           <!-- password required -->
+
+
+            <!-- room is full -->
+            <div class="modal-content" *ngIf="isRoomFull">
+                <div class="modal-header">
+                    <button class="modal-cross" data-dismiss="modal" type="button">
+                                <img  alt="close" src="assets/images/cancel.png">
+                            </button>
+                    <h4 class="modal-title">Room is full</h4>
+                    
+                </div>
+                <div class="modal-body text-center">
+                    This room is already full.
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="custom-btn delete" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+           <!-- room is full -->
+
+
+           <!-- not a group member -->
+           <div class="modal-content" *ngIf="!isGroupMember">
+            <div class="modal-header">
+                <button class="modal-cross" data-dismiss="modal" type="button">
+                            <img  alt="close" src="assets/images/cancel.png">
+                        </button>
+                <h4 class="modal-title">group associated room </h4>                
+            </div>
+            <div class="modal-body text-center">
+                    This room is associated with study group                
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="custom-btn delete" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+       <!-- not a group member -->
+            
+
+        </div>
+    </div>
+
+

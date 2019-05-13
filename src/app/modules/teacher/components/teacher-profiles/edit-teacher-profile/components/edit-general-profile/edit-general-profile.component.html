@@ -1,0 +1,97 @@
+<div class="section-container">
+    <div class="choose-image text-center">
+        <figure class="profileimage">
+            <img alt="User" [src]="viewImage">
+        </figure>
+        <div class="profile-errormsg">{{requiredStatus}}</div>
+        <div class="browse-btn">Browse
+            <input accept="image/*" class="browse-input" (change)="onFileChange($event)" id="docfileupload" name="avatar" type="file">
+        </div>
+    </div>
+    <div class="other-option"> <span> Or Import From </span></div>
+    <div class="social-icon text-center">
+        <a (click)="connectWithGooglePlus()" class="google-plus" href="javascript:void">
+            <i class="fa fa-google-plus"></i>
+        </a>
+        <a (click)="getImageFromFacebook()" class="facebook" href="javascript:void">
+            <i class="fa fa-facebook"></i>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group">
+                <label for="" class="input-label">First Name:</label>
+                <div class="input-wrap">
+                    <input type="text" name="firstName" [(ngModel)]="firstName" maxlength="15" value="" placeholder="" />
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group">
+                <label for="" class="input-label">Last Name:</label>
+                <div class="input-wrap">
+                    <input type="text" name="lastName" [(ngModel)]="lastName" maxlength="15" value="" placeholder="" />
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group">
+                <label for="" class="input-label">Email:</label>
+                <div class="input-wrap">
+                    <input type="text" name="email" [(ngModel)]="email" maxlength="50" value="" placeholder="" disabled/>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group">
+                <label class="input-label">Phone Number:</label>
+                <div class="input-wrap countrycode">
+                    <div class="countrycode-dropdown">
+                        <mat-form-field class="mselectpicker">
+                            <mat-select placeholder="Country Code" name="countrycode" [(ngModel)]="countryCode">
+                                <mat-option *ngFor="let c of countryCodeList" [value]="c.code">
+                                    (+{{c.code}}) {{c.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <input type="text" onPaste="return false" (keypress)="restrictNumeric($event)" name="mobile" [(ngModel)]="mobile" maxlength="20" placeholder="" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group">
+                <label class="input-label">Country:</label>
+                <div class="input-wrap">
+                    <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="Select Country" name="countryName" [(ngModel)]="countryName">
+                            <mat-option *ngFor="let c of countryList" [value]="c.name">
+                                {{c.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group">
+                <label class="input-label">TimeZone:</label>
+                <div class="input-wrap">
+                    <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="Select Time Zone" name="country" [(ngModel)]="country" (change)="changeCountry()" required>
+                            <mat-option *ngFor="let c of countries" [value]="c.name">
+                                ({{c.offsetStr}}) {{c.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"><span class="successMsg-top"> {{responseMessage}}</span></div>
+    <div class="button-wrapper">
+        <button type="submit" class="custom-btn gradient-lr" [disabled]="inValid()" (click)="UpdateGeneralDetails()">Update</button>
+        <!-- <button type="submit" class="custom-btn cancel">Cancel</button> -->
+    </div>
+</div>

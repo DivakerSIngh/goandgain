@@ -1,0 +1,100 @@
+<div class="datasecwrapper">
+    <div class="datasecwrapper-inner">
+        <ul class="breadcrumb">
+            <li>
+                <a [routerLink]="['../lesson-views/scheduled-lesson']"> Scheduled Lessons  </a>
+            </li>
+            <li> View & Edit</li>
+        </ul>
+        <div class="box-wrapper">
+            <div class="section-head">Participants</div>
+            <div class="data-wrap participants-wrap">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <figure class="profileimage" style="background-image: url('assets/images/user1.jpg');"></figure>
+                        <div class="overflow">
+                            <h3>Michelle Pal</h3>
+                            <span class="rating-star"><span style="width:76%"></span></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <figure class="profileimage" style="background-image: url('assets/images/user2.jpg');"></figure>
+                        <div class="overflow">
+                            <h3>Michelle Pal</h3>
+                            <span class="rating-star"><span style="width:76%"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-head">Scheduled On:</div>
+            <div class="data-wrap scheduled-wrap">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <p class="label-withicon">
+                            <span class="icon"><img src="assets/images/calendar.png" alt=""></span> Sunday, 7 May, 2017
+                        </p>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <p class="label-withicon">
+                            <span class="icon"><img src="assets/images/watch.png" alt=""></span> 11:00 PM
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-head">Method of Class:</div>
+            <div class="data-wrap method-wrap">
+                <mat-radio-group class="radio-wrapper classes">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <mat-radio-button value="1" checked>Video </mat-radio-button>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <mat-radio-button value="2">Audio</mat-radio-button>
+                        </div>
+                    </div>
+                </mat-radio-group>
+            </div>
+
+            <div class="section-head">Topic:</div>
+            <div class="topic-wrap">
+                <div class="add-article-list">
+                    <div class="userdetail-column clearfix">
+                        <figure class="image" style="background-image: url(assets/images/user1.jpg);"></figure>
+                        <div class="pull-right">
+                            <button class="custom-btn" type="submit">Delete </button>
+                        </div>
+                        <div class="leftin">
+                            <h3>Sharon Doe</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem totam fugiat ducimus similique, mollitia quidem, et omnis accusantium voluptatem eligendi at soluta, laudantium enim ab rem iste quae consequatur perferendis!</p>
+                        </div>
+                    </div>
+                    <div class="userdetail-column clearfix">
+                        <figure class="image" style="background-image: url(assets/images/user1.jpg);"></figure>
+                        <div class="pull-right">
+                            <button class="custom-btn" type="submit">Delete </button>
+                        </div>
+                        <div class="leftin">
+                            <h3>Sharon Doe</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem totam fugiat ducimus similique, mollitia quidem, et omnis accusantium voluptatem eligendi at soluta, laudantium enim ab rem iste quae consequatur perferendis!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="custom-btn gradient-lr add-topic" [routerLink]="['./add-lesson']">Add A Topic</button>
+                <div class="add-moredata">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="button-wrapper text-center">
+            <button type="button" class="custom-btn cancel">Cancel</button>
+            <button type="button" class="custom-btn reschedule">Reschedule</button>
+            <button type="button" class="custom-btn">Add To Calendar</button>
+            <button type="button" class="custom-btn gradient-lr">Save</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+.datasecwrapper-inner {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    border: solid 1px #ececec;
+    position: relative;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+.column-wrap {
+    border: solid 1px #e6e6e6;
+    border-radius: 6px;
+    margin: 0 0 50px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.sub-heading {
+    font-size: 20px;
+    color: #52686e;
+    font-weight: 400;
+    background: #f9fafb;
+    padding: 18px 25px;
+    border-bottom: solid 1px #eeeeee;
+}
+
+.detail-wrapper {
+    padding: 20px 25px;
+    border-bottom: solid 1px #eeeeee;
+}
+
+.detail-wrapper.classes-check {
+    padding-bottom: 30px;
+}

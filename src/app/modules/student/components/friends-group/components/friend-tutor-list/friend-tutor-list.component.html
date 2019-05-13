@@ -1,0 +1,158 @@
+<div class="datasecwrapper">
+    <div class="datasecwrapper-inner">
+        <ul class="breadcrumb">
+            <li>
+                <a href="javascript:void(0)" [routerLink]="[ '../../../student-details',friendId]"> Friends Details </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"> Tutor List </a>
+            </li>
+
+        </ul>
+        <div class="Tablewrapper teachertable">
+            <div class="TableRow" *ngFor="let tutor of frdfollowTutor">
+                <div class="TableCell">
+                    <!-- <figure class="profileimage" style="background-image:url('assets/images/user1.jpg')"></figure> -->
+
+                    <figure class="profileimage"[style.background-image]="'url('+ tutor.image +')'"></figure>
+                    <div class="leftin">
+                        <p class="teachername">{{tutor.firstName}} {{tutor.lastName}} </p>
+                        <span class="rating-star">
+                            <!-- <span style="width:50%"></span> -->
+                            
+                            <span [style.width]="getRating(tutor.rating)"></span>
+                           <!-- {{rate}} -->
+                            
+                        </span>
+                        <label class="message">Message</label>
+                    </div>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Teaching </label>
+                    <label class="label-form">{{tutor.teachLanguage}}</label>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Country </label>
+                    <label class="label-form">{{tutor.countryName}}</label>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Timezone </label>
+                    <label class="label-form">({{tutor.timeZone}}) {{tutor.counrty}}</label>
+                </div>
+                <div class="TableCell">
+                    <button type="button" [routerLink]="[ '../../../../../teacher/details',tutor._id]"  class="custom-btn gradient book-btn">Book a lesson</button>
+                </div>
+            </div>
+            <!-- TableRow -->
+            <!-- <div class="TableRow">
+                <div class="TableCell">
+                    <figure class="profileimage" style="background-image:url('assets/images/user1.jpg')"></figure>
+                    <div class="leftin">
+                        <p class="teachername">Michelle Pal</p>
+                        <span class="rating-star">
+                            <span style="width:50%"></span>
+                        </span>
+                        <label class="message">Message</label>
+                    </div>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Teaching </label>
+                    <label class="label-form">English</label>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Country </label>
+                    <label class="label-form">Canada</label>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Timezone </label>
+                    <label class="label-form">English</label>
+                </div>
+                <div class="TableCell">
+                    <button type="button" class="custom-btn gradient book-btn">Book a lesson</button>
+                </div>
+            </div>
+            <div class="TableRow">
+                <div class="TableCell">
+                    <figure class="profileimage" style="background-image:url('assets/images/user1.jpg')"></figure>
+                    <div class="leftin">
+                        <p class="teachername">Michelle Pal</p>
+                        <span class="rating-star">
+                            <span style="width:50%"></span>
+                        </span>
+                        <label class="message">Message</label>
+                    </div>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Teaching </label>
+                    <label class="label-form">English</label>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Country </label>
+                    <label class="label-form">Canada</label>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Timezone </label>
+                    <label class="label-form">English</label>
+                </div>
+                <div class="TableCell">
+                    <button type="button" class="custom-btn gradient book-btn">Book a lesson</button>
+                </div>
+            </div>
+            <div class="TableRow">
+                <div class="TableCell">
+                    <figure class="profileimage" style="background-image:url('assets/images/user1.jpg')"></figure>
+                    <div class="leftin">
+                        <p class="teachername">Michelle Pal</p>
+                        <span class="rating-star">
+                            <span style="width:50%"></span>
+                        </span>
+                        <label class="message">Message</label>
+                    </div>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Teaching </label>
+                    <label class="label-form">English</label>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Country </label>
+                    <label class="label-form">Canada</label>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Timezone </label>
+                    <label class="label-form">English</label>
+                </div>
+                <div class="TableCell">
+                    <button type="button" class="custom-btn gradient book-btn">Book a lesson</button>
+                </div>
+            </div>
+            <div class="TableRow">
+                <div class="TableCell">
+                    <figure class="profileimage" style="background-image:url('assets/images/user1.jpg')"></figure>
+                    <div class="leftin">
+                        <p class="teachername">Michelle Pal</p>
+                        <span class="rating-star">
+                            <span style="width:50%"></span>
+                        </span>
+                        <label class="message">Message</label>
+                    </div>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Teaching </label>
+                    <label class="label-form">English</label>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Country </label>
+                    <label class="label-form">Canada</label>
+                </div>
+                <div class="TableCell">
+                    <label class="label-input">Timezone </label>
+                    <label class="label-form">English</label>
+                </div>
+                <div class="TableCell">
+                    <button type="button" class="custom-btn gradient book-btn">Book a lesson</button>
+                </div>
+            </div> -->
+            <!-- TableRow -->
+        </div>
+    </div>
+</div>

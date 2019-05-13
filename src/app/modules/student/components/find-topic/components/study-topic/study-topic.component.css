@@ -1,0 +1,90 @@
+.filters {
+    padding: 20px 25px;
+    border-bottom: solid 1px #ececec;
+    margin: 0 -20px;
+}
+
+.filters .pd {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+figure.article-image {
+    border-radius: 4px;
+    width: 150px;
+    height: 120px;
+}
+
+figure.article-image {
+    border-radius: 4px;
+    width: 150px;
+    height: 120px;
+}
+
+
+/* modal-customize */
+
+.modal-customize {}
+
+.modal-body {
+    padding: 0 20px;
+}
+
+.modal-header.green {
+    background: #60a02e;
+    padding: 18px 0;
+}
+
+.modal-header.green .heading {
+    color: #fff;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+}
+
+.modal-header.green .modal-cross {
+    border-radius: 0;
+    background: transparent;
+}
+
+.modal-header.green .modal-cross img {
+    width: 15px;
+}
+
+.doller {
+    font-size: 18px;
+    color: #89bd60;
+    font-weight: 500;
+}
+
+.country {
+    font-size: 14px;
+    color: #8499a2;
+}
+
+#DiscussTopic p {
+    margin: 5px 0 0 0;
+}
+
+.count {
+    font-size: 16px;
+    color: #8499a2;
+}
+
+figure.articlefull-image {
+    max-width: 320px;
+    max-height: 220px;
+    position: relative;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    margin: 20px 20px 10px 0;
+    float: left;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
+
+.articlefull-detail {
+    margin: 20px 0 0 0;
+}

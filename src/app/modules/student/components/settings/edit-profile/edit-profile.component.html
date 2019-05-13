@@ -1,0 +1,172 @@
+<div class="profile-wrapper">
+    <div class="section-wrapper">
+        <ul class="breadcrumb">
+            <li>
+                <a href="javascript:void(0);" [routerLink]="['../../student/student-profile/lessons/scheduled-lesson']">{{'profile' | translate}}</a>
+            </li>
+            <li> {{'edit-profile' | translate}}</li>
+        </ul>
+        <form>
+            <div class="choose-image text-center">
+                <figure class="profileimage">
+                    <img alt="User" [src]="studentImage" src="./assets/images/avtar.png">
+                </figure>
+                <div class="profile-errormsg">
+                       <span *ngIf="isInternaleError">  {{'there-is-some-internal-error' | translate}}</span>
+                       <span *ngIf="isInvalidImage">  {{'please-upload-a-valid-image' | translate}}</span>
+                       <span *ngIf="isImageSizeExceed">  {{'file-size-can-not-be-more-than-500-kb' | translate}}</span>
+                    </div>
+                <div class="browse-btn">{{'browse' | translate}}
+                    <input type="file" name="avatar" (change)="onFileChange($event)" accept="image/*" class="browse-input">
+                </div>
+            </div>
+            <div class="other-option">
+                <span>{{'or-import-from' | translate}}</span>
+            </div>
+            <div class="social-icon text-center">
+                <a class="google-plus" href="javascript:void" (click)="GetImageFromGoogle()">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                <a class="facebook" href="javascript:void" (click)="GetImageFromFacebook()">
+                    <i class="fa fa-facebook"></i>
+                </a>
+            </div>
+            <form (ngSubmit)="UpdateProfile()" #frm="ngForm" novalidate>
+            <div class="editprofile">
+                <div class="form-group">
+                    <label class="input-label">{{'first-name' | translate}}</label>
+                    <div class="input-wrap">
+                        <input maxlength="15" name="studentFirstName" [(ngModel)]="studentFirstName"
+                         #firstNameRef="ngModel"  placeholder="{{'first-name' | translate}}" required="" type="text" required>
+                        <div *ngIf="firstNameRef.invalid&&firstNameRef.touched">
+                            <span class="errorlog-inputmsg right" style="display:block" *ngIf="firstNameRef?.errors.required">
+                                    {{'this-field-is-required' | translate}}    
+                             </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">{{'last-name' | translate}}</label>
+                    <div class="input-wrap">
+                        <input maxlength="15" name="studentLastName"  [(ngModel)]="studentLastName"  #lastNameRef="ngModel" 
+                        placeholder="{{'last-name' | translate}}" required="" type="text" class="">
+                        <div *ngIf="lastNameRef.invalid&&lastNameRef.touched">
+                                <span class="errorlog-inputmsg right" style="display:block" *ngIf="lastNameRef?.errors.required">
+                                        {{'this-field-is-required' | translate}}    
+                                 </span>
+                            </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">{{'email' | translate}}</label>
+                    <div class="input-wrap">
+                        <input maxlength="50" name="studentEmail"  [(ngModel)]="studentEmail" disabled name="Email" placeholder="{{'email' | translate}}" required="" type="text" class="">
+                        <div>
+                            <!-- <span class="errorlog-inputmsg right" style="display:block">This Field is Required </span> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">{{'country' | translate}}</label>
+                    <div class="input-wrap">
+                        <mat-form-field class="mselectpicker">
+                            <mat-select placeholder="{{'select-country' | translate}}" name="countryName" [(ngModel)]="countryName">
+                                <mat-option *ngFor="let c of countryList" [value]="c.name">
+                                    {{c.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <!-- <div>
+                            <span class="errorlog-inputmsg right" style="display:block">This Field is Required </span>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">{{'timezone' | translate}}</label>
+                    <div class="input-wrap">
+                            <mat-form-field class="mselectpicker">
+                                    <mat-select placeholder="{{'select-time-zone' | translate}}" name="country" [(ngModel)]="country" (change)="changeCountry()">
+                                        <mat-option *ngFor="let c of countries;let i=index" [value]="c.name">
+                                                ({{c.offsetStr}}) {{c.name}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                        <!-- <div>
+                          <span class="errorlog-inputmsg right" style="display:block">This Field is Required </span>
+                      </div> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">{{'language-you-speak' | translate}}</label>
+                    <div class="input-wrap">
+                        <mat-form-field class="mselectpicker">
+                            <mat-select placeholder="{{'select-language' | translate}}" name="langaugeName" [(ngModel)]="selecteLanguages" (change)="selectLanguageYouSepak($event)">
+                                <mat-option *ngFor="let language of languagesYouSpeak;let i=index" [value]="language.counrty">
+                                    {{language.counrty}}
+                                </mat-option>
+                                <mat-option value="Arabic">Arabic</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div *ngIf="noMoreThanFive">
+                            <span class="errorlog-inputmsg right" style="display:block">
+                                    {{'you-can-select-only-5-languages-you-speak' | translate}}
+                                    </span>
+                        </div>
+                           <div *ngIf="languagesYouSpeakSelection.length==0">
+                                <span class="errorlog-inputmsg right" style="display:block">
+                                   {{'please-select-languages-you-speak' | translate}}
+                                 </span>
+                            </div>
+                    </div>
+                    <ul class="append-langlist">
+                        <li *ngFor="let language of languagesYouSpeakSelection;let i=index">
+                            {{language.value}}
+                            <span class="cross-image" (click)="removeLanguageFromList(i)">
+                                <img src="./assets/images/select-cross.png" alt="">
+                            </span>
+                        </li>
+                       
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">{{'language-learning' | translate}}</label>
+                    <div class="input-wrap">
+                            <mat-form-field class="mselectpicker">
+                                    <mat-select placeholder="{{'select-language' | translate}}" name="learningLanguage" [(ngModel)]="learningLanguage">
+                                        <mat-option *ngFor="let language of languagesYouSpeak;let i=index" [value]="language.counrty">
+                                            {{language.counrty}}
+                                        </mat-option>                                        
+                                    </mat-select>
+                                </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">{{'level' | translate}} </label>
+                    <div class="input-wrap">
+                        <mat-form-field class="mselectpicker">
+                            <mat-select placeholder="Select" name="studentRate" [(ngModel)]="studentRate">
+                                <mat-option [value]="1">{{'a1' | translate}}</mat-option>
+                                <mat-option [value]="2">{{'a2' | translate}}</mat-option>
+                                <mat-option [value]="3">{{'b1' | translate}}</mat-option>
+                                <mat-option [value]="4">{{'b2' | translate}}</mat-option>
+                                <mat-option [value]="5">{{'c1' | translate}}</mat-option>
+                                <mat-option [value]="6">{{'c2' | translate}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">{{'about-me' | translate}}</label>
+                    <div class="input-wrap">
+                        <textarea name="additionalInformation" [(ngModel)]="studentAdditionalInformation" maxlength="200" cols="30" rows="5"></textarea>
+                        <span class="char-count-textarea">{{200-studentAdditionalInformation.length}} {{'characters' | translate}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center btnmargin">
+                <button type="submit" [disabled]="frm.invalid" class="custom-btn gradient-lr">{{'update' | translate}}</button>
+            </div>
+        </form>
+        </form>
+    </div>
+</div>

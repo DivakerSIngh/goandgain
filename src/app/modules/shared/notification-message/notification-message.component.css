@@ -1,0 +1,73 @@
+.datasecwrapper-inner {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    border: solid 1px #ececec;
+    position: relative;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+.titleheading.small {
+    margin: 20px 0 15px;
+}
+
+.notification-wrapper .inner {
+    position: relative;
+    border: solid 1px #e6e6e6;
+    border-radius: 6px;
+    margin: 0 0 50px 0;
+}
+
+.notification-wrapper .column {
+    position: relative;
+    border-bottom: solid 1px #eeeeee;
+    padding: 15px 70px 15px 20px;
+    overflow: hidden;
+}
+
+.notification-wrapper .column:last-child {
+    border-bottom: none;
+}
+
+.column.unread {
+    background: #f7f7f7;
+}
+
+.column .message {
+    color: #52686e;
+    font-size: 18px;
+}
+
+.column.unread .message {
+    font-weight: 500;
+}
+
+.column .datetime {
+    font-size: 15px;
+    color: #8499a2;
+    font-style: italic;
+}
+
+.notification-wrapper .delete {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.notification-wrapper .delete:hover,
+.notification-wrapper .delete:focus {
+    box-shadow: 0 0 20px rgba(172, 24, 24, 0.44);
+}
+
+.delete-ovarall {
+    display: inline-block;
+    font-size: 18px;
+    color: #52686e;
+    position: absolute;
+    right: 0;
+    top: -65px;
+    padding: 10px 20px;
+}

@@ -1,0 +1,59 @@
+<!-- <app-instant-tutoring-mark></app-instant-tutoring-mark> -->
+<div class="datasecwrapper-inner">
+    <div class="btn-border">
+        <button type="" class="custom-btn gradient-lr" [routerLink]="['../create-courses']">Create Course</button>
+    </div>
+    <div class="course-column" *ngFor="let course of allCourses">
+        <div class="right-sec">
+            <span class="label-green">
+                ${{course.price}} {{course.noOfLesson}} <br> Lessons
+            </span>
+        </div>
+        <div class="wrap-left">
+            <a href="javascript:void(0)" class="head" [routerLink]="['../course-details',course._id]">{{course.courseTitle}}</a>
+            <h4 class="upparcase">{{course.language}}, {{course.targetStudentLevel}}</h4>
+            <h4 class="italic">{{course.courseType}}</h4>
+            <p>{{course.courseDesciption}}</p>
+        </div>
+    </div>
+
+
+    <div class="course-column" *ngIf="allCourses.length<=0">
+        <div class="right-sec">
+            
+        </div>
+        <div class="wrap-left">
+            <a href="javascript:void(0)" class="head">No record found</a>
+        </div>
+    </div>
+
+
+    <!-- <div class="course-column">
+        <div class="right-sec">
+            <span class="label-green">
+                $50 5 <br> Lessons
+            </span>
+        </div>
+        <div class="wrap-left">
+            <a href="javascript:void(0)" class="head" [routerLink]="['../course-details']">American Culture/ History</a>
+            <h4 class="upparcase">English, upper Intermediate</h4>
+            <h4 class="italic">Grammer</h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut placeat laboriosam, nemo vitae voluptates hic modi ipsum similique facilis nulla </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quod, eaque iste praesentium voluptas reprehenderit rem magnam earum quidem quas, aperiam alias sit labore, dolorum ipsam magni nobis ad? Quos!</p>
+        </div>
+    </div>
+    <div class="course-column">
+        <div class="right-sec">
+            <span class="label-green">
+                    $50 5 <br> Lessons
+                </span>
+        </div>
+        <div class="wrap-left">
+            <a href="javascript:void(0)" class="head" [routerLink]="['../course-details']">American Culture/ History</a>
+            <h4 class="upparcase">English, upper Intermediate</h4>
+            <h4 class="italic">Grammer</h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut placeat laboriosam, nemo vitae voluptates hic modi ipsum similique facilis nulla </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quod, eaque iste praesentium voluptas reprehenderit rem magnam earum quidem quas, aperiam alias sit labore, dolorum ipsam magni nobis ad? Quos!</p>
+        </div>
+    </div> -->
+</div>

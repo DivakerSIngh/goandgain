@@ -1,0 +1,80 @@
+.datasecwrapper-inner {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    border: solid 1px #ececec;
+    position: relative;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+.invite-friend-detail {
+    padding: 20px 15px;
+}
+
+.userdetail-column .leftin {
+    padding: 15px 0 0 0;
+}
+
+.userdetail-column h3 {
+    margin: 0 0 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.label-withicon.full-width {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-bottom: 5px;
+}
+
+.invite-friend-detail .userdetail-column {
+    border: solid 1px #ececec;
+    padding: 15px 15px 0;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.invite-friend-detail .border-top {
+    border-top: solid 1px #ececec;
+    padding: 10px 15px;
+    margin: 15px -15px 0;
+    height: 90px;
+    overflow: hidden;
+}
+
+.invite-friend-detail .pd5 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.invite-friend-detail .button-wrapper {
+    margin: 15px -15px 0;
+}
+
+.invite-friend-detail .custom-btn {
+    margin: 0;
+}
+
+.invite-friend-detail .custom-btn {
+    margin: 0;
+    background: #f5f5f5;
+    font-size: 16px;
+    color: #8499a2;
+    padding: 15px 10px;
+    border: solid 1px #ececec;
+}
+
+.invite-friend-detail .custom-btn.active {
+    color: #fff;
+    background: #79b24b;
+    border: solid 1px #79b24b;
+    background: -moz-linear-gradient(left, #79b24b 0%, #4d9316 100%);
+    background: -webkit-linear-gradient(left, #79b24b 0%, #4d9316 100%);
+    background: linear-gradient(to right, #79b24b 0%, #4d9316 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#79b24b', endColorstr='#4d9316', GradientType=1);
+}

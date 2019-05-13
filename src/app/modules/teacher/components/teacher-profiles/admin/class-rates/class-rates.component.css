@@ -1,0 +1,57 @@
+.titleheading.small {
+    margin: 10px 0 30px 0;
+}
+
+.sub-wrapper {
+    border: solid 1px #e6e6e6;
+    overflow: hidden;
+    border-radius: 6px;
+    margin: 0 0 10px 0;
+    padding: 0 25px 20px;
+}
+
+.sub-heading {
+    background: #f9fafc;
+    border-bottom: solid 1px #eeeeee;
+    padding: 20px 25px;
+    font-size: 18px;
+    color: #52686e;
+    margin: 0 -25px 25px;
+}
+
+.input-wrap .side-btn {
+    position: absolute;
+    background: #f7f7f7;
+    border: solid 1px #dddddd;
+    height: 100%;
+    font-size: 16px;
+    color: #52686e;
+    font-weight: 500;
+    padding: 10px 10px;
+}
+
+.input-wrap .side-btn.mins {
+    right: 0;
+    border-left: none;
+    border-radius: 0 6px 6px 0;
+}
+
+.input-wrap .side-btn.doller {
+    left: 0;
+    border-radius: 6px 0 0 6px;
+    width: 40px;
+    text-align: center;
+    border-right: none;
+}
+
+.input-wrap .input-inner {
+    padding: 0 78px 0 40px;
+}
+
+.input-wrap .input {
+    border-radius: 0px;
+}
+
+.btn-mar {
+    margin: 40px 0;
+}

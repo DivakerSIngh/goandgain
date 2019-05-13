@@ -1,0 +1,49 @@
+<div class="friendlist">
+    <div class="searchWrapper2 m-minus clearfix">
+            <!-- [routerLink]="['../../invite-friend',search]" -->
+        <button class="searchbtn custom-btn gradient-lr pull-right"   (click)="inviteFriends()"  type="submit"   routerLinkActive="active">Add Friends </button>
+        <div class="overflow">
+            <div class="input-wrap">
+                <input class="search" name="search" maxlength="30" (keydown)="searchFriends($event)" [(ngModel)]="search"  placeholder="Search Friends by Name" type="text">
+                <div class="searchbtnicon">
+                    <img alt="" src="assets/images/search.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="friendlist-col">
+       
+            <div class="userdetail-column clearfix" *ngIf="norecordFound">
+                    <div class="leftin">
+                        <h3>Sorry! You don't have any friend.</h3>
+                    </div>
+                </div>
+
+            <div class="userdetail-column clearfix" *ngFor="let fr of myFriends">
+
+                    <figure class="image"[style.background-image]="'url('+ fr.image +')'"></figure>
+                    <button class="custom-btn border" type="submit">Message</button>
+                    <div class="leftin">
+                           
+
+                        <h3>
+                         <a [routerLink]="['../../../../student-profile/student-details',fr._id]">
+                            {{fr.firstName}} {{fr.lastName}}
+                        </a>
+                        </h3>
+                        <label class="label-withicon">
+                          <span class="icon"><img alt="" src="assets/images/marker.png"></span>
+                          <strong> From:</strong> 
+                          <!-- ({{fr.timeZone}}) -->
+                          {{fr.counrty}}
+                      </label>
+                        <label class="label-withicon">
+                          <span class="icon"><img alt="" src="assets/images/edu-icon.png"></span>
+                          <strong> Learn:</strong>{{fr.mainlanguage}}
+                      </label>
+                    </div>
+                </div>
+     
+       
+    </div>
+</div>

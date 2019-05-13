@@ -1,0 +1,19 @@
+.label-form.withvalue span {
+    font-weight: 400;
+    color: #8499a2;
+}
+
+.label-form.withvalue {
+    font-weight: 500;
+    margin: 10px 0 10px 0;
+}
+
+.classes-info {
+    color: #f46c00;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.lessondetail-wrap .article-head {
+    padding: 15px 15px;
+}

@@ -1,0 +1,9 @@
+<div class="custom-tabs withbg clearfix">
+    <a href="javascript:void(0);" [routerLink]="[ './scheduled-lesson']" routerLinkActive="active" class="tabs_1">{{'scheduled-lesson' | translate}}</a>
+    <a href="javascript:void(0);" [routerLink]="[ './unscheduled-lesson']" routerLinkActive="active" class="tabs_2">{{'unscheduled-lesson' | translate}}</a>
+    <a href="javascript:void(0);" [routerLink]="[ './past-classes']" routerLinkActive="active" class="tabs_3">{{'past-classes' | translate}}</a>
+    <a href="javascript:void(0);" [routerLink]="[ './favourite-teacher']" routerLinkActive="active" class="tabs_4">{{'favourite-tutor' | translate}}</a>
+    <div class="underline"></div>
+</div>
+
+<router-outlet></router-outlet>

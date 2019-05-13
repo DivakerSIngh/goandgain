@@ -1,0 +1,283 @@
+<div class="datasecwrapper-inner">
+    <ul class="breadcrumb">
+        <li>
+            <a href="javascript:void(0);" [routerLink]="['../../tabs/groups']">
+            Groups
+         </a>
+        </li>
+        <li>{{groupDetails.name}}</li>
+    </ul>
+    <div class="friendgroup-wrapper">
+        <div class="friendgroup-position">
+            <a href="javascript:void(0);" class="grouptoggle bullet-dots" mat-icon [matMenuTriggerFor]="option">
+                <i class="fa fa-circle"></i>
+                <i class="fa fa-circle"></i>
+                <i class="fa fa-circle"></i>
+            </a>
+            <mat-menu #option="matMenu">
+                <button mat-menu-item (click)="memberChoice(1)" *ngIf="canLeave">Leave Group</button>
+                <button mat-menu-item (click)="memberChoice(2)" *ngIf="!canLeave">Edit Group</button>
+            </mat-menu>
+            <div class="left">
+                <div class="section-wrap">
+                    <!-- <h2 class="title">Group Name</h2>
+                <div class="group-data">{{groupDetails.name}}</div> -->
+                    <h2 class="title">Subject</h2>
+                    <div class="group-data"> {{groupDetails.subject}} </div>
+                    <h2 class="title">Category Name</h2>
+                    <div class="group-data"> {{groupDetails.category}} </div>
+                    <h2 class="title">Sub Category Name</h2>
+                    <div class="group-data">{{groupDetails.subCategory}} </div>
+                    <h2 class="title">Language</h2>
+                    <div class="group-data"> {{groupDetails.language}} </div>
+                    <h2 class="title">Timezone</h2>
+                    <div class="group-data"> ({{groupDetails.timeZone}}) {{groupDetails.country}} </div>
+                    <h2 class="title">Members</h2>
+                    <div class="members-group clearfix">
+                        <div *ngFor="let im of addedMembers;let i=index">
+                            <div *ngIf="i<=2">
+                                <figure (click)="viewMoreMember()" matTooltip="{{im.userId.firstName}} {{im.userId.lastName}}" title="" class="image" [style.background-image]="'url('+ im.userId.image +')'"></figure>
+
+                            </div>
+                        </div>
+                        <div *ngIf="addedMembers.length>2 && moreFriends>0">
+                            <figure class="image member" (click)="viewMoreMember()">+{{moreFriends}}</figure>
+                        </div>
+                    </div>
+                    <h2 class="title">Description</h2>
+                    <div class="description-detail">
+                        <p>{{groupDetails.description}}</p>
+                        <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen book.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <!-- <div class="select-wrapper">
+                    <select (change)="memberChoice(groupOption)" name="leaveGroup" [(ngModel)]="groupOption" class="custom-select select2">
+                        <option  value="0">Select</option>
+                       <option *ngIf="!canLeave" value="1">Leave Group</option>
+                       <option *ngIf="canLeave" value="2">Edit Group</option>                  
+                    </select>
+                </div> -->
+                <div class="section-wrap invite-group">
+                    <!-- <figure style="background-image: url('assets/images/group-image.jpg')"></figure> -->
+                    <figure [style.background-image]="'url('+ groupDetails.image +')'"></figure>
+                    <div class="text-center">
+                        <!-- <button type="button" class="custom-btn gradient-lr" data-toggle="modal" data-target="#InviteModal">Invite</button> -->
+                        <button type="button" class="custom-btn gradient-lr" (click)="openInvitePoUp()">Invite</button>
+                    </div>
+                </div>
+                <div class="section-wrap files-wrapper">
+                    <h2 class="title">Files</h2>
+
+                    <!-- <ul class="files-list">
+                        <li>1211665.jpg</li>
+                        <li>121166abcdef5.pdf</li>
+                        <li>
+                            <a href="">See More</a>
+                        </li>
+                    </ul> -->
+                    <ul class="files-list" [class.full]="isToggle">
+                        <li *ngFor="let file of groupDetails.files" class="tooltip-hover-file"> <a href="javascript:void(0);">{{file.fileName}}</a>
+                            <div class="tooltip-wrapper-file">
+                                {{file.fileName}}
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- <a href="javascript:void(0);" class="see-wrap" (click)="seeMore()" [class.active]="isToggle">See More</a> -->
+                    <div class="browse-btn">Browse file
+                        <input type="file" name="avatar" (change)="onFileChange($event)" class="browse-input" id="docfileupload">
+
+                    </div>
+                    <span>{{invalidFileMessage}}</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="button-wrapper">
+            <button type="button" (click)="CreatePracticeRoom()" class="custom-btn gradient-lr">Create Practice Room</button>
+        </div>
+    </div>
+    <div class="mt20 friendgroup-wrapper">
+        <div class="section-wrap">
+            <h2 class="title noticetitle">Notice
+                <mat-slide-toggle class="noticeReminder">Reminder</mat-slide-toggle>
+            </h2>
+            <ul class="notice-list">
+                <li *ngFor="let notice of allNotice; let i=index">
+                    {{notice.created | date : 'dd MMM yyyy'}} at {{ notice.created | date:'mediumTime' }} : {{getLimitedNoticed(notice.commentData[0].comment)}}
+
+                    <a href="javascript:void(0);" class="tooltip-hover" *ngIf="notice.commentData[0].comment.length>40"> Read more
+                        <div class="tooltip-wrapper">
+                            {{notice.commentData[0].comment}}
+                        </div>
+                    </a>
+
+                    <a href="javascript:void(0)" class="bullet-dots" mat-icon [matMenuTriggerFor]="noticemenu">
+                        <i class="fa fa-circle"></i>
+                        <i class="fa fa-circle"></i>
+                        <i class="fa fa-circle"></i>
+                    </a>
+                    <mat-menu #noticemenu="matMenu">
+                        <button mat-menu-item (click)="unpostConfirmation(notice._id,i,notice.commentData[0]._id)">Unpost</button>
+                    </mat-menu>
+                </li>
+                <li *ngIf="allNotice.length==0">Not Available</li>
+            </ul>
+        </div>
+    </div>
+    <div class="commentWrapper">
+        <span *ngIf="noticedMessage.length>0" class="successMsg-top">{{noticedMessage}}</span>
+        <div class="write-comment">
+            <h2 class="write-head">Write A Message</h2>
+            <div class="write-chat-inner clearfix">
+                <figure>
+                    <img class="userimage" [src]="studetnImage" alt="">
+                </figure>
+                <textarea maxlength="500" name="comment" id="" [(ngModel)]="comment" cols="30" rows="3"></textarea>
+                <button [disabled]="isEntered()" (click)="postComment()" class="custom-btn gradient-lr" type="submit" disabled="">Post Comment</button>
+            </div>
+
+            <!--  <textarea maxlength="500" name="comment" id="" [(ngModel)]="comment" cols="30" rows="3"></textarea>
+        <div class="button-wrapper">
+            <button [disabled]="isEntered()" (click)="postComment()" type="submit" class="custom-btn gradient-lr">Post Comment</button>
+        </div> -->
+        </div>
+
+        <div class="chatColumn" *ngFor="let com of outerComment;let i=index">
+            <figure class="userimage" [style.background-image]="'url('+ com.userId.image +')'"></figure>
+            <div class="leftIn">
+                <div class="chatcolumn-section">
+                    <a href="javascript:void(0);" *ngIf="isLoggedIn&&isMainCommentCreator(i)" class="comment-options" mat-icon [matMenuTriggerFor]="menu">
+                        <i class="fa fa-circle"></i>
+                        <i class="fa fa-circle"></i>
+                        <i class="fa fa-circle"></i>
+                    </a>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item *ngIf="isLoggedIn&&isMainCommentCreator(i)" (click)="ConfirmCommentDelete(com._id,i)">Delete</button>
+                        <button mat-menu-item *ngIf="isLoggedIn&&isMainCommentCreator(i)" (click)="openCloseCollapsEditMainComment(com._id,i,com.comment)">Edit</button>
+                        <button mat-menu-item *ngIf="isLoggedIn&&isMainCommentCreator(i)&&com.isNoticed==0" (click)="postAsNotice(com._id,i)">Post as notice</button>
+                    </mat-menu>
+                    <div class="head">{{com.userId.firstName}} {{com.userId.lastName}}</div>
+                    <span class="datetime"> {{com.created | date : 'dd MMM yyyy'}} at {{ com.created | date:'mediumTime' }}</span>
+                    <a href="javascript:void(0);" (click)="openCloseCollaps(com._id)" class="reply">Reply</a>
+                    <p>{{com.comment}}</p>
+                </div>
+
+                <div [id]="com._id" class="collapse">
+                    <div class="write-comment">
+                        <h2 class="write-head">Reply to {{com.userId.firstName}} {{com.userId.lastName}}</h2>
+                        <div class="write-chat-inner clearfix">
+                            <figure>
+                                <img class="userimage" [src]="studetnImage" alt="">
+                            </figure>
+                            <div class="leftIn">
+                                <textarea maxlength="200" name="innerComment" [(ngModel)]="innerComment" id="" cols="30" rows="3"></textarea>
+                                <div class="button-wrapper">
+                                    <button type="submit" class="custom-btn gradient-lr" [disabled]="isInnerCommentInserted()" (click)="SaveInnerComment(innerComment,com._id,i)">Post Comment</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div [id]="i" class="collapse">
+                    <div class="write-comment">
+                        <h2 class="write-head">Edit Comment</h2>
+                        <div class="write-chat-inner clearfix">
+                            <figure>
+                                <img class="userimage" [src]="studetnImage" alt="">
+                            </figure>
+                            <div class="leftIn">
+                                <textarea maxlength="200" name="innerComment" [(ngModel)]="innerComment" id="" cols="30" rows="3"></textarea>
+                                <div class="button-wrapper">
+                                    <button type="submit" class="custom-btn gradient-lr" [disabled]="isInnerCommentInserted()" (click)="editMainComment(innerComment,com._id,i)">Edit Comment</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chatReply" *ngFor="let innerCom of com.replyData;let innerIndex=index">
+                    <figure class="userimage" [style.background-image]="'url('+ innerCom.userId.image +')'"></figure>
+                    <div class="leftIn">
+                        <div class="chatcolumn-section">
+                            <a href="javascript:void(0);" *ngIf="isLoggedIn&&isInnerCommentCreator(i,innerIndex)" class="comment-options" mat-icon [matMenuTriggerFor]="menu">
+                                <i class="fa fa-circle"></i>
+                                <i class="fa fa-circle"></i>
+                                <i class="fa fa-circle"></i>
+                            </a>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item *ngIf="isLoggedIn&&isInnerCommentCreator(i,innerIndex)" (click)="ConfirmInnerCommentDelete(innerCom._id,innerIndex,i,com._id)">Delete</button>
+                            </mat-menu>
+                            <h2 class="head">{{innerCom.userId.firstName}} {{innerCom.userId.lastName}}</h2>
+                            <label class="datetime">{{innerCom.created | date : 'dd MMM yyyy'}} at {{ innerCom.created | date:'mediumTime' }}</label>
+                            <p>{{innerCom.comment}}</p>
+                        </div>
+                        <div [id]="innerCom._id" class="collapse">
+                            <div class="write-comment">
+                                <h2 class="write-head">Reply to {{com.userId.firstName}} {{com.userId.lastName}}</h2>
+                                <div class="write-chat-inner clearfix">
+                                    <figure>
+                                        <img class="userimage" [src]="studetnImage" alt="">
+                                    </figure>
+                                    <div class="leftIn">
+                                        <textarea maxlength="200" name="innerComment" [(ngModel)]="innerComment" id="" cols="30" rows="3"></textarea>
+                                        <div class="button-wrapper">
+                                            <button type="submit" class="custom-btn gradient-lr" [disabled]="isInnerCommentInserted()" (click)="editInnerComment()">Edit Comment</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <app-modal></app-modal>
+
+        <div class="modal fade" id="deletePopUp" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-sm create-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="modal-cross" data-dismiss="modal" type="button">
+                                <img  alt="close" src="assets/images/close.svg">
+                            </button>
+                        <h4 class="heading">Confirmation</h4>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p>Are you sure want to delete the comment?</p>
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button type="button" class="custom-btn gradient save" (click)="deleteComment()">Confirm</button>
+                        <button type="button" class="custom-btn delete" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="unpostNoticed" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-sm create-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="modal-cross" data-dismiss="modal" type="button">
+                                    <img  alt="close" src="assets/images/cancel.png">
+                                </button>
+                        <h4 class="modal-title">Confirmation</h4>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p>Are you sure want to unpost the notice?</p>
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button type="button" class="custom-btn gradient save" (click)="unPostNotice()">Confirm</button>
+                        <button type="button" class="custom-btn delete" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>

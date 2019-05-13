@@ -1,0 +1,171 @@
+<div class="trial-wrapper">
+    <div class="tutor-section">
+        <h2 class="heading"> {{'trial-lesson' | translate}}</h2>
+        <div class="column">
+            <h2 class="section-head">{{'trial-lesson' | translate}}</h2>
+            <mat-radio-group class="radio-wrapper forlessons" [(ngModel)]="trialType">
+                <mat-radio-button *ngFor="let option of trial" [value]="option._id"><span class="green">${{option.price}}</span> <br> {{option.timeDuration}} Min </mat-radio-button>
+            </mat-radio-group>
+            <label class="not-avilabel" *ngIf="trial.length<=0">{{'not-available' | translate}}</label>
+        </div>
+        <div class="column button-wrapper">
+                <!-- <button type="button" class="custom-btn gradient-lr" *ngIf="trial.length>0 || instant.length>0 || regular.length>0" data-toggle="modal" data-target="#requestInstantTutor">{{'book-lesson' | translate}}</button> -->
+    
+                  <button type="button" class="custom-btn gradient-lr" *ngIf="trial.length>0" data-toggle="modal" (click)="booktrialLesson()">{{'book-trial-lesson' | translate}}</button>
+                  <span *ngIf="ifNoTrialType">Please choose an option</span>
+            </div>
+    </div>
+    <div class="tutor-section">
+        <h2 class="heading">{{'lessons' | translate}}</h2>
+        <div class="column">
+            <h2 class="section-head">{{'instant' | translate}}</h2>
+            <mat-radio-group class="radio-wrapper forlessons" [(ngModel)]="selectedType">
+                <mat-radio-button *ngFor="let option of instant" [value]="option._id"><span class="green">${{option.price}}</span> <br> {{option.timeDuration}} Min </mat-radio-button>
+            </mat-radio-group>
+            <label class="not-avilabel" *ngIf="instant.length<=0">{{'not-available' | translate}}</label>
+        </div>
+        <div class="column">
+            <h2 class="section-head">{{'regular-classes' | translate}}</h2>
+            <mat-radio-group class="radio-wrapper forlessons" [(ngModel)]="selectedType">
+                <mat-radio-button *ngFor="let option of regular" [value]="option._id"><span class="green">${{option.price}}</span> <br> {{option.noOfClasses}} Lesson </mat-radio-button>
+            </mat-radio-group>
+            <label class="not-avilabel" *ngIf="regular.length<=0">{{'not-available' | translate}}</label>
+        </div>
+        <div class="column button-wrapper">
+            <!-- <button type="button" class="custom-btn gradient-lr" *ngIf="trial.length>0 || instant.length>0 || regular.length>0" data-toggle="modal" data-target="#requestInstantTutor">{{'book-lesson' | translate}}</button> -->
+
+         <button type="button" class="custom-btn gradient-lr" *ngIf=" instant.length>0 || regular.length>0" data-toggle="modal" (click)="bookLesson()">{{'book-lesson' | translate}}</button>
+         <span *ngIf="ifNoSelectedType">Please choose an option</span>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="availabilityChart" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="heading">Request For Instant Tutoring</h2>
+                    <button type="button" class="modal-cross" data-dismiss="modal">
+                        <img src="assets/images/close.svg" alt="close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <div class="teacher-edit-calendar datasecwrapper-inner">
+                                <div class="text-center">
+                                    <h1 class="titleheading small">Sunday-Monday</h1>
+                                </div>
+                                <div class="calendar-wrapper clearfix">
+                                    <div class="table-wrapper">
+                                        <table class="table table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th><img src="assets/images/clock.png" alt="Clock"><span>{{timeZone}}</span></th>
+                                                    <th>SUN</th>
+                                                    <th>MON</th>
+                                                    <th>TUE</th>
+                                                    <th>WED</th>
+                                                    <th>THU</th>
+                                                    <th>FRI</th>
+                                                    <th>SAT</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let cal of prepareCalendar;let i=index">
+                                                    <th>{{cal.time}}</th>
+                                                    <td class="check">
+                                                        <div class="table-checkbox">
+                                                            <input id="Sunday{{i}}" name="check{{cal.availability.Sunday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Sunday')" (change)="changeValue(i,'Sunday')">
+                                                            <label for="Sunday{{i}}"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="check">
+                                                        <div class="table-checkbox">
+                                                            <input id="Monday{{i}}" name="check{{cal.availability.Monday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Monday')" (change)="changeValue(i,'Monday')">
+                                                            <label for="Monday{{i}}"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="check">
+                                                        <div class="table-checkbox">
+                                                            <input id="Tuesday{{i}}" name="check{{cal.availability.Tuesday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Tuesday')" (change)="changeValue(i,'Tuesday')">
+                                                            <label for="Tuesday{{i}}"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="check">
+                                                        <div class="table-checkbox">
+                                                            <input id="Wednesday{{i}}" name="check{{cal.availability.Wednesday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Wednesday')" (change)="changeValue(i,'Wednesday')">
+                                                            <label for="Wednesday{{i}}"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="check">
+                                                        <div class="table-checkbox">
+                                                            <input id="Thursday{{i}}" name="check{{cal.availability.Thursday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Thursday')" (change)="changeValue(i,'Thursday')">
+                                                            <label for="Thursday{{i}}"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="check">
+                                                        <div class="table-checkbox">
+                                                            <input id="Friday{{i}}" name="check{{cal.availability.Friday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Friday')" (change)="changeValue(i,'Friday')">
+                                                            <label for="Friday{{i}}"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="check">
+                                                        <div class="table-checkbox">
+                                                            <input id="Saturday{{i}}" name="check{{cal.availability.Saturday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Saturday')" (change)="changeValue(i,'Saturday')">
+                                                            <label for="Saturday{{i}}"></label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="text-center"> <button type="submit" class="custom-btn gradient-lr">Submit</button> </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+<div class="modal fade" id="requestInstantTutor" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="heading">Request For Instant Tutoring</h2>
+                <button type="button" class="modal-cross" data-dismiss="modal">
+                    <img src="assets/images/close.svg" alt="close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="inprocess-modal">
+                    <label>English</label>
+                    <p class="green">$5 USD / 30 min</p>
+                    <span>In the Process...</span>
+                </div>
+                <div class="inprocess-modal">
+                    <div class="checkmark-circle">
+                        <div class="background"></div>
+                        <div class="checkmark draw"></div>
+                    </div>
+                    <p>The tutor has accepted your request.</p>
+                    <button type="submit" class="custom-btn gradient-lr">Study Now </button>
+                </div>
+                <div class="inprocess-modal">
+                    <p>We are very sorry. Unfortunalety, the tutor is not available now.</p>
+                    <button type="submit" class="custom-btn fill">Find another instant tutor! </button>
+                </div>
+                <div class="inprocess-modal">
+                    <p>You don't have enough credits to purchase this lesson.</p>
+                    <button type="submit" class="custom-btn gradient-lr">Buy Credit </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

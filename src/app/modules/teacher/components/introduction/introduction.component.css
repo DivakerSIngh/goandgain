@@ -1,0 +1,74 @@
+.form-group-small {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.profile-label {
+    padding-bottom: 40px;
+}
+
+textarea {
+    padding-bottom: 30px;
+}
+
+.form-group,
+.maxwidth-select {
+    position: relative;
+}
+
+.char-count-textarea {
+    position: absolute;
+    right: 20px;
+    bottom: 3px;
+    color: #adadad;
+}
+
+.teacher-introduction-error {
+    color: #cc0000;
+    position: absolute;
+    top: 40px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.teacher-introduction-error2 {
+    color: #cc0000;
+    position: absolute;
+    top: 70px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.choose-file-name {
+    display: block;
+    padding: 5px 0;
+    text-align: left;
+}
+
+.choose-file-name img {
+    padding: 3px 20px;
+    cursor: pointer;
+}
+
+input[type="text"]:disabled {
+    opacity: 0.5;
+    background-color: rgb(235, 235, 228);
+    cursor: not-allowed;
+}
+
+input[type="file"]:disabled {
+    background-color: rgb(235, 235, 228);
+    cursor: not-allowed;
+}
+
+.error-msg {
+    position: absolute;
+    left: 0;
+    color: #ff0000;
+    font-size: 14px;
+    bottom: -28px;
+}
+
+.maxwidth-select {
+    max-width: 700px;
+}

@@ -1,0 +1,239 @@
+<div class="centersecwrapper">
+    <div class="container">
+        <div class="createBulletinWrapper clearfix">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="javascript:void(0)" [routerLink]="['../bulletin-tabs']">{{'bulletin-board' | translate}}</a>
+                </li>
+                <li>{{'create-bulletin-board' | translate}}</li>
+            </ul>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="text-center">
+                        <div class="secheading"> {{'create-by-url' | translate}}</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-9">
+                            <div class="form-group">
+                                <label class="input-label left">{{'url' | translate}}</label>
+                                <div class="input-wrap right">
+                                    <input type="text" placeholder="{{'enter-url-here' | translate}}" [(ngModel)]="urlToSearch" name="url">
+                                </div>
+                                <span class="coud-not-fetcherror" *ngIf="urlstatusMessage.length>0">
+                                    <!-- {{urlstatusMessage}} -->
+                                    {{'could-not-fetch-url' | translate}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-sm-3 text-right">
+                            <button type="submit" [disabled]="urlToSearch.length<=0" (click)="findUrlDetails()" class="custom-btn gradient-lr">{{'fetch-data' | translate}} </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group text-center">
+                        <div class="other-option">
+                            <span>OR</span>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="text-center">
+                        <div class="secheading">{{'create-manually' | translate}}</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                        <label class="input-label left">{{'article-heading' | translate}}</label>
+                        <div class="input-wrap right">
+                            <input type="text" maxlength="400" name="articleHeading" [(ngModel)]="articleHeading" value="" class="" placeholder="{{'enter-article-heading' | translate}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="input-label left">{{'category' | translate}}</label>
+                                <div class="input-wrap selectWraper right">
+                                    <mat-form-field class="mselectpicker">
+                                        <mat-select placeholder="{{'select-category' | translate}}" name="selectUrlCategory" [(ngModel)]="category">
+                                            <mat-option value="1">
+                                                Free Discussion
+                                            </mat-option>
+                                            <mat-option value="2">
+                                                Essay Correction
+                                            </mat-option>
+                                            <mat-option value="3">
+                                                Question & Answer
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <!-- <select class="custom-selectpicker" name="selectCategory" [(ngModel)]="category">
+                                        <option value="0" disabled="" selected="">Select </option>
+                                        <option value="1">Free Discussion
+                                        <option value="2">Essay Correction</option>
+                                        <option value="3">Question & Answer</option>
+                                    </select> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                            <div class="form-group position">
+                                <label class="input-label left">{{'language' | translate}}</label>
+                                <div class="input-wrap selectWraper right">
+                                    <mat-form-field class="mselectpicker">
+                                        <mat-select placeholder="{{'select-language' | translate}}" name="langaugeName" [(ngModel)]="language">
+                                            <mat-option *ngFor="let lang of languageList" [value]="lang.counrty">
+                                                {{lang.counrty}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <!-- <select class="custom-selectpicker" name="language" [(ngModel)]="language">
+                                       
+                                        <option value="0" disabled="" selected="" >Select </option>
+                                        <option *ngFor="let lang of languageList;let innerIndex=index" value="{{lang.counrty}}">{{lang.counrty}}</option>
+                                      
+                                    </select> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <label class="input-label left">{{'image' | translate}}</label>
+                        <div class="input-wrap right">
+                            <div class="custom-btn choose-image">{{'choose-image' | translate}} <input (change)="onFileChange($event)" type="file"></div>
+                            <div class="choose-error" *ngIf="invalidImageManual">
+                                 <!-- {{inavlidImageManualMessage}} -->
+                                 {{'please-upload-a-valid-image' | translate}}
+                                </div>
+
+                            <div class="choose-error" *ngIf="internalError">
+                                 <!-- {{inavlidImageManualMessage}} -->
+                                 {{'there-is-some-internal-error' | translate}}
+                                </div>
+
+                            <div class="choose-error" *ngIf="imageSizeExceed"> 
+                                <!-- {{inavlidImageManualMessage}} -->
+                                {{'file-size-can-not-be-more-than-500-kb' | translate}}
+                            </div>
+
+
+
+                            <div class="clearfix"></div>
+                            <div class="article-image-wrapper">
+                                <!-- [ngStyle]="{'background-image': 'url(' + imageManualPath + ')'}" -->
+                                <div class="article-image">
+                                    <img [src]="imageManualPath" alt="">
+                                </div>
+                            </div>
+                            <!-- <div class="article-image" style="background-image: url('assets/images/banner1.jpg');"></div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <label class="input-label left">{{'description' | translate}}</label>
+                        <div class="input-wrap right">
+                            <textarea name="des" (keyup)="changedescriptionCount()" [(ngModel)]="description" maxlength="5000" name="" id="" cols="30" rows="8" placeholder="{{'description' | translate}}"></textarea>
+                            <span class="char-count-textarea"> {{remainingCountDescription}} {{'characters' | translate}} </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-wrapper">
+                <button type="button" [disabled]="ifAllValid()" (click)="createdBulletinBoard()" class="custom-btn gradient-lr article-btn">{{'create-article' | translate}}</button>
+            </div>
+            <div class="successMsg-top" *ngIf="createdStatus.length>0">{{createdStatus}}</div>
+        </div>
+    </div>
+    <!--container -->
+
+</div>
+
+<div class="modal fade" id="fetchUrl" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg create-modal fetchUrlmodal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="heading">{{'fetch-url' | translate}}</h2>
+                <button type="button" class="modal-cross" data-dismiss="modal">
+                    <img src="assets/images/cancel.png" alt="close">
+                </button>
+                <span class="coud-not-fetch" *ngIf="urlstatusMessage.length>0">{{urlstatusMessage}}</span>
+            </div>
+            <div class="modal-body">
+                <div class="searchWrapper clearfix">
+                    <div class="input-wrap">
+                        <input type="text" name="name" [disabled]="isValidUrl" class="search" [(ngModel)]="urlToSearch" placeholder="{{'enter-url-here' | translate}}">
+                        <div class="searchbtnicon">
+                            <img src="assets/images/search.png" alt="" (click)="findUrlDetails()">
+                        </div>
+                        <span *ngIf="isValidUrl" (click)="resetUrlTextBox()" class="search-cross"><img src="assets/images/cancel.png" alt=""></span>
+                    </div>
+                    <button type="submit" (click)="findUrlDetails()" class="custom-btn gradient-lr">{{'fetch-data' | translate}}</button>
+                </div>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <label class="input-label">{{'category' | translate}}</label>
+                                <div class="input-wrap selectWraper">
+                                    <mat-form-field class="mselectpicker">
+                                        <mat-select placeholder="{{'select-category' | translate}}" name="selectCategory" [(ngModel)]="category">
+                                            <mat-option value="1">
+                                                Free Discussion
+                                            </mat-option>
+                                            <mat-option value="2">
+                                                Essay Correction
+                                            </mat-option>
+                                            <mat-option value="3">
+                                                Question & Answer
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <label class="input-label">{{'language' | translate}}</label>
+                                <div class="input-wrap selectWraper">
+                                    <mat-form-field class="mselectpicker">
+                                        <mat-select placeholder="{{'select-language' | translate}}" name="langaugeName" [(ngModel)]="language">
+                                            <mat-option *ngFor="let lang of languageList" [value]="lang.counrty">
+                                                {{lang.counrty}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="input-wrap form-group">
+                        <input type="text" value="" maxlength="400" name="title" [(ngModel)]="urlTitle" placeholder="{{'enter-title' | translate}}">
+                    </div>
+
+                    <div class="input-wrap form-group">
+                        <input type="text" value="" name="imageurl" [(ngModel)]="imageUrlFetch" placeholder="{{'enter-image-url' | translate}}">
+                    </div>
+                    <!-- <div class="input-wrap form-group">
+                        <div class="article-image" style="background-image: url('assets/images/banner1.jpg');"></div>
+                    </div> -->
+                    <div class="input-wrap">
+                        <textarea (keyup)="urlDescriptionChange()" rows="8" maxlength="1000" cols="20" name="description" placeholder="Enter Description" [(ngModel)]="urldescription" class="Description"></textarea>
+                        <span class="char-count-textarea">{{remainingCountUrlDescription}}  {{'characters' | translate}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="Submit" [disabled]="isurlValidDetails()" (click)="saveurlFetchingData()" class="custom-btn gradient-lr"> {{'save' | translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>

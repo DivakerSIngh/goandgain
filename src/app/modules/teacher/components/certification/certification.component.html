@@ -1,0 +1,154 @@
+<div class="profile-wrapper teacher">
+    <div class="text-center">
+        <h1 class="titleheading small">{{'certification' | translate}}</h1>
+    </div>
+    <div class="section-wrapper">
+        <form action="" class="">
+            <div class="append-wrapper" *ngFor="let form of educationListPrepareForm;let i=index">
+                <!-- strat from here -->
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div *ngIf="i != 0" (click)="removeFormFromDome(i)" class="append-dataremove">{{'close' | translate}}</div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="input-label">{{'name-of-certification' | translate}}</label>
+                            <div class="input-wrap">
+                                <!-- <span class="selectpicker-btn"></span> -->
+                                <input type="text" name="experience{{i}}" maxlength="100" [(ngModel)]="form.experience" placeholder="{{'name-of-certification' | translate}}" />
+                                <span *ngIf="form.experienceValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="input-label">{{'issuing-institution' | translate}}</label>
+                            <div class="input-wrap">
+                                <input type="text" value="" maxlength="50" name="Institution{{i}}" [(ngModel)]="form.institution" placeholder="{{'name-of-institution' | translate}}" />
+                                <span *ngIf="form.institutionValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="input-label">{{'location-of-the-institution' | translate}}</label>
+                            <div class="input-wrap">
+                                <input type="text" value="" maxlength="50" name="Location{{i}}" [(ngModel)]="form.location" placeholder="{{'city-state-or-province-country' | translate}}" />
+                                <span *ngIf="form.locationValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <label class="input-label">{{'Year-of-acquisition' | translate}}</label>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="input-wrap sub-inputwrap">
+                                        <span class="selectpicker-btn"></span>
+                                        <select class="custom-selectpicker" name="stratDateYear{{i}}" [(ngModel)]="form.stratDateYear" (change)="ChangeStartDate(i,form.stratDateYear)">
+                                              <option value="0" disabled selected>{{'select-year' | translate}}</option>
+                                              <option *ngFor="let y of form.startYearList;let i=index" value="{{y}}" (change)="changeStartYear()">
+                                                    {{y}}
+                                            </option>
+                                          </select>
+                                        <span *ngIf="form.stratDateYearValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-wrap sub-inputwrap">
+                                        <span class="selectpicker-btn"></span>
+                                        <select class="custom-selectpicker" name="stratDateMonth{{i}}" [(ngModel)]="form.stratDateMonth" (change)="ChangeStartMonth(i,form.stratDateMonth)">
+                                              <option value="0" disabled selected>{{'select-month' | translate}}</option>
+                                              <option *ngFor="let month of form.startDateMonthList;let i=index" value="{{month.id}}">
+                                                    {{month.value}}
+                                               </option>   
+                                          </select>
+                                        <span *ngIf="form.stratDateMonthValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <label class="input-label">{{'expiration-date' | translate}}</label>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="input-wrap sub-inputwrap">
+                                        <span class="selectpicker-btn"></span>
+                                        <select class="custom-selectpicker" name="acquisitionYear{{i}}" [(ngModel)]="form.acquisitionYear" (change)="setMonth(i,form.stratDateMonth, form.acquisitionYear)">
+                                              <option value="0" disabled selected>{{'select-year' | translate}}</option>
+                                              <option value="Not expiring">Not expiring</option>
+                                              <option *ngFor="let y of form.YearofAcquisitionList;let i=index" value="{{y}}">
+                                                    {{y}}
+                                               </option>
+                                             
+                                          </select>
+                                        <span *ngIf="form.acquisitionYearValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-wrap sub-inputwrap">
+                                        <span class="selectpicker-btn"></span>
+                                        <select class="custom-selectpicker" name="acquisitionMonth{{i}}" [(ngModel)]="form.acquisitionMonth">
+                                              <option value="0" disabled selected>{{'select-month' | translate}}</option>
+                                              <option value="Not expiring">Not expiring</option>
+                                              <option *ngFor="let month of form.acquisitionMonthList;let i=index" value="{{month.id}}">
+                                                    {{month.value}}
+                                               </option>
+                                          </select>
+                                        <span *ngIf="form.acquisitionMonthValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}}</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="input-wrap">
+                            <label class="input-label">{{'description' | translate}}</label>
+                            <textarea name="" id="" cols="30" rows="3" maxlength="200" (keyup)="changeTextAreacount(form.descriptions,i)" name="descriptions{{i}}" [(ngModel)]="form.descriptions" placeholder="{{'' | translate}}Description"></textarea>
+                            <span *ngIf="form.descriptionsValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+                            <span class="char-count-textarea">{{form.descriptionLength}}  {{'characters' | translate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- ends here -->
+            </div>
+            <div *ngIf="educationListPrepareForm.length <=4">
+                <a href="javascript:void(0);" class="add-more-appenddata" (click)="addNewForm()">{{'add-more' | translate}}</a> {{formStatus}}<br/>
+            </div>
+
+            <div class="input-wrap">
+                <span class="fileup-info">{{'You-can-upload-only-pdf-doc-docx-xlsx-xls-jpg-jpeg-png' | translate}}</span>
+                <label class="input-label">{{'upload-a-certificate' | translate}} &nbsp; </label>
+                <div class="browse-btn">{{'upload' | translate}}
+                    <input type="file" name="avatar" (change)="onFileChange($event)" id="docfileupload">                  
+                </div>
+                <span class="error-edu-inputmsg fileup" style="display:block">
+                    
+                        <span *ngIf="ifInvalid">{{'please-upload-a-valid-image' | translate}}</span>
+                        <span *ngIf="ifSizeExceed">{{'file-size-can-not-be-more-than-1-MB' | translate}}</span>
+                        <span *ngIf="ifInternalError">{{'there-is-some-internal-error' | translate}}</span>
+                        <span *ngIf="ifMoreThanFive">{{'you-can-upload-only-5-valid-file' | translate}}</span>
+                        
+                    <!-- {{validFileStatus}}  -->
+                
+                
+                
+                </span>
+            </div>
+            <ul class="choosefile-list">
+                <li *ngFor="let file of uploadValue;let i=index">{{file.fileName}}<span class="cross"><img src="assets/images/red-cross.png" (click)="removeFile(i)" alt=""></span></li>
+            </ul>
+            <!-- </div> -->
+            <div class="button-wrapper withbg">
+                <button (click)="gotoPreviouseStep()" type="submit" name="" value="" class="custom-btn  small prev">{{'previous' | translate}}</button>
+                <button (click)="gotoNextStep()" type="submit" name="" value="" class="gradient custom-btn small pull-right">{{'next' | translate}}</button>
+                <button type="submit" (click)="skipStep()" name="" value="" class="custom-btn small skip  pull-right">{{'skip' | translate}}</button>
+            </div>
+        </form>
+    </div>
+</div>

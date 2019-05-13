@@ -1,0 +1,117 @@
+<div class="yourStudygroup clearfix">
+    <div class="yourStudygroup-wrapper">
+        <div class="text-center">
+            <div class="titleheading small"> {{'find-your-study-group' | translate}}</div>
+        </div>
+        <div class="yourStudygroup-filter clearfix">
+            <div class="input-wrap selectWraper">
+                <mat-form-field class="mselectpicker">
+                    <mat-select placeholder="{{'select-language' | translate}}" name="langaugeName" [(ngModel)]="language">
+                        <mat-option value="0">
+                                {{'select-language' | translate}}
+                        </mat-option>
+                        <mat-option *ngFor="let lang of languageList;let innerIndex=index" [value]="lang.counrty">
+                            {{lang.counrty}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="button-wrap">
+                <button type="button" class="custom-btn gradient-lr" (click)="openLoginPopUp()" value=""> {{'create-study-group' | translate}}</button>
+            </div>
+            <div class="searchWrapper overflow">
+                <div class="input-wrap">
+                    <!-- <input type="text" (change)="searchStudyGroup()" name="search" [(ngModel)]="search" class="search" placeholder="Search Study Groups"> -->
+                    <input type="text" name="search" [(ngModel)]="search" (change)="searchStudyGroup()" class="search" placeholder="{{'search-by-group-name-and-category' | translate}}">
+                    <button (click)="searchStudyGroup()" type="submit" class="searchbtn">{{'search' | translate}} </button>
+                    <div class="searchbtnicon">
+                        <img src="assets/images/search.png" alt="">
+                    </div>
+                    <span *ngIf="search.length>0" (click)="resetSearch()" class="search-cross withbtn"><img src="assets/images/cancel.png" alt=""></span>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="searchWrapper filter">
+            <div class="input-wrap">
+                <input type="text" name="search" [(ngModel)]="search" (change)="searchStudyGroup()" class="search" placeholder="Search By Group Name and Category">
+                <button (click)="searchStudyGroup()" type="submit" class="searchbtn">Search </button>
+                <div class="searchbtnicon">
+                    <img src="assets/images/search.png" alt="">
+                </div>
+                <span *ngIf="search.length>0" (click)="resetSearch()" class="search-cross withbtn"><img src="assets/images/cancel.png" alt=""></span>
+            </div>
+        </div>
+        <div class="button-wrap">
+            <button type="button" class="custom-btn gradient-lr" (click)="openLoginPopUp()" value="">Create Study Group</button>
+        </div> -->
+
+        <div class="yourStudygroup-inner">
+            <div class="yourStudygroup-table">
+                <div class="table-wrapper">
+                    <table class="table table-responsive table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width:70px;">{{'srNumber' | translate}}</th>
+                                <th>{{'category' | translate}}</th>
+                                <th>{{'timezone' | translate}}</th>
+                                <th style="min-width:120px;">{{'group-name' | translate}}</th>
+                                <th>{{'description' | translate}}</th>
+                                <th>{{'creator' | translate}}</th>
+                                <th>{{'hits' | translate}}</th>
+                                <th style="min-width:80px;">{{'member' | translate}}</th>
+                                <th style="min-width:120px;">{{'date' | translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="!studyGroup">
+                            <tr>
+                                <td colspan="9">Loading...</td>
+                            </tr>
+                        </tbody>
+
+                        <tbody *ngIf="studyGroup">
+                            <tr *ngFor="let study of studyGroup;let i=index">
+                                <td>{{study.serialNumber}}</td>
+                                <td>
+                                    {{study.category}}
+                                </td>
+                                <td>{{study.country}}</td>
+                                <td>
+                                    <p class="table-parag"><a href="javascript:void(0)" (click)="detailsOfStudyGroups(study._id,i)"> {{study.name}}  </a></p>
+                                </td>
+                                <td>
+                                    <p class="table-parag"> <a href="javascript:void(0)" (click)="detailsOfStudyGroups(study._id,i)">
+                                    {{getLimitedDescription(study.description)}} </a> </p>
+                                </td>
+                                <td>{{study.userId?.firstName ||'N/A'}} <br> {{study.userId?.lastName || ''}}</td>
+                                <td>{{study.view}}</td>
+                                <td>{{study.members.length}}/10</td>
+                                <td>{{study.created | date : 'dd MMM yyyy'}}</td>
+                            </tr>
+                            <tr *ngIf="noGroupFound">
+                                <td colspan="9">{{'no-data-found' | translate }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="pagination">
+                    <!-- <li>
+                    <a href="javascript:void(0)" class="previous">Previous</a>
+                </li> -->
+                    <li *ngFor="let page of paging">
+                        <a href="javascript:void(0)" (click)="changePaging(page.value)" [class.active]="limit==page.value" class="">{{page.show}}</a>
+                    </li>
+                    <!-- <li>
+                    <a href="javascript:void(0)">2</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">3</a>
+                </li> -->
+                    <!-- <li>
+                    <a href="javascript:void(0)" class="next">Next</a>
+                </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <app-advertisement></app-advertisement>
+</div>

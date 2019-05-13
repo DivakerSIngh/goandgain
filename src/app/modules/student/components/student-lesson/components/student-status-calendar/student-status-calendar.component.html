@@ -1,0 +1,39 @@
+<div class="lessondetail-wrap tutor-detail">
+
+    <div class="customizeDatePickerWrap">
+        <ngb-datepicker class="d-block" [navigation]="none" [dayTemplate]="customDay"></ngb-datepicker>
+    </div>
+    <div class="represent-dot">
+        <p class="scheduled"><span></span> Scheduled </p>
+        <p class="past"><span></span> Past </p>
+    </div>
+
+    <!-- <ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected" let-disabled="disabled" let-focused="focused">
+                <div class="custom-day" [class]="isWeekend(date)" >
+                    {{ date.day }}
+                </div>
+            </ng-template> -->
+
+    <div class="datacol clearfix">
+        <div class="left">
+            <figure class="profileimage" style="background-image: url('assets/images/user1.jpg')"></figure>
+            <a href="javascript:void(0)" class="message">Message</a>
+        </div>
+        <a href="javascript:void(0);" class="custom-btn gradient-lr pull-right">View & Edit </a>
+        <div class="right">
+            <h2>Michelle Pal</h2>
+            <span class="rating-star"><span style="width:76%"></span></span>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="label-form withvalue">Teaching: <span>English</span></label>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="label-form withvalue">Topic: <span>Public Speaking</span></label>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <label class="label-form withvalue">Scheduled on: <span>Tue 3 July, 2017 at 5: 00 PM</span></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

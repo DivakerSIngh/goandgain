@@ -1,0 +1,100 @@
+<div class="centersecwrapper">
+    <div class="container">
+        <div class="createPraticeroom clearfix">
+            <ul class="breadcrumb">
+                <li *ngIf="isFromGroup==false">
+                    <a href="javascript:void(0)" [routerLink]="['../practice-room']">Pratice Here </a>
+                </li>
+                    <li *ngIf="isFromGroup==true">
+                        <a href="javascript:void(0)" [routerLink]="['../../../../student/student-profile/friends-group/group-details/',groupId]">Study Group </a>
+                    </li>
+
+                <li> Create Pratice Room</li>
+            </ul>
+            <div class="text-center">
+                <div class="titleheading small">Pratice With Others</div>
+            </div>
+            <div class="fixedwidth">
+                <div class="form-group">
+                    <label class="input-label">Pratice Here Group Name</label>
+                    <div class="input-wrap">
+                        <input type="text" name="praticeGroupName" [(ngModel)]="praticeGroupName" class="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">Subject</label>
+                    <div class="input-wrap">
+                        <input type="text" name="praticeSubject" [(ngModel)]="praticeSubject" class="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">Language:</label>
+                    <div class="input-wrap">
+                        <mat-form-field class="mselectpicker">
+                            <mat-select placeholder="Select Language " name="praticeLangauge" [(ngModel)]="praticeLanguage">
+                                <mat-option *ngFor="let language of languageList" [value]="language.counrty">
+                                    {{language.counrty}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">Level:</label>
+                    <div class="input-wrap">
+                        <mat-form-field class="mselectpicker" >
+                            <mat-select placeholder="Select Level" name="praticeLevel" [(ngModel)]="praticeLevel" >
+                               
+                                <mat-option value="Beginner">Beginner</mat-option>
+                                <mat-option value="Intermediate">Intermediate</mat-option>
+                                <mat-option value="Advanced ">Advanced</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">Maximum Participation:</label>
+                    <div class="input-wrap">
+                        <mat-form-field class="mselectpicker">
+                            <mat-select placeholder="Select Maximum Participation" name="praticeMaxParticipation" [(ngModel)]="praticeMaxParticipation">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+                                <mat-option value="4">4</mat-option>
+                                <mat-option value="5">5</mat-option>
+                                <mat-option value="6">6</mat-option>
+                                <mat-option value="7">7</mat-option>
+                                <mat-option value="8">8</mat-option>
+                                <mat-option value="9">9</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-group" *ngIf="practiceRoomType!=2">
+                    <label class="input-label">Private Group:</label>
+                    <div class="input-wrap">
+                        <mat-form-field class="mselectpicker">
+                            <mat-select  placeholder="Select Private Group" name="practiceRoomType" [(ngModel)]="practiceRoomType" (change)="changeRoomType()">
+                                <mat-option value="0">No</mat-option>
+                                <mat-option value="1">Yes</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-group" *ngIf="practiceRoomType!=2 && practiceRoomType==1">
+                        <label class="input-label">Private Group Password:</label>
+                        <div class="input-wrap">
+                                <input type="password" maxlength="10" name="practicePassword" [(ngModel)]="practicePassword" class="">
+                        </div>
+                    </div>
+                    
+            </div>
+            <div class="text-center pt20">
+                <button type="button" [disabled]="isFormValid()" class="custom-btn gradient-lr save" (click)="CreatePracticeRoom()">Create</button>
+                <button *ngIf="practiceRoomType!=2" [routerLink]="['../practice-room']" type="button" class="custom-btn  cancel ml10">Cancel</button>
+                <button *ngIf="practiceRoomType==2" [routerLink]="['../../../../student/student-profile/friends-group/group-details/',groupId]" type="button" class="custom-btn  cancel ml10">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--container -->
+</div>

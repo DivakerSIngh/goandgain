@@ -1,0 +1,114 @@
+<div class="profile-wrapper">
+    <div class="text-center">
+        <h1 class="titleheading small">  {{'purpose' | translate}}</h1>
+    </div>
+    <div class="purpose-listwrap section-wrapper">
+        <ul class="purpose-list clearfix">
+            
+            <li>
+
+                <a href="javascript:void(0);" [ngClass]="(purpose == '2')?'active':''" (click)="ChangePurpose('2')">
+                    <figure>
+                        <img src="./assets/images/education-deactive.png" class="deactive" alt="Education">
+                        <img src="./assets/images/education-active.png" class="active" alt="Education">
+                    </figure>
+                    <span>{{'education' | translate}}</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="javascript:void(0);" [ngClass]="(purpose == '3')?'active':''" (click)="ChangePurpose('3')">
+                    <figure>
+                        <img src="./assets/images/career-deactive.png" class="deactive" alt="Career">
+                        <img src="./assets/images/career-active.png" class="active" alt="Career">
+                    </figure>
+                    <span>{{'career' | translate}}</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" [ngClass]="(purpose == '4')?'active':''" (click)="ChangePurpose('4')">
+                    <figure>
+                        <img src="./assets/images/hobby-deactive.png" class="deactive" alt="Hobby">
+                        <img src="./assets/images/hobby-active.png" class="active" alt="Hobby">
+                    </figure>
+                    <span>{{'hobby' | translate}}</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" [ngClass]="(purpose == '5')?'active':''" (click)="ChangePurpose('5')">
+                    <figure>
+                        <img src="./assets/images/travel-deactive.png" class="deactive" alt="Travel">
+                        <img src="./assets/images/travel-active.png" class="active" alt="Travel">
+                    </figure>
+                    <span>{{'travel' | translate}}</span>
+                </a>
+            </li>
+            <li>
+                    <a href="javascript:void(0);" [ngClass]="(purpose == '1')?'active':''" (click)="ChangePurpose('1')">
+                        <figure>
+                            <img src="./assets/images/family-deactive.png" class="deactive" alt="Family">
+                            <img src="./assets/images/family-active.png" class="active" alt="Family">
+                        </figure>
+                        <span>{{'emigration' | translate}}</span>
+                    </a>
+                </li>
+            <li>
+                <a href="javascript:void(0);" [ngClass]="(purpose == '6')?'active':''" (click)="ChangePurpose('6')">
+                    <figure>
+                        <img src="./assets/images/other-deactive.png" class="deactive" alt="">
+                        <img src="./assets/images/other-active.png" class="active" alt="">
+                    </figure>
+                    <span>{{'other' | translate}}</span>
+                </a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <label class="profile-label pn">{{'additional-information' | translate}}</label>
+            <p class="parag">{{'optional' | translate}}</p>
+        </div>
+        <div class="form-group mlr40">
+            <textarea name="" id="" cols="30" rows="3" maxlength="200" (keyup)="getTextAreacount()" [(ngModel)]="additionalInformation"></textarea>
+            <div class="char-count-textarea">{{remainingChar}} {{'characters' | translate}}</div>
+        </div>
+
+    </div>
+    <div class="text-center">
+        <h1 class="titleheading small">{{'interests' | translate}}</h1>
+    </div>
+    <div class="section-wrapper">
+        <label class="profile-label mn">{{'select-your-interests' | translate}} :</label>
+        <ul class="interest-list clearfix">
+            <li *ngFor="let i of allIntrest;let index=index" [ngClass]="{'intrestactive':intrestCheck == i._id}">
+
+                <!-- <a href="javascript:void(0);" [ngClass]="{'active':intrest == i._id}" (click)="changeIntrest(i._id)" [ngStyle]="{'background': 'url(' + i.imageUrl + ')'}"> -->
+                <a href="javascript:void(0);" [ngClass]="{'active':checkForIntrest(i._id)}" (click)="changeIntrest(i._id, 'change')" [ngStyle]="{'background': 'url(' + i.imageUrl + ')'}">
+                    <div class="overlay">
+                        <h4 class="detail">{{i.name}}</h4>
+                        <div class="right-check" (click)="changeIntrest(i._id, 'remove')"><img src="./assets/images/tick.png" alt=""></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="interest-listresult">
+            <h4 class="head">{{intrestName}}</h4>
+            <div class="custom-check-wrap" *ngFor="let inner of allInrestInner;let index=index">
+                
+                <input type="checkbox" value="" name="check" id="{{inner._id}}" [checked]="isCheckedOrNot(inner._id)" (change)="addRemoveSelection(inner._id)">
+                <label for="{{inner._id}}">{{inner.name}} </label>
+            </div>
+        </div>
+        <div class="button-wrapper withbg text-right">
+            <div class="interest-errormsg" *ngIf="validationStatus!=''">
+                <!-- {{validationStatus}} -->
+                {{'please-check-at-least-1-interest' | translate}}
+            
+            </div>
+            <a (click)="goToThiredStep()" class="prev custom-btn small pull-left">{{'previous' | translate}}</a>
+            <a (click)="saveData()" class="gradient custom-btn small">{{'submit' | translate}}</a>
+        </div>
+    </div>
+</div>
+
+<!-- home page end -->

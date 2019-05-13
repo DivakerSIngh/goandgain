@@ -1,0 +1,12 @@
+.button-wrapper {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.other-option {
+    margin: 10px auto 20px;
+}
+
+.other-option span {
+    background: #fafafa;
+}

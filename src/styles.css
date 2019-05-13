@@ -1,0 +1,992 @@
+@import "~/assets/css/global.css";
+@import "~/assets/css/media.css";
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+
+* {
+    border: 0 none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-appearance: value;
+    -moz-appearance: value;
+    appearance: value;
+}
+
+html,
+body,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+em,
+font,
+img,
+small,
+span,
+strong,
+sub,
+sup,
+b,
+u,
+i,
+center,
+form,
+label,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    margin: 0px auto;
+    padding: 0px;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+}
+
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+article {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+a,
+img a {
+    text-decoration: none;
+    border: 0;
+    outline: 0 !important;
+    transition: all ease-in .3s;
+    -moz-transition: all ease-in .3s;
+    -ms-transition: all ease-in .3s;
+    -o-transition: all ease-in .3s;
+    -webkit-transition: all ease-in .3s;
+}
+
+a,
+button {
+    transition: all ease-in .3s;
+    -moz-transition: all ease-in .3s;
+    -ms-transition: all ease-in .3s;
+    -o-transition: all ease-in .3s;
+    -webkit-transition: all ease-in .3s;
+}
+
+:focus {
+    outline: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+button:focus {
+    outline: none;
+}
+
+ol,
+ul,
+li {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/*  Basic Layout
+*******************************/
+
+.clear {
+    clear: both;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.text-center {
+    text-align: center;
+}
+
+::-webkit-input-placeholder {
+    color: #b5b4b4;
+    font-style: italic;
+    font-size: 14px;
+}
+
+ ::-moz-placeholder {
+    color: #b5b4b4;
+    font-style: italic;
+    font-size: 14px;
+}
+
+ :-ms-input-placeholder {
+    color: #b5b4b4;
+    font-style: italic;
+    font-size: 14px;
+}
+
+ :-moz-placeholder {
+    color: #b5b4b4;
+    font-style: italic;
+    font-size: 14px;
+}
+
+
+/*--- font-awesome-icon---*/
+
+.pn {
+    padding: 0;
+}
+
+.pt20 {
+    padding-top: 20px !important;
+}
+
+.pb30 {
+    padding-bottom: 30px !important;
+}
+
+.mn {
+    margin: 0;
+}
+
+.mlr40 {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+
+/*  Basic Layout  end
+*******************************/
+
+.logo-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 40px;
+    font-weight: 100;
+}
+
+
+/* common css
+*******************************/
+
+html,
+body {
+    height: 100%;
+}
+
+
+/*--------- form -element ----*/
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    background: #fff;
+    font-size: 15px;
+    color: #52686e;
+    width: 100%;
+    border: solid 1px #d5d5d5;
+    border-radius: 6px;
+    padding: 12px 20px;
+    transition: all ease-in .3s;
+    -moz-transition: all ease-in .3s;
+    -ms-transition: all ease-in .3s;
+    -webkit-transition: all ease-in .3s;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+input[type="text"]:hover,
+input[type="text"]:focus,
+input[type="email"]:hover,
+input[type="email"]:focus,
+input[type="password"]:hover,
+input[type="password"]:focus,
+textarea:hover,
+textarea:focus {
+    border: inset 1px #52971c;
+}
+
+.input-wrap {
+    position: relative;
+}
+
+.input-error {
+    border: solid 1px #d25151 !important;
+}
+
+textarea {
+    padding-bottom: 30px;
+}
+
+.char-count-textarea {
+    position: absolute;
+    right: 20px;
+    bottom: 3px;
+    color: #adadad;
+}
+
+.input-label {
+    color: #52686e;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 0;
+}
+
+.input-addion {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    text-align: center;
+    padding: 10px 0;
+    background: #f7f7f7;
+    border: solid 1px #e6e6e6;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+}
+
+.profile-wrapper .form-group {
+    margin-bottom: 25px;
+}
+
+
+/*--------- form -element end----*/
+
+
+/*-- radio button and check--*/
+
+.custom-radio {
+    display: inline-block;
+    width: 120px;
+    padding: 10px 0 10px;
+}
+
+.custom-check {
+    display: inline-block;
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="radio"]:checked+label,
+[type="radio"]:not(:checked)+label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    color: #8499a2;
+    font-weight: 500;
+    line-height: 1.25;
+    user-select: none;
+}
+
+[type="radio"]:checked+label:before,
+[type="radio"]:not(:checked)+label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #8499a2;
+    border-radius: 100%;
+    background: #fff;
+}
+
+[type="radio"]:checked+label:after,
+[type="radio"]:not(:checked)+label:after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: #a5d281;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: solid 3px #ededed;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+[type="radio"]:not(:checked)+label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+[type="radio"]:checked+label:after {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+
+/*-- check box --*/
+
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="checkbox"]:checked+label,
+[type="checkbox"]:not(:checked)+label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    color: #52686e;
+    font-weight: 500;
+    line-height: 1.25;
+    user-select: none;
+}
+
+[type="checkbox"]:checked+label:before,
+[type="checkbox"]:not(:checked)+label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #52686e;
+    background: #fff;
+}
+
+[type="checkbox"]:checked+label:after,
+[type="checkbox"]:not(:checked)+label:after {
+    content: '';
+    width: 12px;
+    height: 10px;
+    background-image: url(assets/images/check.png);
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+[type="checkbox"]:not(:checked)+label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+[type="checkbox"]:checked+label:after {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+
+/* selectpicker */
+
+.custom-select {
+    display: block;
+    width: 100%;
+    vertical-align: top;
+    background: #fff url(assets/images/down-arrow.png);
+    border: none;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center right;
+    color: #52686e;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 12px 15px 12px 0;
+}
+
+.custom-select.select2 {
+    border: solid 2px #599b25;
+    padding: 0 15px;
+    color: #599b25;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+
+/* selectpicker end */
+
+
+/* material select */
+
+.modal-backdrop {
+    z-index: 10;
+}
+
+.modal {
+    z-index: 99;
+}
+
+.mat-form-field {
+    display: block !important;
+}
+
+.mat-form-field-underline {
+    background-color: transparent !important;
+}
+
+.mat-form-field-infix {
+    border-top: none !important;
+    padding: 0 !important;
+}
+
+.mat-form-field-flex {
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    padding: 0;
+    color: #52686e;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.mat-focused .mat-form-field-label {
+    color: #52686e !important;
+}
+
+.mat-form-field-ripple {
+    background-color: transparent !important;
+}
+
+.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    display: none !important;
+}
+
+.mat-select-arrow-wrapper {
+    border-left: solid 1px #d5d5d5;
+    background: #f7f7f7;
+    padding: 16px 5px;
+}
+
+.mat-select-arrow {
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    background-image: url(assets/images/down-arrow-big.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 24px !important;
+    height: 15px !important;
+    background-color: #f7f7f7;
+}
+
+.mat-select-value {
+    color: #52686e !important;
+    padding: 14px 0 0 20px;
+    background: #ffffff;
+}
+
+.mat-option {
+    color: #52686e !important;
+}
+
+.mat-form-field-type-mat-select .mat-form-field-label {
+    padding: 16px 5px;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #659b3a !important;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+}
+
+.mat-form-field-label {
+    top: 12px !important;
+    left: 20px !important;
+}
+
+.mat-menu-content {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.mat-slide-toggle-content {
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.mat-slide-toggle-label {
+    padding-left: 90px;
+    position: absolute;
+    right: 0;
+    top: 16px;
+}
+
+.mat-slide-toggle-content {
+    font-family: 'Ubuntu', sans-serif !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #8499a2;
+    font-size: 16px !important;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #559920 !important;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: rgba(80, 149, 25, 0.35) !important;
+}
+
+.mat-select-panel {
+    margin: 47px 0 0 0 !important;
+}
+
+.mat-select-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+/* material select end */
+
+
+/* radio button */
+
+.forlessons .mat-radio-container {
+    top: -14px;
+}
+
+.forlessons .mat-radio-button {
+    margin: 0 12px 12px 0;
+}
+
+.mat-radio-button {
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: #659b3a !important;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #659b3a !important;
+}
+
+.mat-radio-outer-circle {
+    background: #f7f7f7;
+    border: solid 1px #d7d7d7 !important;
+}
+
+.classes .mat-radio-label-content {
+    font-size: 16px;
+    color: #cecece;
+}
+
+.classes .mat-radio-checked .mat-radio-label-content {
+    color: #52686e;
+}
+
+.classes .mat-radio-button,
+.classes-check .mat-checkbox {
+    margin: 0 60px 10px 0;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #659b3a !important;
+}
+
+.mat-checkbox-frame {
+    background: #f7f7f7;
+    border: solid 1px #d7d7d7 !important;
+}
+
+.classes-check .mat-checkbox-layout .mat-checkbox-label {
+    font-size: 16px;
+    color: #cecece;
+}
+
+.classes-check .mat-checkbox-checked .mat-checkbox-label {
+    color: #52686e;
+}
+
+.mat-checkbox-inner-container {
+    background: #f7f7f7;
+}
+
+.mat-radio-group.radio-wrapper.classes.mat-radio-group {
+    width: 100%;
+}
+
+
+/* select with checkbox */
+
+.mat-primary .mat-pseudo-checkbox-checked,
+.mat-primary .mat-pseudo-checkbox-indeterminate {
+    background: #659b3a !important;
+}
+
+.mat-pseudo-checkbox {
+    color: rgba(102, 122, 127, 0.42) !important;
+    border: 1px solid !important;
+}
+
+
+/* material select end */
+
+
+/*-------- select -picker --*/
+
+.custom-selectpicker {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #d5d5d5;
+    border-radius: 4px;
+    padding: 12px 60px 12px 20px;
+    color: #52686e;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+}
+
+.selectpicker-btn {
+    position: absolute;
+    background-color: #f7f7f7;
+    width: 50px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    border-left: solid 1px #d5d5d5;
+    background-image: url(assets/images/down-arrow-big.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.custom-selectpicker:hover,
+.custom-selectpicker:focus {
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.12);
+}
+
+.input-wrap.countrycode {
+    padding-left: 200px;
+}
+
+.countrycode-dropdown {
+    width: 180px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+/*---- range slider in signup process-------------- */
+
+.mat-slider-thumb {
+    bottom: -14px !important;
+    background-color: #589b24 !important;
+    width: 25px !important;
+    height: 25px !important;
+}
+
+.mat-slider-horizontal .mat-slider-track-wrapper {
+    height: 6px !important;
+    width: 100%;
+    background: #5C5C62;
+    border-radius: 4px;
+}
+
+.mat-slider-horizontal {
+    min-width: 100% !important;
+}
+
+.mat-slider-horizontal .mat-slider-track-fill {
+    height: 6px !important;
+    background: #589b24 !important;
+}
+
+
+/*---- range slider in signup process- css------------- */
+
+
+/* loader */
+
+.mat-progress-bar-buffer {
+    background-color: rgba(101, 155, 58, 0.4) !important;
+}
+
+.mat-progress-bar-fill:after {
+    background-color: #659b3a !important;
+}
+
+.ng-trigger-fadeInAnimation {
+    transition: all 0.3s ease-in-out;
+}
+
+
+/*-- accrodian for become a tutor --*/
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none !important;
+}
+
+.accordion-wrapper .mat-expansion-panel {
+    background: transparent !important;
+}
+
+
+/* .faq-wrapper .mat-expansion-panel {
+    background: #eeeeee;
+} */
+
+.mat-expansion-panel-header {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.accordion-wrapper .mat-expansion-panel-header {
+    border-top: solid 1px #e5e6e6;
+}
+
+.faq-wrapper .mat-expansion-panel-header {
+    border: solid 1px #f0f1f1;
+    margin: 0 0 10px 0;
+    background: #f7f7f7;
+}
+
+.mat-expansion-panel-header-title {
+    color: #52686e !important;
+}
+
+.mat-expansion-panel-body {
+    font-size: 16px;
+    color: #8499a2;
+    line-height: 1.6;
+    letter-spacing: 0.4px;
+}
+
+.mat-expansion-panel-spacing {
+    margin-top: 0 !important;
+}
+
+
+/*
+----------------------------------
+Style for customize ng-datepicker
+---------------------------------
+*/
+
+.customizeDatePickerWrap {
+    padding: 25px 0;
+}
+
+ngb-datepicker {
+    display: block !important;
+}
+
+.d-block {
+    width: 100%;
+}
+
+.ngb-dp-day {
+    cursor: pointer;
+    flex: 1;
+}
+
+.ngb-dp-day,
+.ngb-dp-weekday,
+.ngb-dp-week-number {
+    flex: 1;
+    width: 100%;
+    height: auto !important;
+    padding: 0 !important;
+}
+
+.ngb-dp-week {
+    padding: 0 !important;
+}
+
+.ngb-dp-day>div {
+    width: 100% !important;
+    height: auto !important;
+    line-height: 78px;
+    border-radius: 0 !important;
+}
+
+.ngb-dp-day {
+    border-bottom: 1px solid #e1e1e1 !important;
+    border-left: 1px solid #e1e1e1 !important;
+}
+
+.ngb-dp-day:not(:last-child) {
+    border-right: 0 !important;
+}
+
+.ngb-dp-day:first-child {
+    border-left: 0 !important;
+}
+
+.ngb-dp-week:last-child .ngb-dp-day {
+    border-bottom: 0 !important;
+}
+
+.ngb-dp-weekday {
+    color: #888e95 !important;
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 48px !important;
+    border-top: 1px solid #e1e1e1;
+    border-right: 1px solid #e1e1e1;
+}
+
+.ngb-dp-navigation-chevron::before {
+    border-style: solid;
+    border-width: 0 !important;
+    content: '';
+    display: inline-block;
+    width: 3vw !important;
+    height: 3vw !important;
+    transform: none !important;
+    background-image: url('assets/images/back-arrow.svg');
+    background-size: cover;
+}
+
+.right .ngb-dp-navigation-chevron:before {
+    background-image: url('assets/images/right-arrow.svg') !important;
+    transform: none !important;
+}
+
+.lessondetail-wrap .ngb-dp-arrow.right {
+    padding: 0 !important;
+    border-left: 0 !important;
+}
+
+.ngb-dp-arrow {
+    height: 62px !important;
+}
+
+.ngb-dp-month-name.d-block.ng-star-inserted {
+    width: auto !important;
+    color: #52686e;
+    font-size: 24px;
+    text-transform: uppercase;
+    line-height: 62px;
+    height: auto !important;
+}
+
+.btn-light.ng-star-inserted.bg-primary {
+    background-color: #89bd60 !important;
+    position: relative;
+}
+
+.btn-light.ng-star-inserted.bg-primary:before {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    bottom: 0;
+    background-color: #74a64d !important;
+    left: 0;
+    right: 0;
+}
+
+.ngb-dp-header {
+    padding-top: 0.30rem;
+    padding-bottom: 0.25rem;
+    background-color: #ffffff !important;
+    height: 70px;
+}
+
+.videoWrap{
+    float: left;
+    margin: 0;
+}
+
+/*
+----------------------------------
+Style for customize ng-datepicker end
+---------------------------------
+*/
+
+
+/* ************  @media css start here *******************/
+
+@media (max-width: 991px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 575px) {
+    .custom-modal {
+        width: 100%;
+    }
+    .modal-dialog {
+        max-width: -webkit-max-content;
+        max-width: -moz-max-content;
+        max-width: max-content;
+    }
+}

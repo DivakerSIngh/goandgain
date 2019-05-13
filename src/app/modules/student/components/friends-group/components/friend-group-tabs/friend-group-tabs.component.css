@@ -1,0 +1,59 @@
+.friend-group-tabs {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    border: solid 1px #ececec;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.friend-group-tabs>li {
+    display: inline-block;
+}
+
+.friend-group-tabs>li>a {
+    display: block;
+    color: #52686e;
+    padding: 15px 50px;
+    font-size: 18px;
+    border-bottom: transparent;
+    position: relative;
+}
+
+.friend-group-tabs>li>a.active {
+    font-weight: 500;
+}
+
+.friend-group-tabs>li>a:hover {
+    background: rgba(82, 104, 110, 0.51);
+    color: #fff;
+}
+
+.friend-group-tabs>li>a:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 0;
+    background: #c0dfa7;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+}
+
+.friend-group-tabs>li>a.active:before {
+    width: 100%;
+}
+
+.datasecwrapper-inner {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    border: solid 1px #ececec;
+    position: relative;
+    padding: 0 20px;
+    overflow: hidden;
+}

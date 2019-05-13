@@ -1,0 +1,260 @@
+<div class="centersecwrapper">
+    <div class="container">
+        <div class="tutor-page-wrapper">
+            <app-teacher-classes></app-teacher-classes>
+            <div class="tutor-wrapper">
+                <!-- video -->
+                <div class="video-player">
+                    <app-teacher-video></app-teacher-video>
+                </div>
+                <!--video end -->
+                <div class="tutor-section">
+                    <ul class="breadcrumb">
+                        <!-- teacher/listing -->
+                        <li><a href="javascript:void(0);" [routerLink]="['../../listing']">Find a Tutor </a></li>
+                        <li>{{teacherDetails.firstName}} {{teacherDetails.lastName}}</li>
+                    </ul>
+                </div>
+                <!--About  -->
+                <div class="tutor-section tutor-profile">
+                    <figure class="tutor-image" [style.background-image]="'url('+ teacherDetails.image +')'"></figure>
+
+                    <div class="leftIn">
+                        <h3 class="name">{{teacherDetails.firstName}} {{teacherDetails.lastName}} &nbsp;
+                            <span class="rating-star"><span style="width:76%"></span></span>
+                            <span class="count">(100)</span>
+                        </h3>
+                        <div class="details-column hvr-grow-shadow">
+                            <span class="icon"><img src="assets/images/request-icon.png" alt=""></span>
+                            <h4>Teaches: </h4>
+                            <p>{{teacherDetails.teachLanguage}}</p>
+                        </div>
+                        <div class="details-column hvr-grow-shadow">
+                            <span class="icon"><img src="assets/images/request-icon.png" alt=""></span>
+                            <h4>Location: </h4>
+                            <p>{{teacherDetails.countryName}}</p>
+                        </div>
+
+                        <div class="details-column hvr-grow-shadow">
+                            <span class="icon"><img src="assets/images/request-icon.png" alt=""></span>
+                            <h4>TimeZone: </h4>
+                            <p>({{teacherDetails.timeZone}}) {{teacherDetails.counrty}}</p>
+                        </div>
+                        <div class="details-column hvr-grow-shadow">
+                            <span class="icon"><img src="assets/images/request-icon.png" alt=""></span>
+                            <h4>Teaching Hours: </h4>
+                            <p>1500</p>
+                        </div>
+                        <div class="details-column hvr-grow-shadow">
+                            <span class="icon"><img src="assets/images/request-icon.png" alt=""></span>
+                            <h4>Instant Tutoring:</h4>
+                            <p>{{isInstant==true? 'Yes' : 'No'}}</p>
+                        </div>
+                        <div class="details-column hvr-grow-shadow">
+                            <span class="icon"><img src="assets/images/request-icon.png" alt=""></span>
+                            <h4>Speaks: </h4>
+                            <p>{{teacherDetails.speakLanguage}}</p>
+                        </div>
+                    </div>
+                </div>
+                <!--About end -->
+                <!--About  -->
+                <div class="tutor-section">
+                    <h2 class="heading">About Me</h2>
+                    <p class="description">
+
+                        {{teacherDetails.aboutMe}}
+                        <!-- <a href="javascript:void(0)" class="read-more">Read More</a> -->
+                    </p>
+                </div>
+                <!--About end -->
+                <div class="tutor-section courses">
+                    <h2 class="heading">Courses</h2>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6" *ngFor="let course of courseDetails">
+                            <a href="javascript:void(0)" class="courses-wrapper" style="background-image: url('assets/images/interest-img1.png')">
+                                <div class="inner">
+                                    <h3>{{course.courseTitle}}</h3>
+                                    <p>{{course.language}}, {{course.targetStudentLevel}}</p>
+                                    <label><span>${{course.price}}</span> {{course.noOfLesson}} lessons</label>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- <div class="col-xs-12 col-sm-12 col-md-6">
+                            <a href="javascript:void(0)" class="courses-wrapper" style="background-image: url('assets/images/interest-img1.png')">
+                                <div class="inner">
+                                    <h3>IELTS Prepration</h3>
+                                    <p>English, advance</p>
+                                    <label><span>$70</span> 5 lessons</label>
+                                </div>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+                <!-- -->
+                <div class="tutor-section">
+                    <h2 class="heading">Subjects</h2>
+                    <div class="sub-section mt10">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <p>Accent Reduction </p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <p>Listening Comprehension</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <p>Colloquial English</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <p>Reading Comprehension</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <p>Grammar Development</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <p>Speaking Practice</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <p>Interview Preparation</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <p>Vocabulary Development</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <!-- -->
+
+                <div class="tutor-section">
+                    <h2 class="heading">Resume</h2>
+                    <div class="sub-heading">Education</div>
+                    <div class="sub-section">
+                        <div class="row" *ngFor="let edu of teacherDetails.education">
+                            <div class="col-xs-12 col-sm-12 col-md-4">
+                                <p> <strong>{{edu.startDate | date : 'yyyy'}} - {{edu.yearOfAcquisition | date : 'yyyy'}}</strong></p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 border-bottom">
+                                <h4 class="title">{{edu.title}}</h4>
+                                <p>{{edu.descriptions}}</p>
+                            </div>
+                            <!-- <div class="col-xs-12 col-sm-12 col-md-4">
+                                <p> <strong>2016 - 2016</strong></p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 border-bottom">
+                                <h4 class="title">Bachelor of Arts Spanish, Minor in Education</h4>
+                                <p>University of Massachusetts, Amherst - Amherst, MA</p>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="sub-heading">Certification</div>
+                    <div class="sub-section">
+                        <div class="row" *ngFor="let cer of teacherDetails.certification">
+                            <div class="col-xs-12 col-sm-12 col-md-4">
+                                <p> <strong>{{cer.startDate | date : 'yyyy'}} - {{cer.yearOfAcquisition | date : 'yyyy'}}</strong></p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 border-bottom">
+                                <h4 class="title">{{cer.institution}}</h4>
+                                <p>{{cer.descriptions}}</p>
+                            </div>
+                            <!-- <div class="col-xs-12 col-sm-12 col-md-4">
+                                    <p> <strong>2016 - 2016</strong></p>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-8 border-bottom">
+                                    <h4 class="title">Bachelor of Arts Spanish, Minor in Education</h4>
+                                    <p>University of Massachusetts, Amherst - Amherst, MA</p>
+                                </div> -->
+                        </div>
+                    </div>
+                    <div class="sub-heading">Work Experience</div>
+                    <div class="sub-section">
+                        <div class="row" *ngFor="let exp of teacherDetails.workExperience">
+                            <div class="col-xs-12 col-sm-12 col-md-4">
+                                <p> <strong>{{exp?.startDate | date : 'yyyy'}} - {{exp?.endDate | date : 'yyyy'}}</strong></p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 border-bottom">
+                                <h4 class="title">{{exp.position}}</h4>
+                                <p>{{exp.descriptions}}</p>
+                            </div>
+                            <!-- <div class="col-xs-12 col-sm-12 col-md-4">
+                                <p> <strong>2017</strong></p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 border-bottom">
+                                <h4 class="title">Online English Teacher</h4>
+                                <p>51Talk - Online - China</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4">
+                                <p> <strong>2015 - 2016</strong></p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 border-bottom">
+                                <h4 class="title">Teacher's Aide</h4>
+                                <p>St. Mark's Community Education - Boston, MA, United States</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4">
+                                <p> <strong>2015 - 2016</strong></p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 border-bottom">
+                                <h4 class="title">Teacher's Aide</h4>
+                                <p>English for New Bostonians - Boston, MA, United States</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4">
+                                <p> <strong>2015 - 2016</strong></p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 border-bottom">
+                                <h4 class="title">EFL Teacher</h4>
+                                <p>Proyecto Montezuma - Montezuma, Costa Rica</p>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <!-- -->
+                <div class="tutor-section">
+                    <h2 class="heading">Lesson History</h2>
+                    <div class="lesson-table">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Last Month</th>
+                                    <th>Last 3 Month </th>
+                                    <th>All Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Rating </td>
+                                    <td>5.0</td>
+                                    <td>5.0</td>
+                                    <td>4.5</td>
+                                </tr>
+                                <tr>
+                                    <td>Scheduled Tutoring </td>
+                                    <td>50</td>
+                                    <td>20</td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <td>Instant Tutoring</td>
+                                    <td>5</td>
+                                    <td>20</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td class="bold"> Completed Lessons</td>
+                                    <td class="bold">200</td>
+                                    <td class="bold">20</td>
+                                    <td class="bold">40</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tutor-section">
+                    <h2 class="heading">Ratings</h2>
+                    <app-teacher-rating></app-teacher-rating>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

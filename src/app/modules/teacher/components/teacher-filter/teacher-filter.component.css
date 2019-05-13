@@ -1,0 +1,400 @@
+.tutor-filter {
+    background: #ffffff;
+    position: relative;
+    border: solid 1px #ebebeb;
+    margin: -50px 0 20px 0;
+    padding: 20px 20px;
+    box-shadow: 0 0 6px rgba(139, 139, 139, 0.13);
+}
+
+
+/* .tutor-filter ul {
+    padding: 10px 15px;
+    margin: 0 -15px;
+    border-bottom: solid 1px #ececec;
+}
+
+.tutor-filter ul li {
+    float: left;
+    padding: 10px 10px;
+    width: 20%;
+} */
+
+.form-group.extraspace {
+    margin-top: 30px;
+}
+
+.border-right {
+    border-right: solid 1px #ececec;
+}
+
+
+/* price-filter-wrap */
+
+.price-filter-wrap {
+    border-bottom: solid 10px #f1f1f1;
+}
+
+.slider_line {
+    background: #767676;
+    background: hsla(0, 0%, 46%, .5);
+    display: inline-block;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    width: 7px;
+    margin: 0 0 0 -3px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.animation_12_a0 {
+    transition-delay: 0ms !important;
+    animation-delay: 0ms !important;
+}
+
+.animation_12_a1 {
+    transition-delay: 10ms !important;
+    animation-delay: 10ms !important;
+}
+
+.animation_12_a2 {
+    transition-delay: 20ms !important;
+    animation-delay: 20ms !important;
+}
+
+.animation_12_a3 {
+    transition-delay: 30ms !important;
+    animation-delay: 30ms !important;
+}
+
+.animation_12_a4 {
+    transition-delay: 40ms !important;
+    animation-delay: 40ms !important;
+}
+
+.animation_12_a5 {
+    transition-delay: 50ms !important;
+    animation-delay: 50ms !important;
+}
+
+.animation_12_a6 {
+    transition-delay: 60ms !important;
+    animation-delay: 60ms !important;
+}
+
+.animation_12_a7 {
+    transition-delay: 70ms !important;
+    animation-delay: 70ms !important;
+}
+
+.animation_12_a8 {
+    transition-delay: 80ms !important;
+    animation-delay: 80ms !important;
+}
+
+.animation_12_a9 {
+    transition-delay: 90ms !important;
+    animation-delay: 90ms !important;
+}
+
+.animation_12_a10 {
+    transition-delay: 100ms !important;
+    animation-delay: 100ms !important;
+}
+
+.animation_12_a11 {
+    transition-delay: 110ms !important;
+    animation-delay: 110ms !important;
+}
+
+.animation_12_a12 {
+    transition-delay: 120ms !important;
+    animation-delay: 120ms !important;
+}
+
+.animation_12_a13 {
+    transition-delay: 130ms !important;
+    animation-delay: 130ms !important;
+}
+
+.animation_12_a14 {
+    transition-delay: 140ms !important;
+    animation-delay: 140ms !important;
+}
+
+.animation_12_a15 {
+    transition-delay: 150ms !important;
+    animation-delay: 150ms !important;
+}
+
+.animation_12_a16 {
+    transition-delay: 160ms !important;
+    animation-delay: 160ms !important;
+}
+
+.animation_12_a17 {
+    transition-delay: 170ms !important;
+    animation-delay: 170ms !important;
+}
+
+.animation_12_a18 {
+    transition-delay: 180ms !important;
+    animation-delay: 180ms !important;
+}
+
+.animation_12_a19 {
+    transition-delay: 190ms !important;
+    animation-delay: 190ms !important;
+}
+
+.animation_12_a20 {
+    transition-delay: 200ms !important;
+    animation-delay: 200ms !important;
+}
+
+.animation_12_a21 {
+    transition-delay: 210ms !important;
+    animation-delay: 210ms !important;
+}
+
+.animation_12_a22 {
+    transition-delay: 220ms !important;
+    animation-delay: 220ms !important;
+}
+
+.animation_12_a23 {
+    transition-delay: 230ms !important;
+    animation-delay: 230ms !important;
+}
+
+.animation_12_a24 {
+    transition-delay: 240ms !important;
+    animation-delay: 240ms !important;
+}
+
+.animation_12_a25 {
+    transition-delay: 250ms !important;
+    animation-delay: 250ms !important;
+}
+
+.animation_12_a26 {
+    transition-delay: 260ms !important;
+    animation-delay: 260ms !important;
+}
+
+.animation_12_a27 {
+    transition-delay: 270ms !important;
+    animation-delay: 270ms !important;
+}
+
+.animation_12_a28 {
+    transition-delay: 280ms !important;
+    animation-delay: 280ms !important;
+}
+
+.animation_12_a29 {
+    transition-delay: 290ms !important;
+    animation-delay: 290ms !important;
+}
+
+.animation_12_a30 {
+    transition-delay: 300ms !important;
+    animation-delay: 300ms !important;
+}
+
+.animation_12_a31 {
+    transition-delay: 310ms !important;
+    animation-delay: 310ms !important;
+}
+
+.animation_12_a32 {
+    transition-delay: 320ms !important;
+    animation-delay: 320ms !important;
+}
+
+.animation_12_a33 {
+    transition-delay: 330ms !important;
+    animation-delay: 330ms !important;
+}
+
+.animation_12_a34 {
+    transition-delay: 340ms !important;
+    animation-delay: 340ms !important;
+}
+
+.animation_12_a35 {
+    transition-delay: 350ms !important;
+    animation-delay: 350ms !important;
+}
+
+.animation_12_a36 {
+    transition-delay: 360ms !important;
+    animation-delay: 360ms !important;
+}
+
+.animation_12_a37 {
+    transition-delay: 370ms !important;
+    animation-delay: 370ms !important;
+}
+
+.animation_12_a38 {
+    transition-delay: 380ms !important;
+    animation-delay: 380ms !important;
+}
+
+.animation_12_a39 {
+    transition-delay: 390ms !important;
+    animation-delay: 390ms !important;
+}
+
+.animation_12_a40 {
+    transition-delay: 400ms !important;
+    animation-delay: 400ms !important;
+}
+
+.animation_12_a41 {
+    transition-delay: 410ms !important;
+    animation-delay: 410ms !important;
+}
+
+.animation_12_a42 {
+    transition-delay: 420ms !important;
+    animation-delay: 420ms !important;
+}
+
+.animation_12_a43 {
+    transition-delay: 430ms !important;
+    animation-delay: 430ms !important;
+}
+
+.animation_12_a44 {
+    transition-delay: 440ms !important;
+    animation-delay: 440ms !important;
+}
+
+.animation_12_a45 {
+    transition-delay: 450ms !important;
+    animation-delay: 450ms !important;
+}
+
+.animation_12_a46 {
+    transition-delay: 460ms !important;
+    animation-delay: 460ms !important;
+}
+
+.animation_12_a47 {
+    transition-delay: 470ms !important;
+    animation-delay: 470ms !important;
+}
+
+.animation_12_a48 {
+    transition-delay: 480ms !important;
+    animation-delay: 480ms !important;
+}
+
+.animation_12_a49 {
+    transition-delay: 490ms !important;
+    animation-delay: 490ms !important;
+}
+
+.animation_12_a50 {
+    transition-delay: 500ms !important;
+    animation-delay: 500ms !important;
+}
+
+.animation_12_a51 {
+    transition-delay: 510ms !important;
+    animation-delay: 510ms !important;
+}
+
+.animation_12_a52 {
+    transition-delay: 520ms !important;
+    animation-delay: 520ms !important;
+}
+
+.animation_12_a53 {
+    transition-delay: 530ms !important;
+    animation-delay: 530ms !important;
+}
+
+.animation_12_a54 {
+    transition-delay: 540ms !important;
+    animation-delay: 540ms !important;
+}
+
+.animation_12_a55 {
+    transition-delay: 550ms !important;
+    animation-delay: 550ms !important;
+}
+
+.animation_12_a56 {
+    transition-delay: 560ms !important;
+    animation-delay: 560ms !important;
+}
+
+.animation_12_a57 {
+    transition-delay: 570ms !important;
+    animation-delay: 570ms !important;
+}
+
+.animation_12_a58 {
+    transition-delay: 580ms !important;
+    animation-delay: 580ms !important;
+}
+
+.animation_12_a59 {
+    transition-delay: 590ms !important;
+    animation-delay: 590ms !important;
+}
+
+.animation_12_a60 {
+    transition-delay: 600ms !important;
+    animation-delay: 600ms !important;
+}
+
+.animation_12_a61 {
+    transition-delay: 610ms !important;
+    animation-delay: 610ms !important;
+}
+
+.animation_12_a62 {
+    transition-delay: 620ms !important;
+    animation-delay: 620ms !important;
+}
+
+.animation_12_a63 {
+    transition-delay: 630ms !important;
+    animation-delay: 630ms !important;
+}
+
+.animation_12_a64 {
+    transition-delay: 640ms !important;
+    animation-delay: 640ms !important;
+}
+
+.animation_12_a65 {
+    transition-delay: 650ms !important;
+    animation-delay: 650ms !important;
+}
+
+.animation_12_a66 {
+    transition-delay: 660ms !important;
+    animation-delay: 660ms !important;
+}
+
+.animation_12_a67 {
+    transition-delay: 670ms !important;
+    animation-delay: 670ms !important;
+}
+
+.animation_12_a68 {
+    transition-delay: 680ms !important;
+    animation-delay: 680ms !important;
+}
+
+.animation_12_a69 {
+    transition-delay: 690ms !important;
+    animation-delay: 690ms !important;
+}

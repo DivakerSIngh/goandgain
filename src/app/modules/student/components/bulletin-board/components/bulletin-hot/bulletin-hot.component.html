@@ -1,0 +1,83 @@
+<div class="bulletinfilterWrapper clearfix">
+    <div class="input-wrap selectWraper">
+        <mat-form-field class="mselectpicker">
+            <mat-select placeholder="Select Language" name="langaugeName" [(ngModel)]="language">
+                <mat-option value="0">
+                    Select Language
+                </mat-option>
+                <mat-option *ngFor="let lang of languageList;let innerIndex=index" [value]="lang.counrty">
+                    {{lang.counrty}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- <select class="custom-selectpicker" name="select" [(ngModel)]="language">
+                <option value="0" selected="">Select Language</option>
+                <option *ngFor="let lang of languageList;let innerIndex=index" value="{{lang.counrty}}">{{lang.counrty}}</option>
+            </select> -->
+    </div>
+    <div class="createBulletin">
+        <button type="button" *ngIf="isLoggedIn" class="custom-btn gradient-lr" value="" [routerLink]="['../../create']">Create Bulletin</button>
+    </div>
+    <div class="searchWrapper overflow">
+        <div class="input-wrap">
+            <input type="text" name="search" [(ngModel)]="search" (change)="getBulletinBoard()" class="search" placeholder="Search By Title and Language">
+            <button type="submit" [disabled]="ifSelected()" (click)="getBulletinBoard()" class="searchbtn">Search </button>
+            <div class="searchbtnicon"><img src="assets/images/search.png" alt=""></div>
+            <span *ngIf="search.length>0" (click)="resetSearch()" class="search-cross withbtn"><img src="assets/images/cancel.png" alt=""></span>
+        </div>
+    </div>
+</div>
+<div class="bulletinDatalist">
+    <div class="bulletinDatalist-inner">
+
+        <div class="column clearfix" *ngFor="let bulletin of bulletinboardDetails;let i=index">
+            <div class="inleft">
+                
+                <figure class="image" [style.background-image]="'url('+ getImage(bulletin.image) +')'"></figure>
+                <!-- <a href="javascript:void(0)" [routerLink]="['../../comments',bulletin._id]" class="userid">
+                       ID: {{bulletin.autoIncrementId}} 
+                     </a> -->
+            </div>
+            <div class="inright">
+                <a href="javascript:void(0)" *ngIf="isHot(bulletin)" class="hotbtn">Hot</a>
+                <a href="javascript:void(0)" class="head" [routerLink]="['../../comments',bulletin._id]"> {{bulletin.title}} </a>
+                <label class="colfield"><strong>Comments: </strong>{{bulletin.comment.length}}</label>
+                <label class="colfield"><strong>Date:</strong> {{bulletin.created | date : 'dd MMM yyyy'}}</label>
+                <label class="colfield"><strong>Views: </strong> {{bulletin.view}}</label>
+                <label class="colfield"><strong>Language: </strong>{{bulletin.language || 'N/A'}}</label>
+                <label class="colfield"><strong>Category: </strong>{{getCategoryName(bulletin.category)}}</label>
+                <div class="clearfix"></div>
+                <!-- <p>{{bulletin.description}}</p> -->
+                <p>{{getLimitedDesciption(bulletin.description)}}</p>
+            </div>
+        </div>
+        <div class="column clearfix" *ngIf="noBulletinFound">
+            No Data Found.
+        </div>
+
+
+        <!-- <div class="column clearfix">
+            <div class="inleft">
+              
+                <figure class="image" [style.background-image]="'url('+ bulletin.userId.image +')'"></figure>
+                <a href="javascript:void(0)" [routerLink]="['../../comments',bulletin._id]" class="userid">ID: KOALA{{bulletin.autoIncrementId}} </a>
+            </div>
+            <div class="inright">
+                <a href="javascript:void(0)" class="hotbtn">Hot</a>
+                <a href="javascript:void(0)" class="head" [routerLink]="['../../comments',bulletin._id]"> {{bulletin.title}} </a>
+                <div class="clearfix"></div>
+                <label class="colfield"><strong>Comments: </strong>{{bulletin.comment.length}}</label>
+                <label class="colfield"><strong>Date:</strong> {{bulletin.created | date : 'dd MMM yyyy'}}</label>
+                <label class="colfield"><strong>Views: </strong> {{bulletin.view}}</label>
+                <label class="colfield"><strong>Language: </strong>{{bulletin.language}}</label>
+                <label class="colfield"><strong>Category: </strong>{{getCategoryName(bulletin.category)}}</label>
+                <div class="clearfix"></div>
+                <p>{{bulletin.description}}</p>
+            </div>
+        </div>
+        <div class="column clearfix" *ngIf="noBulletinFound">
+            No Bulletin
+        </div> -->
+    </div>
+</div>

@@ -1,0 +1,108 @@
+.tutor-section {
+    background: #ffffff;
+    border-radius: 4px;
+    border: solid 1px #ebebeb;
+    overflow: hidden;
+    margin: 0 0 20px 0;
+    padding: 0 15px;
+    box-shadow: 0 0 6px rgba(139, 139, 139, 0.13);
+}
+
+.tutor-section .heading {
+    background: #f8f8f8;
+    font-size: 20px;
+    color: #52686e;
+    font-weight: 400;
+    padding: 15px 15px;
+    margin: 0 -15px;
+    border-bottom: solid 1px #ebebeb;
+}
+
+.trial-wrapper {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 370px;
+}
+
+.trial-wrapper .section-head {
+    margin-bottom: 25px;
+    color: #52686e;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.trial-wrapper .column {
+    padding: 15px 15px 0;
+    border-top: solid 1px #ececec;
+    margin: 0 -15px;
+}
+
+.trial-wrapper .not-avilabel {
+    color: #8499a2;
+    font-size: 20px;
+    margin: 0 0 20px 0;
+}
+
+.trial-wrapper .button-wrapper {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.radio-wrapper:last-child {
+    padding-right: 0px;
+}
+
+.radio-wrapper .check {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.radio-wrapper {
+    color: #52686e;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.radio-wrapper .green {
+    color: #599b24;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.trial-wrapper.topView {
+    position: fixed;
+    top: 0;
+    margin: 0 0 0 800px;
+    right: auto;
+    left: auto;
+}
+
+
+/* Comment */
+
+.inprocess-modal {
+    text-align: center;
+    font-size: 18px;
+    padding: 40px;
+}
+
+.inprocess-modal label {
+    font-weight: 500;
+}
+
+.inprocess-modal .green {
+    font-weight: 500;
+    color: #599b24;
+    margin: 8px 0;
+}
+
+.inprocess-modal span {
+    font-style: italic;
+    color: #599b24;
+}
+
+.inprocess-modal p {
+    margin: 15px 0;
+}

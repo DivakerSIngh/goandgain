@@ -1,0 +1,53 @@
+.label-form.withvalue span {
+    font-weight: 400;
+    color: #8499a2;
+}
+
+.label-form.withvalue {
+    font-weight: 500;
+    margin: 0 0 10px 0;
+}
+
+.custom-btn {
+    margin: 15px;
+    padding: 10px 20px;
+}
+
+.lessondetail-wrap .right {
+    border-left: none;
+    padding: 30px 15px 0 0;
+}
+
+.lessondetail-wrap.tutor-detail {
+    padding: 0;
+}
+
+.represent-dot {
+    margin: 0 0 40px 0;
+}
+
+.represent-dot p {
+    font-size: 18px;
+    color: #52686e;
+    display: inline-block;
+    margin: 0 30px;
+}
+
+.represent-dot span {
+    float: left;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: -2px 10px 0 0;
+}
+
+.represent-dot .scheduled span {
+    background: #89bd60;
+}
+
+.represent-dot .past span {
+    background: #ffdbb4;
+}
+
+
+/* Comment */

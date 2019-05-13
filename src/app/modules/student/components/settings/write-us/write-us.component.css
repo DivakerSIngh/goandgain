@@ -1,0 +1,15 @@
+.title {
+    font-size: 18px;
+    color: #52686e;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.buttons {
+    text-align: center;
+    margin: 30px 0 0;
+}
+
+.buttons .custom-btn {
+    min-width: 150px;
+}

@@ -1,0 +1,39 @@
+.custom-tabs.withbg {
+    max-width: 970px;
+    margin: 0 auto 20px;
+}
+
+.custom-tabs a {
+    width: 16.66%;
+    padding: 15px 15px;
+    font-size: 16px;
+}
+
+.custom-tabs .underline {
+    width: 16.66%;
+}
+
+.custom-tabs .tabs_2:focus~.underline,
+.custom-tabs .tabs_2.active~.underline {
+    margin-left: 16.66%;
+}
+
+.custom-tabs .tabs_3:focus~.underline,
+.custom-tabs .tabs_3.active~.underline {
+    margin-left: 33.32%;
+}
+
+.custom-tabs .tabs_4:focus~.underline,
+.custom-tabs .tabs_4.active~.underline {
+    margin-left: 49.98%;
+}
+
+.custom-tabs .tabs_5:focus~.underline,
+.custom-tabs .tabs_5.active~.underline {
+    margin-left: 66.64%;
+}
+
+.custom-tabs .tabs_6:focus~.underline,
+.custom-tabs .tabs_6.active~.underline {
+    margin-left: 83.3%;
+}

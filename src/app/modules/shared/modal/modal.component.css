@@ -1,0 +1,85 @@
+.invitefriend-modal {
+    padding-bottom: 50px;
+}
+
+.search-wrapper2 {
+    padding: 20px 20px;
+    border-bottom: solid 1px #ececec;
+}
+
+.search-wrapper2 .input-wrap {
+    margin-right: 170px;
+}
+
+.search-wrapper2 .search {
+    padding-right: 50px;
+}
+
+.search-wrapper2 .searchbtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 14px 25px;
+    font-weight: 500;
+}
+
+.search-wrapper2 .searchbtnicon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    padding: 14px 12px;
+}
+
+.search-wrapper2 .inner {
+    position: relative;
+}
+
+
+/*----- invite friend modal- end --*/
+
+#InviteModal .modal-body {
+    padding: 0 20px;
+}
+
+
+/* member */
+
+.member-column figure {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    float: left;
+    margin: 0 20px 0 0;
+}
+
+.member-column h3 {
+    font-size: 18px;
+    color: #52686e;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+.member-row {
+    border-bottom: solid 1px #eeeeee;
+    padding: 20px;
+}
+
+.member-list {
+    display: table;
+    width: 100%;
+}
+
+.member-list li {
+    float: left;
+    width: 50%;
+}
+
+.member-column {
+    padding: 15px 30px;
+    border-bottom: solid 1px #e5e5e5;
+}

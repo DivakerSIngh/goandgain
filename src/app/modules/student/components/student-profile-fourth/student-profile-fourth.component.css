@@ -1,0 +1,32 @@
+.interest-listresult {
+    position: relative;
+}
+
+.interest-errormsg {
+    position: absolute;
+    left: 0;
+    top: -60px;
+    font-size: 14px;
+    padding: 20px 40px;
+    width: 100%;
+    text-align: left;
+    color: #a94442;
+    background-color: #f2dede;
+    border-left: solid 6px;
+}
+
+textarea {
+    padding-bottom: 30px;
+}
+
+.profile-wrapper .form-group,
+.button-wrapper {
+    position: relative;
+}
+
+.char-count-textarea {
+    position: absolute;
+    right: 20px;
+    bottom: 3px;
+    color: #adadad;
+}

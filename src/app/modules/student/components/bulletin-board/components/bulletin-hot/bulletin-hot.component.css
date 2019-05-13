@@ -1,0 +1,141 @@
+/*-- filter--Wrapper end---*/
+
+.bulletinfilterWrapper {
+    padding: 20px 20px 10px;
+    position: relative;
+    border-bottom: solid 1px #ececec;
+}
+
+.bulletinfilterWrapper .selectWraper {
+    width: 200px;
+    float: left;
+}
+
+.createBulletin {
+    float: right;
+    width: 200px;
+    text-align: right;
+}
+
+.createBulletin .custom-btn {
+    padding: 10px 20px !important;
+}
+
+.searchWrapper.overflow {
+    overflow: hidden;
+    padding: 0 0 10px 20px;
+}
+
+
+/*-- filter--Wrapper end---*/
+
+.bulletinDatalist .image {
+    width: 180px;
+    height: 150px;
+    overflow: hidden;
+    float: left;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+}
+
+.bulletinDatalist .column {
+    position: relative;
+    padding: 20px 20px;
+    border-bottom: solid 1px #ececec;
+}
+
+.bulletinDatalist .column:last-child {
+    border-bottom: none;
+}
+
+.bulletinDatalist .column .head {
+    color: #414141;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 5px 0 0 0;
+    display: block;
+}
+
+.bulletinDatalist .column a.head:hover {
+    color: #005ed3;
+}
+
+.bulletinDatalist .column .inright {
+    overflow: hidden;
+    position: relative;
+    padding-right: 0;
+}
+
+.bulletinDatalist .column .inleft {
+    float: left;
+    text-align: left;
+    margin-right: 15px;
+}
+
+.bulletinDatalist .column p {
+    font-size: 16px;
+    color: #8499a2;
+    margin: 10px 0 0 0;
+}
+
+.bulletinDatalist .column strong {
+    font-weight: 500;
+}
+
+.bulletinDatalist .column .hotbtn {
+    font-size: 14px;
+    color: #fff;
+    background: #005ed3;
+    padding: 6px 30px;
+    border-radius: 20px;
+    position: absolute;
+    right: 0;
+}
+
+.bulletinDatalist .column .hotbtn:hover {
+    background: #064593;
+}
+
+.bulletinDatalist .column .userid {
+    color: #005ed3;
+    font-weight: 600;
+    font-size: 13px;
+    margin: 8px 0 0 0;
+    float: left;
+}
+
+.bulletinDatalist .column .colfield {
+    font-size: 14px;
+    color: #8499a2;
+    font-weight: 400;
+    float: left;
+    padding: 3px 0 0 0;
+    margin-right: 60px;
+    min-width: 0;
+}
+
+.colfield:last-child {
+    margin-right: 0;
+}
+
+.bulletinDatalist .column .colfield strong {
+    color: #52686e;
+}
+
+@media (max-width:1400px) {
+    .bulletinDatalist .column .head {
+        font-size: 18px;
+    }
+    .bulletinDatalist .column p {
+        font-size: 14px;
+    }
+    .bulletinDatalist .column .colfield {
+        font-size: 14px;
+    }
+    .bulletintabsWrapper>li>a {
+        font-size: 16px;
+    }
+}

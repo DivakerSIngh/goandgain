@@ -1,0 +1,64 @@
+.btn-border {
+    border-bottom: solid 1px #f5f5f5;
+    padding: 10px 20px;
+    text-align: right;
+    margin: 0 -20px;
+}
+
+.datasecwrapper-inner {
+    padding-bottom: 50px;
+}
+
+.course-column {
+    padding: 20px 0 10px 0;
+    border-bottom: solid 1px #f5f5f5;
+}
+
+.course-column .right-sec {
+    float: right;
+}
+
+.label-green {
+    font-size: 20px;
+    color: #377d00;
+    text-align: right;
+    display: block;
+    line-height: 1.2;
+}
+
+.course-column .wrap-left {
+    overflow: hidden;
+}
+
+.head {
+    font-size: 20px;
+    color: #52686e;
+    font-weight: 400;
+    margin: 0 0 10px;
+    display: block;
+}
+
+.head:hover {
+    color: #377d00;
+}
+
+h4 {
+    font-size: 14px;
+    color: #8499a2;
+    line-height: 1.4;
+}
+
+h4.upparcase {
+    text-transform: uppercase;
+}
+
+h4.italic {
+    font-style: italic;
+}
+
+p {
+    color: #8499a2;
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 10px 0;
+}

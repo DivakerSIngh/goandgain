@@ -1,0 +1,164 @@
+<div class="createPraticeroom clearfix">
+    <ul class="breadcrumb">
+        <li>
+            <a href="javascript:void(0)" [routerLink]="['../../../student/student-profile/friends-group/group-details',groupId]">Study Group</a>
+        </li>
+        <li> Edit Study Group</li>
+    </ul>
+    <form (ngSubmit)="editGroup($event)" #frm="ngForm" novalidate>
+        <div class="fixedwidth pt20">
+            <div class="choose-image text-center">
+                <figure class="profileimage">
+                    <!-- <img src="assets/images/avtar.png" alt="User"> -->
+                    <img [src]="viewImage" src="assets/images/avtar.png" alt="User">
+                </figure>
+                <div class="browse-btn">Browse
+                    <!-- <input type="file"> -->
+                    <input type="file" name="avatar" (change)="onFileChange($event)" accept="image/*" />
+                </div><br>
+                <span style="color:red" *ngIf="invalidImage">{{imageValidationMessage}}</span>
+            </div>
+            <div class="form-group">
+                <label class="input-label">Category:</label>
+                <!-- <div class="input-wrap">
+                <input type="text" value="" class="" placeholder="(e.g. Free Talking, Topic Study, Interview Preparation, Speaking Test)">
+            </div> -->
+            <div class="input-wrap">
+                <!-- <div class="input-wrap selectWraper">
+                    <span class="selectpicker-btn"></span> -->
+
+                    <mat-form-field class="mselectpicker">
+                            <mat-select placeholder="Select Category" name="categoryName" [(ngModel)]="category"  (change)="changeCatgegory()">
+                                <mat-option  *ngFor="let cat of categoryList;let i=index" [value]="cat.name">
+                                        {{cat.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+
+                    <!-- <select class="custom-selectpicker" name="categoryName" [(ngModel)]="category" (change)="changeCatgegory()">
+                                <option value="0" disabled="" selected="">Select Category</option>
+                                <option  *ngFor="let cat of categoryList;let i=index" value="{{cat.name}}">{{cat.name}}</option>                                               
+                            </select> -->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="input-label">Sub-category:</label>
+                <div class="input-wrap">
+                 
+                  
+                    <mat-form-field class="mselectpicker">
+                            <mat-select placeholder="Select Category" name="subcategoryName" [(ngModel)]="subcategory">
+                                <mat-option *ngFor="let subcat of subcategoryList;let i=index"  [value]="subcat.name">
+                                        {{subcat.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                  
+                    <!-- <select class="custom-selectpicker" name="subcategoryName" [(ngModel)]="subcategory"> 
+                            <option value="0" disabled="" selected="">Select Sub-category </option>
+                            <option  *ngFor="let subcat of subcategoryList;let i=index" value="{{subcat.name}}">{{subcat.name}}</option>                                                                                                    
+                        </select> -->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="input-label">Time Zone:</label>
+                <div class="input-wrap selectWraper">
+                    <!-- <span class="selectpicker-btn"></span> -->
+
+                    <mat-form-field class="mselectpicker">
+                            <mat-select placeholder="Select TimeZone(e.g. Seoul, Los Angeles)" name="timeZone" [(ngModel)]="timeZone">
+                                <mat-option *ngFor="let c of timeZoneList;let i=index"  [value]="c.name">
+                                        ({{c.offsetStr}}) {{c.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                  
+
+                    <!-- <select class="custom-selectpicker" name="timeZone" [(ngModel)]="timeZone">
+                            <option value="0" disabled="" selected="">Select TimeZone(e.g. Seoul, Los Angeles) </option>
+                            <option *ngFor="let c of timeZoneList;let i=index" value="{{c.name}}">
+                                  
+                                    ({{c.offsetStr}}) {{c.name}}
+                                </option>                                                     
+                        </select> -->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="input-label">Group Name:</label>
+                <div class="input-wrap">
+                    <input type="text" maxlength="100" name="groupName" #groupNameRef="ngModel" [(ngModel)]="groupName"  class="" placeholder="(e.g. TOEIC Speaking Study)" required>
+                    <div *ngIf="groupNameRef.invalid&&groupNameRef.touched">
+                        <span class="error-message" *ngIf="groupNameRef?.errors.required">Please enter Group Name</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="input-label">Subject:</label>
+                <div class="input-wrap">
+                    <input type="text" maxlength="200" name="subjectName" #subjectRef="ngModel" [(ngModel)]="subject"  placeholder="(e.g. Let's study English conversation together every weekdays at 8PM)" required>
+                    <div *ngIf="subjectRef.invalid&&subjectRef.touched">
+                        <span class="error-message" *ngIf="subjectRef?.errors.required">Please enter subject</span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label class="input-label">Add Participants:</label>
+                <div class="input-wrap">
+                   
+                    <select class="custom-selectpicker" name="participants" [(ngModel)]="participants" (change)="addParticipantList()">
+                        <option value="0" disabled="" selected="" class="placeholder">Select Participants </option>
+                        <option *ngFor="let fr of friendList;let i=index" value="{{fr._id}}">
+                                {{fr.email}}
+                            </option>                               
+                    </select>
+                </div>
+                <ul class="append-langlist">
+                    <li *ngFor="let addedList of addedParticipants;let i=index">
+                        {{addedList.email}} <span class="cross-image" (click)="removeFromList(i)"><img src="assets/images/select-cross.png" alt=""></span>
+                      
+                    </li>
+                </ul>
+               
+            </div> -->
+            <div class="form-group">
+                <label class="input-label">Language:</label>
+                <div class="input-wrap selectWraper">
+                    <!-- <span class="selectpicker-btn"></span> -->
+
+                    <mat-form-field class="mselectpicker">
+                            <mat-select placeholder="Select Language" name="langaugeName" [(ngModel)]="language">
+                                <mat-option *ngFor="let language of languages;let i=index"  [value]="language.counrty">
+                                        {{language.counrty}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    <!-- <select class="custom-selectpicker" name="langaugeName" [(ngModel)]="language">
+                        <option value="0" disabled="" selected="" class="placeholder">Select Language </option>
+                        <option *ngFor="let language of languages;let i=index" value="{{language.counrty}}">
+                            
+                                {{language.counrty}}
+                            </option>                               
+                    </select> -->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="input-label">Descriptions:</label>
+                <div class="input-wrap">
+                    <textarea name="" #descriptionsRef="ngModel" (keyup)="getTextAreacount()" name="description" [(ngModel)]="Description" cols="30" maxlength="250" rows="4" required></textarea>
+                    <div class="char-count-textarea"> {{remainingChar}} Characters</div>
+                    <div *ngIf="descriptionsRef.invalid&&descriptionsRef.touched">
+                        <span class="error-message" *ngIf="descriptionsRef?.errors.required">Please enter Description.</span>
+                    </div>
+                    <span class="">{{createGroupStatus}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-center pt20">
+            <button type="submit" class="custom-btn gradient-lr save" [disabled]="isValid()">Edit</button>
+            <input type="button" (click)="backToGroupDetails()" class="custom-btn  cancel ml10" value="Cancel" />
+            <!-- (click)="resetForm()" -->
+        </div>
+    </form>
+</div>

@@ -1,0 +1,155 @@
+<div class="section-container accrodien" *ngFor="let form of educationListPrepareForm;let i=index">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div *ngIf="i != 0" (click)="removeFormFromDome(i)" class="append-dataremove">close</div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group">
+                <label for="" class="input-label">Highest Education Level:</label>
+                <div class="input-wrap">
+                    <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="Highest Education Level" name="experience{{i}}" [(ngModel)]="form.experience">
+                            <mat-option *ngFor="let ex of experienceList" [value]="ex">
+                                {{ex}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <span *ngIf="form.experienceValid" class="error-edu-inputmsg" style="display:block">This field is required. </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group">
+                <label for="" class="input-label">Major:</label>
+                <div class="input-wrap">
+                    <input type="text" name="title{{i}}" maxlength="30" [(ngModel)]="form.title" placeholder="Major" />
+                    <span *ngIf="form.titleValid" class="error-edu-inputmsg" style="display:block">This field is required. </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group">
+                <label for="" class="input-label">Institution:</label>
+                <div class="input-wrap">
+                    <input type="text" value="" name="Location{{i}}" maxlength="30" [(ngModel)]="form.location" placeholder="City, (State or Province), Country" />
+                    <span *ngIf="form.locationValid" class="error-edu-inputmsg" style="display:block">This field is required. </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group">
+                <label for="" class="input-label">Location of the Institution:</label>
+                <div class="input-wrap">
+                    <input type="text" value="" name="Location{{i}}" maxlength="30" [(ngModel)]="form.location" placeholder="City, (State or Province), Country" />
+                    <span *ngIf="form.locationValid" class="error-edu-inputmsg" style="display:block">This field is required. </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group">
+                <label for="" class="input-label">Start Date:</label>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <div class="form-group">
+                            <div class="input-wrap">
+                                <span class="selectpicker-btn"></span>
+                                <select class="custom-selectpicker" name="startDateYear{{i}}" [(ngModel)]="form.startDateYear" (change)="ChangeStartDate(i,form.startDateYear)">
+                                    <option value="0" disabled selected>Select Year</option>
+                                    <option *ngFor="let y of form.startYearList;let i=index" value="{{y}}" (change)="changeStartYear()">
+                                        {{y}}
+                                    </option>
+                                </select>
+                                <span *ngIf="form.startDateYearValid" class="error-edu-inputmsg" style="display:block">This field is required. </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <div class="form-group">
+                            <div class="input-wrap">
+                                <span class="selectpicker-btn"></span>
+                                <select class="custom-selectpicker" name="startDateMonth{{i}}" [(ngModel)]="form.startDateMonth" (change)="ChangeStartMonth(i,form.startDateMonth)">
+                                    <option value="0" disabled selected>Select Month</option>
+                                    <option *ngFor="let month of form.startDateMonthList;let i=index" value="{{month.id}}">
+                                        {{month.value}}
+                                    </option>
+                                </select>
+                                <span *ngIf="form.startDateMonthValid" class="error-edu-inputmsg" style="display:block">This field is required. </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group">
+                <label for="" class="input-label">Year of Acquisition:</label>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <div class="form-group">
+                            <div class="input-wrap">
+                                <span class="selectpicker-btn"></span>
+                                <select class="custom-selectpicker" name="acquisitionYear{{i}}" [(ngModel)]="form.acquisitionYear" (change)="setMonth(i,form.startDateMonth)">
+                                    <option value="0" disabled selected>Select Year</option>
+                                    <option *ngFor="let y of form.YearofAcquisitionList;let i=index" value="{{y}}">
+                                        {{y}}
+                                    </option>
+
+                                </select>
+                                <span *ngIf="form.acquisitionYearValid" class="error-edu-inputmsg" style="display:block">This field is required. </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <div class="form-group">
+                            <div class="input-wrap">
+                                <span class="selectpicker-btn"></span>
+                                <select class="custom-selectpicker" name="acquisitionMonth{{i}}" [(ngModel)]="form.acquisitionMonth">
+                                    <option value="0" disabled selected>Select Month</option>
+                                    <option *ngFor="let month of form.acquisitionMonthList;let i=index" value="{{month.id}}">
+                                        {{month.value}}
+                                    </option>
+
+                                </select>
+                                <span *ngIf="form.acquisitionMonthValid" class="error-edu-inputmsg" style="display:block">This field is required. </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label class="input-label">Description:</label>
+                <textarea name="" id="" cols="30" rows="3" maxlength="200" (keyup)="changeTextAreacount(form.descriptions,i)" name="descriptions{{i}}" [(ngModel)]="form.descriptions" placeholder="Description"></textarea>
+                <span *ngIf="form.descriptionsValid" class="error-edu-inputmsg" style="display:block">This field is required. </span>
+                <!-- <span>{{getTextAreaCount(form.descriptinLength,i)}}</span> -->
+                <span class="char-count-textarea">{{form.descriptionLength}} Characters</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="educationListPrepareForm.length <=4">
+    <a href="javascript:void(0);" class="add-more-appenddata" (click)="addNewForm()">Add More</a> {{formStatus}}
+</div>
+<div class="input-wrap">
+    <span class="fileup-info">*You can upload only pdf, doc, docx, xlsx, xls, jpg, jpeg, png.</span>
+    <label class="input-label">Upload a diploma from your computer &nbsp;</label>
+    <div class="browse-btn">Upload
+        <input type="file" name="avatar" (change)="onFileChange($event)" id="docfileupload">
+    </div>
+    <span class="error-edu-inputmsg fileup" style="display:block">{{validFileStatus}} </span>
+</div>
+<ul class="choosefile-list">
+
+    <li *ngFor="let file of uploadValue;let i=index">{{file.fileName}}
+        <span class="cross">
+            <img src="assets/images/red-cross.png" (click)="removeFile(i)" alt="">
+        </span>
+    </li>
+</ul>
+<div class="clearfix"><span class="successMsg-top">{{responseMessage}}</span></div>
+<div class="button-wrapper">
+    <button type="submit" class="custom-btn gradient-lr" (click)="updateEducation()">Update</button>
+    <!-- <button type="submit" class="custom-btn cancel">Cancel</button> -->
+</div>

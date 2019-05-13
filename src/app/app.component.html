@@ -1,0 +1,110 @@
+<!-- <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "93a1caff-aa10-49dd-9f8b-34a19bce2def",
+      autoRegister: false,
+      notifyButton: {
+        enable: true,
+      },
+    });
+  });
+</script> -->
+
+
+
+<app-header></app-header>
+<router-outlet (deactivate)="onDeactivate()">
+
+    <div *ngIf="showLoader">
+        <div class="loader">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+    </div>
+
+    <ng-template #loginmodal let-c="close" let-d="dismiss" class="lg-modal">
+        <button type="button" class="modal-cross" aria-label="Close" (click)="d('Cross click')">
+        <img src="assets/images/cancel.png" alt="close">
+    </button>
+        <div class="modal-body">
+            <div class="modal-bg">
+                <div class="LogIn-modal custom-modal clearfix" id="LogInmodal">
+                    <div class="modal-inner">
+                        <div class="image-section">
+                            <img src="assets/images/login.png" alt="">
+                        </div>
+                        <div class="content-section">
+                            <div class="email-exist signup" *ngIf="loginStatus!=''"> {{loginStatus}}</div>
+                            <h2 class="modal-head text-center">Sign In</h2>
+                            <p class="modal-para">Lorem Ipsum is simply dummy text of the printing. </p>
+                            <!-- <form (ngSubmit)="signIn(verification)" #frm="ngForm" novalidate> -->
+                            <form (ngSubmit)="signingIn()" #frmSignIn="ngForm" novalidate>
+                                <div class="custom-radio">
+                                    <input type="radio" name="student" value="1" checked="checked" name="radio1" id="student" [(ngModel)]="signIn.isStudent" />
+                                    <label for="student">Student</label>
+                                </div>
+                                <div class="custom-radio">
+                                    <input type="radio" name="tutor" value="0" name="radio1" id="tutor" [(ngModel)]="signIn.isStudent" />
+                                    <label for="tutor">Tutor</label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-wrap">
+                                        <input type="text" validattionDirective name="email" placeholder="Email" (keypress)="changeStatusMessage()" #mailRef="ngModel" [(ngModel)]="signIn.email" email required>
+
+                                        <!-- {{mailRef.invalid && mailRef.touched && mailRef.dirty && !mailRef.untouched}} -->
+                                        <div *ngIf="mailRef.invalid&&mailRef.touched">
+                                            <span class="error-inputmsg" style="display:block" *ngIf="mailRef?.errors.required">This Field is Required.</span>
+                                            <span class="error-inputmsg" style="display:block" *ngIf="mailRef?.errors.email&&!mailRef?.errors.required">Please enter a valid email </span>
+                                        </div>
+
+                                        <!-- <div *ngIf="emailRef.invalid&&emailRef.touched">
+                                        <span class="" *ngIf="emailRef?.errors.required"> This Field is Required</span>
+                                        <span class="" *ngIf="emailRef?.errors.email&&!emailRef?.errors.required">Please enter a valid email</span>
+                                    </div> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-wrap">
+                                        <input type="password" name="password" validattionDirective placeholder="Password" #passwordRef="ngModel" [(ngModel)]="signIn.password" required>
+                                        <div *ngIf="passwordRef.invalid&&passwordRef.touched">
+                                            <span class="error-inputmsg" style="display:block" *ngIf="passwordRef?.errors.required">This Field is Required.</span>
+                                            <span class="error-inputmsg" style="display:block" *ngIf="passwordRef?.errors.minlengt">password should be greater than 3 characters </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="custom-check">
+                                <input type="checkbox" value="" name="check" id="Remember" />
+                                <label for="Remember">Remember Me</label>
+                            </div> -->
+                                <a href="javascript:void(0)" (click)="open(forgotmodal)" class="forgot-psw">Forgot Password</a>
+                                <div class="clearfix"></div>
+                                <div class="button-wrapper text-center">
+                                    <button type="submit" name="" value="" class="gradient custom-btn" [disabled]="frmSignIn.invalid">Sign In</button>
+                                </div>
+                                <div class="other-option">
+                                    <span> Or Login With </span>
+                                </div>
+                                <div class="social-icon">
+                                    <a href="javascript:void" (click)="loginWithFacebook(signupmodal)" class="facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <a href="javascript:void" (click)="loginWithGooglePlus(signupmodal)" class="google-plus">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </div>
+                            </form>
+                            <div class="footer-modal text-center">
+                                <p class="para">Don't have an account?
+                                    <a href="javascript:void(0)" (click)="open(signupmodal)" class="signup">
+                                Sign Up </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</router-outlet>
+<app-footer></app-footer>

@@ -1,0 +1,112 @@
+.studygroup-detail {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    border: solid 1px #ececec;
+    position: relative;
+    margin: 25px 0;
+    padding: 0 25px
+}
+
+.studygroup-detail .request {
+    margin: -10px 0 0 0;
+    float: right;
+}
+
+.titleheading {
+    text-align: center;
+    width: 100%;
+    border-bottom: solid 1px #ececec;
+    padding: 20px;
+}
+
+.titleheading:before {
+    display: none;
+}
+
+.studygroup-detail .main.title {
+    padding: 20px 20px;
+    border: solid 1px #ebebeb;
+    border-radius: 4px;
+}
+
+.studygroup-detail .title {
+    background: #f9fafb;
+    font-size: 18px;
+    color: #52686e;
+    padding: 15px 20px;
+    border-bottom: solid 1px #ebebeb;
+    position: relative;
+    font-weight: 400;
+}
+
+.studygroup-detail .sub-title {
+    background: #ffffff;
+    font-size: 16px;
+    color: #8499a2;
+    padding: 15px 20px;
+    font-weight: 400;
+    border-bottom: solid 1px #eeeeee;
+}
+
+.studygroup-detail .hansang {
+    padding-left: 70px;
+    display: inline-block;
+    margin: 20px 0;
+    border: solid 1px #ebebeb;
+    border-radius: 4px;
+}
+
+.studygroup-detail .hansang:before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    background-image: url('../../../../../../../assets/images/user-icon.png');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 28px;
+    height: 26px;
+}
+
+.studygroup-detail .hits {
+    display: inline-block;
+    color: #61a12e;
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+.studygroup-detail .hits .strong {
+    font-weight: 500;
+}
+
+.section-wrap {
+    border: solid 1px #f1f1f1;
+    margin: 15px 0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.description-detail {
+    padding: 15px 20px;
+}
+
+.description-detail p {
+    font-size: 15px;
+    color: #8499a2;
+    margin: 0 0 15px 0;
+}
+
+@media (max-width:1480) {
+    .studygroup-detail .title {
+        font-size: 16px;
+    }
+    .studygroup-detail .hits {
+        font-size: 16px;
+    }
+    .description-detail p {
+        font-size: 14px;
+    }
+}

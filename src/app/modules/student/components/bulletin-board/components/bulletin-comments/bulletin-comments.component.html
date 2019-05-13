@@ -1,0 +1,162 @@
+<div class="centersecwrapper">
+    <div class="container" *ngIf="bulletinDetails">
+        <!-- <div class="container"> -->
+        <div class="bulletinDetails clearfix">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="javascript:void(0)" [routerLink]="['../../bulletin-tabs']">Bulletin Board </a>
+                </li>
+                <li>Bulletin Details</li>
+            </ul>
+            <div class="datacolumn">
+                <!-- <figure class="image" [style.background-image]="'url('+ bulletinDetails.userId.image +')'"> </figure> -->
+                <div class="inright">
+                    <div *ngIf="bulletinDetails.type=='1'">
+                        <div class="heading">
+                            <a href="{{bulletinDetails.url}}" target="_blank"> 
+                                    {{bulletinDetails.title}}
+                            </a>
+                        </div>
+                    </div>
+                    <div *ngIf="bulletinDetails.type!='1'">
+                        <div class="heading"> {{bulletinDetails.title}} </div>
+                    </div>
+                    <!-- <div class="heading"> {{bulletinDetails.title}} </div> -->
+                    <div class="clearfix"></div>
+                    <label class="colfield"><strong>ID : </strong>{{bulletinDetails.autoIncrementId}} </label>
+                    
+                    <label class="colfield"><strong>Category : </strong>   <span>{{getCategoryName(bulletinDetails.category)}}  </span></label>
+                    <label class="colfield"><strong>Created by : </strong>
+                        <a href="javascript:void(0)" class="tooltip-hover">{{bulletinDetails.userId.firstName}} {{bulletinDetails.userId.lastName}}
+                            <div class="tooltip-wrapper">
+                                <figure class="image" [style.background-image]="'url('+ bulletinDetails.userId.image +')'"> </figure>
+                                <div class="inright">
+                                    <a href="javascript:void(0)" class="heading"> {{bulletinDetails.userId.firstName}} {{bulletinDetails.userId.lastName}}</a>
+                                </div>
+                                <div class="clearfix"></div>
+                                <p>Timezone : <span>({{bulletinDetails.userId.timeZone}}) {{bulletinDetails.userId.counrty}}</span></p>
+                                <p> Language : <span>{{bulletinDetails.userId.mainlanguage}}</span></p>
+                            </div>
+                        </a>                         
+                    </label>
+
+                    <label class="colfield"><strong>Date :</strong> {{bulletinDetails.created | date : 'dd MMM yyyy'}}</label>
+                    <label class="colfield"><strong>Views : </strong> {{bulletinDetails.view}}</label>
+                    <label class="colfield"><strong>Language : </strong>{{bulletinDetails.language || 'N/A'}}</label>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <!-- <div class="article-image" [style.background-image]="'url('+ bulletinDetails.image +')'"></div> -->
+            <div class="article-image">
+                <img src="{{getImage(bulletinDetails.image)}}" alt="">
+            </div>
+            <p class="gap">{{bulletinDetails.description}}</p>
+            <a href="{{bulletinDetails.url}}" target="_blank" class="url-text">{{bulletinDetails.url}}</a>
+        </div>
+        <div class="bulletinDetails clearfix commentWrapper">
+            <h2 class="comment"> Comments: {{allComment.length}}</h2>
+            <!-- <h2 class="comment" *ngIf="allComment.length<=0">No Comments</h2> -->
+            <div class="chatColumn">
+                <div class="leftIn">
+                    <div class="write-comment" *ngIf="isLoggedIn">
+                        <h2 class="write-head">Write A Comment</h2>
+                        <div class="write-chat-inner clearfix">
+                            <figure class="userimage"><img [src]="studetnImage" alt=""></figure>
+                            <textarea maxlength="200" name="comment" id="" [(ngModel)]="comment" cols="30" rows="3"></textarea>
+                            <button [disabled]="isEntered()" (click)="postComment()" type="submit" class="custom-btn gradient-lr">Post Comment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="chatColumn" *ngFor="let com of allComment;let i=index">
+
+                <figure class="userimage" [style.background-image]="'url('+ com.userId.image +')'"></figure>
+                <!-- <figure class="userimage" style="background-image:url('assets/images/user1.jpg')"></figure> -->
+                <div class="leftIn">
+                    <div class="chatcolumn-section">
+                        <a href="javascript:void(0);" *ngIf="isLoggedIn&&isMainCommentCreator(i)" class="comment-options" mat-icon [matMenuTriggerFor]="menu">
+                            <i class="fa fa-circle"></i>
+                            <i class="fa fa-circle"></i>
+                            <i class="fa fa-circle"></i>
+                        </a>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item *ngIf="isLoggedIn&&isMainCommentCreator(i)" (click)="ConfirmCommentDelete(com._id,i)">Delete</button>
+                            <button mat-menu-item *ngIf="isLoggedIn&&isMainCommentCreator(i)" (click)="openCloseCollapsEditMainComment(com._id,i,com.comment)">Edit</button>
+                        </mat-menu>
+                        <h2 class="head">{{com.userId.firstName}} {{com.userId.lastName}}</h2>
+                        <label class="datetime">{{com.created | date : 'dd MMM yyyy'}} at {{ com.created | date:'mediumTime' }}</label>
+                        <a href="javascript:void(0);" class="reply" *ngIf="isLoggedIn" data-toggle="collapse" (click)="openCloseCollaps(com._id)">Reply</a>
+                        <!-- <a href="javascript:void(0);" class="reply" *ngIf="isLoggedIn&&isMainCommentCreator(i)" (click)="ConfirmCommentDelete(com._id,i)">Delete</a>
+                    <a href="javascript:void(0);" class="reply" *ngIf="isLoggedIn&&isMainCommentCreator(i)" (click)="openCloseCollapsEditMainComment(com._id,i,com.comment)">Edit</a> -->
+                        <p>{{com.comment}}</p>
+                    </div>
+                    <div [id]="com._id" class="collapse">
+                        <div class="write-comment">
+                            <h2 class="write-head">Reply to {{com.userId.firstName}} {{com.userId.lastName}}</h2>
+                            <div class="write-chat-inner clearfix">
+                                <figure><img class="userimage" [src]="studetnImage" alt=""></figure>
+                                <textarea maxlength="200" name="innerComment" [(ngModel)]="innerComment" id="" cols="30" rows="2"></textarea>
+                                <button type="submit" class="custom-btn gradient-lr" [disabled]="isInnerCommentInserted()" (click)="SaveInnerComment(innerComment,com._id,i)">Post Comment</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div [id]="i" class="collapse">
+                        <div class="write-comment">
+                            <h2 class="write-head">Edit Comment</h2>
+                            <div class="write-chat-inner clearfix">
+                                <figure>
+                                    <img class="userimage" [src]="studetnImage" alt="">
+                                </figure>
+                                <textarea maxlength="200" name="innerComment" [(ngModel)]="innerComment" id="" cols="30" rows="2"></textarea>
+                                <button type="submit" class="custom-btn gradient-lr" [disabled]="isInnerCommentInserted()" (click)="editMainComment(innerComment,com._id,i)">Edit Comment</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chatReply" *ngFor="let innerCom of com.replyData;let innerIndex=index">
+                        <a href="javascript:void(0);" *ngIf="isLoggedIn&&isInnerCommentCreator(i,innerIndex)" (click)="ConfirmInnerCommentDelete(innerCom._id,innerIndex,i,com._id)" class="comment-options" mat-icon [matMenuTriggerFor]="menu">
+                            <i class="fa fa-circle"></i>
+                            <i class="fa fa-circle"></i>
+                            <i class="fa fa-circle"></i>
+                        </a>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item *ngIf="isLoggedIn&&isInnerCommentCreator(i,innerIndex)" (click)="ConfirmInnerCommentDelete(innerCom._id,innerIndex,i,com._id)">Delete</button>
+                        </mat-menu>
+                        <figure class="userimage" [style.background-image]="'url('+ innerCom.userId.image +')'"></figure>
+                        <div class="leftIn">
+                            <h2 class="head">{{innerCom.userId.firstName}} {{innerCom.userId.lastName}}</h2>
+                            <label class="datetime">{{innerCom.created | date : 'dd MMM yyyy'}} at {{ innerCom.created | date:'mediumTime' }}</label>
+                            <p>{{innerCom.comment}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <!--container -->
+</div>
+
+<div class="modal fade" id="deletePopUp" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm create-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Confirmation</h4>
+                <button class="modal-cross" data-dismiss="modal" type="button">
+                    <img  alt="close" src="assets/images/cancel.png">
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Are you sure want to delete the comment?.</p>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="custom-btn gradient save" (click)="deleteComment()">Confirm</button>
+                <button type="button" class="custom-btn delete" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,127 @@
+<div class="profile-wrapper">
+    <div class="text-center">
+        <h1 class="titleheading small"> {{'general-information' | translate}} </h1>
+    </div>
+    <div class="profile-imagesec-inner section-wrapper">
+        <!-- <form (ngSubmit)="login(verification)" #frm="ngForm" novalidate> -->
+        <form (ngSubmit)="firstStepOfTeacher()" #frm="ngForm" novalidate>
+            <div class="choose-image">
+                <figure class="profileimage">
+                    <img [src]="viewImage" src="assets/images/avtar.png" alt="User">
+                </figure>
+                <div class="profile-errormsg">
+                    <span *ngIf="ifInvalid">{{'please-upload-a-valid-image' | translate}}</span>
+                    <span *ngIf="ifSizeExceed">{{'file-size-can-not-be-more-than-500-kb' | translate}}</span>
+                    <span *ngIf="ifInternalError">{{'there-is-some-internal-error' | translate}}</span>
+                    
+                    <!-- {{requiredStatus}} -->
+                </div>
+                <div class="browse-btn">{{'browse' | translate}}
+                    <!-- <input type="file" /> -->
+                    <input type="file" name="avatar" (change)="onFileChange($event)" accept="image/*" class="browse-input" id="docfileupload">
+                </div>
+
+            </div>
+            <div class="other-option">
+                <span> {{'or-import-from' | translate}} </span>
+            </div>
+            <div class="social-icon">
+                <a href="javascript:void" (click)="connectWithGooglePlus()" class="google-plus">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                <a href="javascript:void" (click)="getImageFromFacebook()" class="facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+            </div>
+            <div class="teacherprofile">
+                <div class="form-group">
+                    <label class="input-label">{{'first-name' | translate}}:</label>
+                    <div class="input-wrap">
+                        <!-- <input type="text" value="" name="" placeholder="" /> -->
+
+                        <input type="text" name="firstName" maxlength="15" placeholder="{{'first-name' | translate}}" #firstNameRef="ngModel" [(ngModel)]="firstName" required/>
+                        <div *ngIf="firstNameRef.invalid && firstNameRef.touched">
+                            <span class="errorlog-inputmsg right" style="display:block" *ngIf="firstNameRef?.errors.required">{{'this-field-is-required' | translate}}</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">{{'last-name' | translate}}:</label>
+                    <div class="input-wrap">
+                        <input type="text" name="lastName" maxlength="15" placeholder="{{'last-name' | translate}}" #lastNameRef="ngModel" [(ngModel)]="lastName" required/>
+                        <div *ngIf="lastNameRef.invalid && lastNameRef.touched">
+                            <span class="errorlog-inputmsg right" style="display:block" *ngIf="lastNameRef?.errors.required">{{'this-field-is-required' | translate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">{{'phone-number' | translate}}:</label>
+                    <div class="input-wrap countrycode">
+                        <div class="countrycode-dropdown">
+                            <mat-form-field class="mselectpicker">
+                                <mat-select placeholder="{{'country-code' | translate}}" name="countrycode" [(ngModel)]="countryCode">
+                                    <mat-option *ngFor="let c of countryCodeList" [value]="c.code">
+                                            (+{{c.code}}) {{c.name}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                             <div *ngIf="noCountryCode" >
+                                    <span class="errorlog-inputmsg right" style="display:block">{{'this-field-is-required' | translate}}</span>
+                            </div>
+                        </div>
+                        <input type="text" onPaste="return false" (keypress)="restrictNumeric($event)" name="phoneNumber" placeholder="{{'phone-number' | translate}}" minlength="10" maxlength="20" #phoneNumberRef="ngModel" [(ngModel)]="phoneNumber" required/>
+                        <div *ngIf="phoneNumberRef.invalid && phoneNumberRef.touched">
+                            <span class="errorlog-inputmsg right" style="display:block" *ngIf="phoneNumberRef?.errors.required">{{'this-field-is-required' | translate}}</span>
+                            <span class="errorlog-inputmsg right" style="display:block" *ngIf="phoneNumberRef?.errors.minlength">{{'phone-number-must-be-valid' | translate}}</span>
+                            <span class="errorlog-inputmsg right" style="display:block" *ngIf="phoneNumberRef?.errors.maxlength">{{'phone-number-must-be-valid' | translate}}Phone number must be valid.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="input-label">{{'country' | translate}}:</label>
+                    <div class="input-wrap">
+                        <!-- <span class="selectpicker-btn"></span> -->
+
+                        <mat-form-field class="mselectpicker">
+                            <mat-select placeholder="{{'select-country' | translate}}" name="countryName" [(ngModel)]="countryName">
+                                <mat-option *ngFor="let c of countryList" [value]="c.name">
+                                    {{c.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <div *ngIf="!selectcountryName">
+                            <span class="errorlog-inputmsg right" style="display:block"> {{'this-field-is-required' | translate}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="input-label">{{'timezone' | translate}}:</label>
+                    <div class="input-wrap">
+                        <!-- <span class="selectpicker-btn"></span> -->
+
+                        <mat-form-field class="mselectpicker">
+                            <mat-select placeholder="{{'select-time-zone' | translate}}" name="country" [(ngModel)]="country" (change)="changeCountry()" required>
+                                <mat-option *ngFor="let c of countries" [value]="c.name">
+                                    ({{c.offsetStr}}) {{c.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div *ngIf="!selectcountry">
+                            <span class="errorlog-inputmsg right" style="display:block">{{'this-field-is-required' | translate}} </span>
+                        </div>
+                    </div>
+                </div>
+                <span style="color:red">{{requiredMessage}}</span>
+            </div>
+            <div class="button-wrapper withbg text-right">
+                <button type="submit" name="" value="" (click)="update" class="gradient custom-btn small" [disabled]="frm.invalid">{{'next' | translate}}</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+

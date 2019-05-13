@@ -1,0 +1,29 @@
+<div class="centersecwrapper">
+    <div class="container-fluid">
+        <div class="bulletinWrapper clearfix">
+            <div class="bulletinWrapper-inner">
+                <ul class="bulletintabsWrapper clearfix">
+                    <li>
+                        <a href="javascript:void(0);" [class.active]="currentCategory==0" (click)="getBulletinBoard(0)">All</a>
+                    </li>
+                    <li>
+                        <!-- <a href="javascript:void(0);" [routerLink]="['./bulletin-hot']" routerLinkActive="active">Hot</a> -->
+                        <a href="javascript:void(0);" [class.active]="currentCategory==5" (click)="getBulletinBoard(5)">Hot</a>
+
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [class.active]="currentCategory==1" (click)="getBulletinBoard(1)">Free Discussion</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [class.active]="currentCategory==2" (click)="getBulletinBoard(2)">Essay Correction</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [class.active]="currentCategory==3" (click)="getBulletinBoard(3)">Question & Answer</a>
+                    </li>
+                </ul>
+                <router-outlet></router-outlet>
+            </div>
+            <app-advertisement></app-advertisement>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="profile-wrapper">
+    <div class="text-center">
+        <h1 class="titleheading small"> {{'general-weekly-teaching-availability' | translate}}</h1>
+    </div>
+    <div class="section-wrapper">
+        <div class="calendar-wrapper">
+            <label class="profile-label text-center pn"> {{'sunday-to-monday' | translate}} </label>
+            <p class="parag text-center"> {{'all-times-listed-are-in-your-local-timezone' | translate}}</p>
+            <div class="table-wrapper">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th><img src="assets/images/clock.png" alt="Clock"><span>{{timeZone}}</span></th>
+                            <th> {{'sun' | translate}}</th>
+                            <th> {{'mon' | translate}}</th>
+                            <th> {{'tue' | translate}}</th>
+                            <th> {{'wed' | translate}}</th>
+                            <th> {{'thu' | translate}}</th>
+                            <th> {{'fri' | translate}}</th>
+                            <th> {{'sat' | translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        <tr *ngFor="let cal of prepareCalendar;let i=index">
+                            <th>{{cal.time}}</th>
+                            <td class="check">
+                                <div class="table-checkbox">
+                                    <input id="Sunday{{i}}" name="check{{cal.availability.Sunday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Sunday')" (change)="changeValue(i,'Sunday')">
+                                    <label for="Sunday{{i}}"></label>
+                                </div>
+                            </td>
+                            <td class="check">
+                                <div class="table-checkbox">
+                                    <input id="Monday{{i}}" name="check{{cal.availability.Monday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Monday')" (change)="changeValue(i,'Monday')">
+                                    <label for="Monday{{i}}"></label>
+                                </div>
+                            </td>
+
+                            <td class="check">
+                                <div class="table-checkbox">
+                                    <input id="Tuesday{{i}}" name="check{{cal.availability.Tuesday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Tuesday')" (change)="changeValue(i,'Tuesday')">
+                                    <label for="Tuesday{{i}}"></label>
+                                </div>
+                            </td>
+                            <td class="check">
+                                <div class="table-checkbox">
+                                    <input id="Wednesday{{i}}" name="check{{cal.availability.Wednesday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Wednesday')" (change)="changeValue(i,'Wednesday')">
+                                    <label for="Wednesday{{i}}"></label>
+                                </div>
+                            </td>
+                            <td class="check">
+                                <div class="table-checkbox">
+                                    <input id="Thursday{{i}}" name="check{{cal.availability.Thursday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Thursday')" (change)="changeValue(i,'Thursday')">
+                                    <label for="Thursday{{i}}"></label>
+                                </div>
+                            </td>
+                            <td class="check">
+                                <div class="table-checkbox">
+                                    <input id="Friday{{i}}" name="check{{cal.availability.Friday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Friday')" (change)="changeValue(i,'Friday')">
+                                    <label for="Friday{{i}}"></label>
+                                </div>
+                            </td>
+                            <td class="check">
+                                <div class="table-checkbox">
+                                    <input id="Saturday{{i}}" name="check{{cal.availability.Saturday}}" type="checkbox" [checked]="isCheckedOrNot(i,'Saturday')" (change)="changeValue(i,'Saturday')">
+                                    <label for="Saturday{{i}}"></label>
+                                </div>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <span class="error-msg" style="display:block" *ngIf="noAvailability" >This Field is Required </span> -->
+
+            </div>
+        </div>
+        <div class="button-wrapper withbg">
+            <button type="submit" (click)="goToBack()" name="" value="" class="custom-btn prev small">
+                    {{'previous' | translate}}</button>
+            <button type="submit" (click)="goToNext()" name="" value="" class="gradient custom-btn small pull-right">{{'next' | translate}}</button>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,100 @@
+.box-wrapper {
+    background: #ffffff;
+    border-radius: 4px;
+    border: solid 1px #ebebeb;
+    overflow: hidden;
+    margin: 20px 0 20px 0;
+}
+
+.section-head {
+    background: #f8f8f8;
+    font-size: 20px;
+    color: #52686e;
+    font-weight: 400;
+    padding: 15px 25px;
+    border-bottom: solid 1px #ebebeb;
+}
+
+.data-wrap {
+    position: relative;
+    padding: 20px 25px 15px;
+    border-bottom: solid 1px #ebebeb;
+}
+
+.participants-wrap .profileimage {
+    width: 90px;
+    height: 90px;
+    float: left;
+}
+
+.participants-wrap h3 {
+    font-size: 18px;
+    color: #52686e;
+    font-weight: 500;
+    line-height: 1.5;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.participants-wrap .rating-star {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+}
+
+.participants-wrap .overflow {
+    overflow: hidden;
+    padding: 25px 15px;
+}
+
+.scheduled-wrap .label-withicon {
+    font-weight: 400;
+    padding: 0px 20px 20px 40px;
+}
+
+.scheduled-wrap .label-withicon .icon {
+    margin: -5px 0 0 0;
+}
+
+.topic-wrap .add-topic {
+    margin: 25px;
+}
+
+.button-wrapper {
+    margin: 40px 0 80px;
+}
+
+.button-wrapper .custom-btn {
+    margin: 5px 10px;
+}
+
+.button-wrapper .reschedule {
+    background: #52686e;
+    color: #ffffff;
+}
+
+.button-wrapper .reschedule:hover,
+.button-wrapper .reschedule:focus {
+    background: #52686e;
+    color: #ffffff;
+}
+
+.button-wrapper .cancel {
+    border-color: #ed1c24;
+    color: #ed1c24;
+    background: #ffffff;
+}
+
+.button-wrapper .cancel:hover,
+.button-wrapper .cancel:focus {
+    background: #ed1c24;
+    color: #ffffff;
+}
+
+.add-article-list {
+    padding: 0 20px;
+}
+
+.userdetail-column {
+    border-bottom: solid 1px #ebebeb;
+}

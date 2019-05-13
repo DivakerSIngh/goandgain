@@ -1,0 +1,509 @@
+/*-- top banner --*/
+
+.home-banner {
+    background: url('../../../../assets/images/bg1.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    background-size: cover;
+    display: table;
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.overflow-wrap {
+    overflow: hidden;
+    display: block;
+    height: 640px;
+}
+
+.home-banner-inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.home-banner .image-sec {
+    position: absolute;
+    right: -165px;
+    bottom: -50px;
+}
+
+.home-banner .image-sec img {
+    max-width: 100%;
+}
+
+.home-banner .content {
+    width: 480px;
+    float: left;
+}
+
+.home-banner .heading {
+    font-size: 40px;
+    padding: 10px 0;
+    font-weight: 400;
+}
+
+.home-banner .para {
+    font-size: 18px;
+    padding: 0 100px 0 0;
+}
+
+.home-banner .custom-btn {
+    margin: 25px 0 0 0;
+}
+
+
+/*-- top banner end --*/
+
+
+/*--how it works start --*/
+
+.howitworks {
+    text-align: center;
+    background: #fff;
+    position: relative;
+    padding: 60px 0;
+}
+
+.howitworks .column {
+    float: left;
+    width: 33.3%;
+    padding: 30px 40px;
+}
+
+.howitworks .heading {
+    font-size: 30px;
+    color: #a5d281;
+    font-weight: 400;
+    padding: 10px 0;
+}
+
+.howitworks .para {
+    color: #8499a2;
+    font-size: 16px;
+}
+
+.howitworks .icon-bg {
+    background: url(../../../../assets/images/image1.png);
+    background-size: contain;
+    width: 210px;
+    height: 230px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0 auto;
+    position: relative;
+}
+
+.howitworks .icon-bg img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+
+/*-- how it works end--*/
+
+
+/*-about us wrapper  start--*/
+
+.about-wrapper {
+    position: relative;
+    display: table;
+    width: 100%;
+    background: #f9fafb;
+    height: 556px;
+}
+
+.aboutinner-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.about-wrapper .image-sec {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.about-wrapper .image-sec img {
+    max-width: 100%;
+}
+
+.about-wrapper .content {
+    width: 480px;
+    float: right;
+    padding: 0 20px;
+}
+
+.about-wrapper .content .para {
+    color: #8499a2;
+    font-size: 18px;
+    margin: 0 0 15px 0;
+}
+
+
+/*--about us wrapper  end--*/
+
+
+/*-gallery wrapper  start--*/
+
+.gallery-wrapper {
+    position: relative;
+    background: #fff;
+    padding: 50px 0 100px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.gallery-wrapper .image-listing {
+    margin: 25px 0;
+    position: relative;
+    display: table;
+    z-index: 1;
+    max-width: 980px;
+    margin: 30px auto;
+}
+
+.gallery-wrapper .image-listing li {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    margin-top: -6px;
+}
+
+.gallery-wrapper .image-listing li:hover .overlay,
+.gallery-wrapper .image-listing li:focus .overlay {
+    visibility: visible;
+    z-index: 2;
+}
+
+.gallery-wrapper figure {
+    background-color: #f9fafb;
+    width: 165px;
+    height: 165px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.gallery-wrapper .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    visibility: hidden;
+    z-index: -99;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    padding: 35px 0;
+}
+
+.gallery-wrapper .overlay h3 {
+    font-size: 16px;
+    color: #fff;
+}
+
+.gallery-wrapper .overlay p {
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.gallery-wrapper .image-listing .custom-btn {
+    font-size: 14px;
+    min-width: 80px;
+    padding: 5px 10px;
+    margin: 15px 0 0 0;
+}
+
+.gallery-wrapper .image-listing:before {
+    content: '';
+    position: absolute;
+    left: -115px;
+    top: 0;
+    background-image: url(../../../../assets/images/gallery-leftbg.png);
+    background-size: 280px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 280px;
+    height: 480px;
+}
+
+.gallery-wrapper .image-listing:after {
+    content: '';
+    position: absolute;
+    right: -115px;
+    top: 0;
+    background-image: url(../../../../assets/images/gallery-rightbg.png);
+    background-size: 280px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 280px;
+    height: 480px;
+}
+
+.custom-btn {
+    padding: 15px 40px;
+    font-size: 18px;
+}
+
+
+/* Home css end
+************  @media css start here *******************/
+
+@media (max-width: 1500px) and (min-width: 1200px) {
+    .about-wrapper .image-sec {
+        width: 680px;
+    }
+    .about-wrapper {
+        height: 456px;
+    }
+    .home-banner .image-sec {
+        width: 860px;
+        bottom: -35px;
+    }
+    .overflow-wrap {
+        height: 520px;
+    }
+}
+
+@media (max-width: 1500px) {}
+
+@media (max-width: 1480px) {
+    .home-banner .heading {
+        font-size: 28px;
+    }
+    .home-banner .para {
+        font-size: 15px;
+        padding: 5px 50px 0 0;
+    }
+    .howitworks .heading {
+        font-size: 20px;
+    }
+    .howitworks .para {
+        font-size: 14px;
+    }
+    .about-wrapper .content .para {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .about-wrapper:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.65);
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    .about-wrapper .image-sec {
+        width: 100%;
+        height: 100%;
+    }
+    .about-wrapper .image-sec img {
+        width: 100%;
+        height: 100%;
+    }
+    .about-wrapper .content {
+        max-width: 600px;
+        max-width: 100%;
+        margin: 0 auto;
+        float: none;
+        position: relative;
+        text-align: center;
+        z-index: 2;
+    }
+    .about-wrapper .titleheading {
+        color: #dedede;
+    }
+    .about-wrapper .content .para {
+        color: #dedede;
+    }
+    .gallery-wrapper .image-listing {
+        max-width: 750px;
+    }
+    .gallery-wrapper figure {
+        width: 140px;
+        height: 140px;
+    }
+    .gallery-wrapper .image-listing:before,
+    .gallery-wrapper .image-listing:after {
+        display: none;
+    }
+    .gallery-wrapper .overlay h3 {
+        font-size: 15px;
+        color: #fff;
+    }
+    .gallery-wrapper .overlay p {
+        font-size: 13px;
+    }
+    .gallery-wrapper .overlay {
+        padding: 25px 0;
+    }
+    .overflow-wrap {
+        height: 780px;
+    }
+    .home-banner-inner {
+        vertical-align: top;
+    }
+    .home-banner .image-sec {
+        width: 860px;
+        bottom: -35px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+    }
+    .home-banner .content {
+        width: auto;
+        max-width: 100%;
+        float: none;
+        margin: 30px auto 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 991px) {
+    .home-banner .heading {
+        font-size: 22px;
+    }
+    .howitworks {
+        padding: 30px 0;
+    }
+    .howitworks .heading {
+        font-size: 16px;
+    }
+    .howitworks .para {
+        font-size: 13px;
+    }
+    .about-wrapper .content .para {
+        font-size: 13px;
+    }
+    .about-wrapper {
+        height: 400px;
+    }
+    .gallery-wrapper {
+        padding: 30px 0 80px 0;
+    }
+    .howitworks .column {
+        float: left;
+        width: 33.3%;
+        padding: 0px 10px 20px;
+    }
+    .gallery-wrapper figure {
+        width: 120px;
+        height: 120px;
+    }
+    .gallery-wrapper .image-listing .custom-btn {
+        font-size: 12px;
+    }
+    .gallery-wrapper .overlay h3 {
+        font-size: 13px;
+    }
+    .gallery-wrapper .overlay p {
+        font-size: 12px;
+    }
+    .custom-btn {
+        padding: 12px 40px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .home-banner .heading {
+        font-size: 18px;
+    }
+    .home-banner .para {
+        font-size: 13px;
+        padding: 5px 60px;
+    }
+    .home-banner .image-sec {
+        width: 480px;
+        bottom: -15px;
+    }
+    .overflow-wrap {
+        height: 500px;
+    }
+    .howitworks .icon-bg {
+        width: 170px;
+        height: 160px;
+    }
+    .howitworks .column {
+        width: 48%;
+        display: inline-block;
+        float: none;
+    }
+    .about-wrapper .content {
+        width: auto;
+        max-width: 100%;
+    }
+    .howitworks .icon-bg img {
+        max-width: 80px;
+    }
+    .gallery-wrapper .overlay {
+        padding: 12px 0;
+    }
+    .gallery-wrapper figure {
+        width: 90px;
+        height: 90px;
+    }
+    .gallery-wrapper .image-listing .custom-btn {
+        font-size: 11px;
+        margin: 5px 0 0 0;
+    }
+    .custom-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width:480px) {
+    .home-banner .para {
+        font-size: 13px;
+        padding: 5px 0;
+    }
+    .home-banner .image-sec {
+        width: 300px;
+        bottom: -5px;
+    }
+    .overflow-wrap {
+        height: 400px;
+    }
+    .howitworks .icon-bg {
+        width: 120px;
+        height: 110px;
+    }
+    .howitworks .icon-bg img {
+        max-width: 50px;
+    }
+    .howitworks .column {
+        width: 100%;
+    }
+    .howitworks .heading {
+        font-size: 14px;
+    }
+    .howitworks .para {
+        font-size: 12px;
+    }
+    .about-wrapper .content .para {
+        font-size: 12px;
+    }
+}

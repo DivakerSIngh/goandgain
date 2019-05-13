@@ -1,0 +1,81 @@
+<!-- home page start -->
+<div class="profile-wrapper">
+    <div class="text-center">
+        <h1 class="titleheading small"> {{'language-you-speak' | translate}}</h1>
+    </div>
+    <div class="section-wrapper choose-language">
+        <div class="maxwidth-select">
+            <div class="input-wrap">
+
+                <!-- <span class="selectpicker-btn"></span> -->
+               
+                <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="{{'select-language' | translate}}" name="langaugeName" [(ngModel)]="selecteLanguages" (change)="selectLanguageYouSepak($event)">
+                            <mat-option  *ngFor="let language of languagesYouSpeak;let i=index" [value]="language.counrty">
+                                    {{language.counrty}}
+                            </mat-option>
+                            <mat-option value="Arabic">Arabic</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                <!-- <select class="custom-selectpicker" name="select" #selectLanguages [(ngModel)]="selecteLanguages" (change)="selectLanguageYouSepak($event)">
+                <option [value]="selecteLanguages" disabled selected>Select Language</option>
+                <option *ngFor="let language of languagesYouSpeak;let i=index" value="{{language.counrty}}">
+                        {{language.counrty}}
+                </option>              
+            </select> -->
+                <span *ngIf="noLanguageSelction" class="errorlog-inputmsg" style="display:block">{{'please-select-languages-you-speak' | translate}} </span>
+                <span *ngIf="noMoreThanFive" class="errorlog-inputmsg" style="display:block">{{'you-can-select-only-5-languages-you-speak' | translate}}</span>
+
+            </div>
+            <ul class="append-langlist">
+                <li *ngFor="let language of languagesYouSpeakSelection;let i=index">
+                    {{language.value}} <span class="cross-image" (click)="removeLanguageFromList(i)"><img src="./assets/images/select-cross.png" alt=""></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="text-center">
+        <h1 class="titleheading small">
+                {{'where-are-you-currently-staying-now' | translate}}
+        </h1>
+    </div>
+
+    
+    <div class="section-wrapper">
+
+            <label class="profile-label text-center">{{'country' | translate}}</label>
+            <div class="input-wrap maxwidth-select">
+                <!-- <span class="selectpicker-btn"></span> -->
+    
+                <mat-form-field class="mselectpicker">
+                        <mat-select placeholder="{{'select-country' | translate}}" name="country" [(ngModel)]="countryName">
+                            <mat-option *ngFor="let c of countryList" [value]="c.name">
+                             {{c.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                <span *ngIf="noCountryNameSelected" class="errorlog-inputmsg" style="display:block">{{'please-select-your-country' | translate}} </span>
+            </div>
+
+
+        <label class="profile-label text-center">{{'timezone' | translate}}</label>
+        <div class="input-wrap maxwidth-select">
+            <!-- <span class="selectpicker-btn"></span> -->
+            <mat-form-field class="mselectpicker">
+                    <mat-select placeholder="{{'select-time-zone' | translate}}" name="country" [(ngModel)]="country" (change)="changeCountry()">
+                        <mat-option *ngFor="let c of countries;let i=index" [value]="c.name">
+                                ({{c.offsetStr}}) {{c.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            <span *ngIf="noTimeZone" class="errorlog-inputmsg" style="display:block"> {{'please-select-your-time-zone' | translate}}</span>
+        </div>
+        <div class="button-wrapper withbg text-right">
+            <a [routerLink]="['../profile',varificationId]" class="custom-btn small prev pull-left"> {{'previous' | translate}}</a>
+            <a (click)="goToThiredStep()" class="gradient custom-btn small"> {{'next' | translate}}</a>
+        </div>
+    </div>
+</div>
+
+<!-- home page end -->

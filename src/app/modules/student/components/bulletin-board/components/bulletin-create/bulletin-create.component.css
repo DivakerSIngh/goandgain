@@ -1,0 +1,183 @@
+.createBulletinWrapper {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    border: solid 1px #ececec;
+    position: relative;
+    margin: 25px 0;
+    padding: 0 20px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.createBulletinWrapper .create-head {
+    font-size: 24px;
+    color: #52686e;
+    font-weight: 400;
+    border-bottom: solid 1px #ececec;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+.createBulletinWrapper .attachment-icon input {
+    padding-left: 70px;
+}
+
+.createBulletinWrapper .attachment-icon .input-addion {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 14px 12px;
+    border-radius: 6px 0 0 6px;
+}
+
+.createBulletinWrapper .article-btn {
+    margin: 20px auto 50px;
+}
+
+.secheading {
+    font-size: 20px;
+    text-align: left;
+    border-bottom: solid 1px #f1f1f1;
+    padding: 15px 0 10px;
+    margin-bottom: 20px;
+}
+
+.input-wrap.right {
+    overflow: hidden;
+}
+
+.input-label.left {
+    float: left;
+    min-width: 120px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.button-wrapper {
+    position: relative;
+    text-align: center;
+}
+
+.article-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 270px;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+    border: solid 1px #e6e6e6;
+    position: relative;
+    background-size: contain;
+}
+
+.article-image img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.choose-image {
+    position: relative;
+    margin-bottom: 15px;
+    float: left;
+    background: #52686e;
+    padding: 8px 20px;
+    font-size: 15px;
+    border-radius: 2px;
+}
+
+.choose-error {
+    float: left;
+    padding: 10px 10px;
+    color: #ff0000;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.choose-image input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.coud-not-fetch {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    padding: 15px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;
+    border-left: solid 5px #3c763d;
+}
+
+span.coud-not-fetcherror {
+    color: #ff0000;
+    font-size: 14px;
+    font-weight: 500;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    left: 50%;
+}
+
+
+/* modal css */
+
+.fetchUrlmodal .searchWrapper {
+    margin-bottom: 30px;
+}
+
+.fetchUrlmodal content {
+    border-top: solid 1px #ececec;
+    padding: 30px 0 0 0;
+}
+
+.fetchUrlmodal figure {
+    width: 120px;
+    height: 120px;
+    background-color: #f1f1f1;
+    background-size: cover;
+    border-radius: 2px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    float: left;
+}
+
+.fetchUrlmodal .leftin {
+    overflow: hidden;
+}
+
+.fetchUrlmodal .searchWrapper {
+    padding-right: 190px;
+    position: relative;
+}
+
+.fetchUrlmodal .searchWrapper .custom-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.fetchUrlmodal .searchWrapper .search {
+    padding-left: 45px;
+    padding-right: 35px;
+}

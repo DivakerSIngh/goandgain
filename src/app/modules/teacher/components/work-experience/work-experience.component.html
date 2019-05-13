@@ -1,0 +1,127 @@
+<div class="profile-wrapper teacher">
+    <div class="text-center">
+        <h1 class="titleheading small"> {{'work-experience' | translate}}</h1>
+    </div>
+    <div class="section-wrapper">
+        <form action="" class="">
+
+
+            <div class="append-wrapper" *ngFor="let form of educationListPrepareForm;let i=index">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div *ngIf="i != 0" (click)="removeFormFromDome(i)" class="append-dataremove"> {{'close' | translate}}</div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="input-label"> {{'company-name' | translate}}</label>
+                            <div class="input-wrap">
+                                <input type="text" value="" maxlength="100" name="companyName{{i}}" [(ngModel)]="form.companyName" placeholder="{{'name-of-company' | translate}}" />
+                                <span *ngIf="form.companyNameValid" class="error-edu-inputmsg" style="display:block"> {{'this-field-is-required' | translate}} </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="input-label"> {{'position' | translate}}</label>
+                            <div class="input-wrap">
+                                <input type="text" value="" maxlength="70" name="Position{{i}}" [(ngModel)]="form.position" placeholder="{{'name-of-position' | translate}}" />
+                                <span *ngIf="form.positionValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="input-label"> {{'work-location' | translate}}</label>
+                            <div class="input-wrap">
+                                <input type="text" value="" maxlength="70" name="Location{{i}}" [(ngModel)]="form.location" placeholder="{{'city-state-or-province-country' | translate}}" />
+                                <span *ngIf="form.locationValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <label class="input-label"> {{'start-date' | translate}}</label>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="input-wrap sub-inputwrap">
+                                        <span class="selectpicker-btn"></span>
+                                        <select class="custom-selectpicker" name="stratDateYear{{i}}" [(ngModel)]="form.stratDateYear" (change)="ChangeStartDate(i,form.stratDateYear)">
+                                        <option value="0" disabled selected> {{'select-year' | translate}}</option>
+                                        <option *ngFor="let y of form.startYearList;let i=index" value="{{y}}" (change)="changeStartYear()">
+                                              {{y}}
+                                      </option>
+                                    </select>
+                                        <span *ngIf="form.stratDateYearValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-wrap sub-inputwrap">
+                                        <span class="selectpicker-btn"></span>
+                                        <select class="custom-selectpicker" name="stratDateMonth{{i}}" [(ngModel)]="form.stratDateMonth" (change)="ChangeStartMonth(i,form.stratDateMonth)">
+                                      <option value="0" disabled selected> {{'select-month' | translate}}</option>
+                                      <option *ngFor="let month of form.startDateMonthList;let i=index" value="{{month.id}}">
+                                            {{month.value}}
+                                       </option>     
+                                  </select>
+                                        <span *ngIf="form.stratDateMonthValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <label class="input-label"> {{'end-date' | translate}}</label>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="input-wrap">
+                                        <span class="selectpicker-btn"></span>
+                                        <select class="custom-selectpicker" name="endDateYear{{i}}" [(ngModel)]="form.endDateYear" (change)="setMonth(i,form.stratDateMonth)">
+                                      <option value="0" disabled selected> {{'select-year' | translate}}</option>
+                                      <option *ngFor="let y of form.YearofAcquisitionList;let i=index" value="{{y}}">
+                                            {{y}}
+                                       </option>
+                                  </select>
+                                        <span *ngIf="form.endDateYearValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-wrap">
+                                        <span class="selectpicker-btn"></span>
+                                        <select class="custom-selectpicker" name="endDateMonth{{i}}" [(ngModel)]="form.endDateMonth">
+                                      <option value="0" disabled selected> {{'select-month' | translate}}</option>
+                                      <option *ngFor="let month of form.acquisitionMonthList;let i=index" value="{{month.id}}">
+                                            {{month.value}}
+                                       </option>
+                                  </select>
+                                        <span *ngIf="form.endDateMonthValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="input-wrap">
+                            <label class="input-label"> {{'description' | translate}}</label>
+                            <textarea name="" id="" maxlength="200" (keyup)="changeTextAreacount(form.descriptions,i)" cols="30" rows="3" name="descriptions{{i}}" [(ngModel)]="form.descriptions" placeholder="{{'description' | translate}}"></textarea>
+                            <span *ngIf="form.descriptionsValid" class="error-edu-inputmsg" style="display:block">{{'this-field-is-required' | translate}} </span>
+                            <span class="char-count-textarea">{{form.descriptionLength}}  {{'characters' | translate}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xs-12">
+                        <div *ngIf="educationListPrepareForm.length <=4">
+                            <a href="javascript:void(0);" (click)="addNewForm()" class="add-more-appenddata"> {{'add-more' | translate}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-wrapper  withbg">
+                <button (click)="gotoPreviouseStep()" type="submit" name="" value="" class="custom-btn prev small"> {{'previous' | translate}}</button>
+                <button (click)="gotoNextStep()" type="submit" name="" value="" class="gradient custom-btn small pull-right"> {{'next' | translate}}</button>
+                <button type="submit" (click)="skipStep()" name="" value="" class="custom-btn small skip  pull-right"> {{'skip' | translate}}</button>
+            </div>
+        </form>
+    </div>
+</div>

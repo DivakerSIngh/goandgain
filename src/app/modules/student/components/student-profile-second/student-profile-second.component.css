@@ -1,0 +1,11 @@
+input.ng-dirty.ng-invalid {
+    border: solid 1px #d25151;
+}
+
+input.ng-dirty.ng-invalid+span {
+    display: none !important;
+}
+
+input.ng-dirty.ng-invalid:focus+span {
+    display: block !important;
+}

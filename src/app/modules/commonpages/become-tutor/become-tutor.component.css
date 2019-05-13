@@ -1,0 +1,150 @@
+/*------ top banner ---*/
+
+.teach-topbanner {
+    background-image: url('../../../../assets/images/banner2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    padding: 250px 0;
+    text-align: center;
+}
+
+.teach-topbanner:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.teach-topbanner .inner {
+    position: relative;
+    z-index: 1;
+}
+
+.teach-topbanner h1 {
+    font-size: 50px;
+    color: #fff;
+    padding: 0;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.teach-topbanner p {
+    font-size: 20px;
+    color: #fff;
+    padding: 0;
+    font-weight: 400;
+}
+
+.teach-topbanner .custom-btn {
+    margin-top: 25px;
+}
+
+
+/*------ top banner end ---*/
+
+
+/*------ benefits ---*/
+
+.benefit-wrapper {
+    padding: 50px;
+}
+
+.benefit-wrapper .icon-image .icon-bg {
+    width: 156px;
+    height: 144px;
+    background-size: contain;
+}
+
+.benefit-column {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
+    padding: 10px 15px 25px;
+    text-align: center;
+    margin: 25px 15px;
+    overflow: hidden;
+    min-height: 365px;
+}
+
+.benefit-column .head {
+    font-size: 24px;
+    color: #a5d281;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.benefit-column p {
+    font-size: 16px;
+    color: #8499a2;
+}
+
+.benefit-column .icon-image {
+    border-bottom: solid 1px #f5f5f5;
+    margin-bottom: 25px;
+}
+
+
+/*------ benefits end ---*/
+
+
+/*------ accordion ---*/
+
+.accordion-wrapper {
+    padding: 50px 0;
+}
+
+.accordion-inner {
+    margin: 50px 0 0 0;
+}
+
+.accordion-wrapper .column {
+    margin: 0 0 40px 0;
+}
+
+.accordion-wrapper .heading-type {
+    font-size: 22px;
+    font-weight: 400;
+    background: #fff;
+    padding: 15px 30px;
+    color: #52686e;
+    border: solid 1px #efeeee;
+    border-radius: 4px;
+}
+
+.accordion-title {
+    font-size: 18px;
+    color: #52686e;
+    font-weight: 500;
+    padding: 25px 0;
+    border-bottom: solid 1px #e5e6e6;
+    margin: 0 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.accordion-title:before {
+    content: '';
+    background-image: url(../../../../assets/images/down-arrow-big.png);
+    width: 24px;
+    height: 15px;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.accordion-parag {
+    font-size: 16px;
+    color: #52686e;
+    margin: 15px 30px;
+    display: none;
+}
+
+
+/*------ accordion end ---*/

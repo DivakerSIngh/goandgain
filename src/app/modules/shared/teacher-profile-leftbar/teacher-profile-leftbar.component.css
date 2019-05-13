@@ -1,0 +1,119 @@
+.leftbarwrapper-inner {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    border: solid 1px #ececec;
+    position: relative;
+    min-height: 800px;
+}
+
+.userdetails-leftbar {
+    text-align: center;
+    padding: 20px 0;
+    background: #f7f7f7;
+}
+
+.userdetails-leftbar .userimage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 5px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: solid 2px #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+}
+
+.userdetails-leftbar .user {
+    font-size: 22px;
+    font-weight: 500;
+    color: #52686e;
+}
+
+.userdetails-leftbar .email {
+    font-size: 16px;
+    color: #728891;
+}
+
+.leftbarlisting li {
+    display: block;
+}
+
+.leftbarlisting>li>a {
+    display: block;
+    border-bottom: solid 1px #ececec;
+    position: relative;
+    color: #728891;
+    font-size: 18px;
+    padding: 25px 20px 25px 60px;
+    border-left: solid 5px transparent;
+}
+
+.leftbarlisting>li>a.active,
+.leftbarlisting>li>a:focus {
+    border-left: solid 5px #89bd60;
+    font-weight: 500;
+    color: #52686e;
+    background: #f9fcf6;
+}
+
+.leftbarlisting li a img {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transition: all ease-in .3s;
+    -moz-transition: all ease-in .3s;
+    -ms-transition: all ease-in .3s;
+    -o-transition: all ease-in .3s;
+    -webkit-transition: all ease-in .3s;
+}
+
+.leftbarlisting li a img.active {
+    opacity: 0;
+}
+
+.leftbarlisting li a.active img.active,
+.leftbarlisting li a:hover img.active {
+    opacity: 1;
+}
+
+.leftbarlisting li a.active img.deactive,
+.leftbarlisting li a:hover img.deactive {
+    opacity: 0;
+}
+
+.leftbarlisting li a:hover {
+    color: #89bd60;
+}
+
+.leftbar-sublisting>li {
+    border-bottom: solid 1px #ececec;
+}
+
+.leftbar-sublisting>li>a {
+    padding-left: 100px !important;
+    display: block;
+    position: relative;
+    color: #728891;
+    font-size: 18px;
+    padding: 25px 20px 25px 60px;
+    border-bottom: solid 3px transparent;
+}
+
+.leftbar-sublisting>li>a.active {
+    border-left: 0px !important;
+    border-bottom: solid 3px #89bd60 !important;
+    background: transparent !important;
+    font-weight: 500;
+    color: #52686e;
+}
+
+.leftbar-sublisting li a img {
+    left: 60px !important;
+}

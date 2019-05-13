@@ -1,0 +1,19 @@
+<div class="profile-wrapper">
+    <div class="text-center">
+        <h1 class="titleheading small"> {{'teacher-application-submitted' | translate}}</h1>
+    </div>
+    <div class="section-wrapper teacher-applicationform">
+        <div class="icon-image">
+            <figure class="icon-bg">
+                <img src="assets/images/circle-check.png" alt="lock">
+            </figure>
+            <h2 class="bold"> {{'application-date' | translate}}</h2>
+            <h2>{{createdTime |date : 'dd MMM yyyy'}}</h2>
+            <p class="para"> {{'submitted-text' | translate}}</p>
+            
+            <div class="button-wrapper">
+                  <button type="button" (click)="gotoHomePage()"  value="" class="gradient custom-btn"> {{'go-to-home-page' | translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>

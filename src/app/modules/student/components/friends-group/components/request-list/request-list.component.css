@@ -1,0 +1,24 @@
+#requestType .modal-body {
+    padding: 20px 40px 0;
+}
+
+.label-form {
+    font-size: 16px;
+    color: #8499a2;
+    margin: 8px 0;
+    padding: 0 0 10px 0;
+}
+
+.modal-footer {
+    text-align: center;
+    display: block;
+    margin: 0 -40px;
+}
+
+figure.profileimage {
+    float: left;
+}
+
+#popupGroupRequestDetails .modal-body {
+    padding: 20px 40px 0;
+}

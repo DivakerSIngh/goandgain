@@ -1,0 +1,83 @@
+
+{
+    
+    "find-a-tutor": "ENCUENTRE UN TUTOR",
+    "find-a-topic": "ENCUENTRA UN TEMA",
+    "study-board": "CONSEJO DE ESTUDIO",
+    "study-group":"Grupo de estudio",
+    "practice-here":"Practica aquí", 
+    "bulletin-board": "TABLÓN DE ANUNCIOS",
+    "become-a-tutor": "CONVIÉRTETE EN UN TUTOR",
+    "login": "Iniciar sesión",
+    "sign-up": "Regístrate",
+    "select-language": "Seleccione el idioma",
+    
+    "learn-to-speak-a-language": "Aprende a hablar un lenguaje",
+    "conquer-a-language-text": "Conquer a language with native teachers you pick to guide you on your language journey.",
+    "start-learning": "Start Learning",
+    "how-it-works": "How it Works",
+
+    "find-a-tutor-text": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima hic totam magni blanditiis dolorem quas ipsa facilis beatae",
+    "book-lessons": "Book Lessons",
+    "book-lessons-text": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima hic totam magni blanditiis dolorem quas ipsa facilis beatae",
+    "start-mastering": "Start Mastering",
+    "start-mastering-text":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima hic totam magni blanditiis dolorem quas ipsa facilis beatae",
+    "lorem-ipsum-is-simply": "Lorem Ipsum is simply",
+    "lorem-ipsum-is-simply-text":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software.",
+    "learn-more": "Learn More",
+    "our-koalatalk-tutors": "Our KoalaTalk Tutors",
+    "see-more-tutors": "See More Tutors",
+    "book-a-lesson":"Book Lesson",
+    "about-us": "About Us",
+    "privacy-policy": "Privacy Policy",
+    "contact-us": "Contact Us",
+    "press": "Press",
+    "blog": "Blog",
+    "tutors": "Tutors",
+    "english-tutor": "English Tutor",
+    "spanish-tutor": "Spanish Tutor",
+    "chinese-tutor": "Chinese Tutor",
+    "korean-tutor": "Korean Tutor",
+    "japanese-tutor": "Japanese Tutor",
+    "all-rights-reserved.":"All rights reserved.",
+    "this-field-is-required":"This Field is Required.",
+    "please-enter-a-valid-email":"Please enter a valid email",
+    "password-must-be-at-least-8-characters-long":"Password must be at least 8 characters long.",
+    "user-already-exist":"User already exist",
+    "sign-up-text":"Lorem Ipsum is simply dummy text of the printing.",
+    "student": "Student",
+    "tutor": "Teacher",
+    "first-name": "First Name",
+    "last-name": "Last Name",
+    "email": "Email",
+    "loading":"Loading",
+    "password": "Password",
+    "connect-with": "or Connect With",
+    "already-have-an-account": "Already have an account",
+    "sign-in": "registrarse",
+    "log-out":"Logout",
+    
+    "email-or-password-may-be-wrong!":"Email or password may be wrong!",
+    "sign-in-text":"Lorem Ipsum is simply dummy text of the printing.",
+    "forgot-password" :"Forgot Password?",
+    
+    "or-login-with":"Or Login With",
+    "do-not-have-an-account":"Don't have an account",
+
+  
+    "forgot-password-text":"Enter your email address below and we will send you an email allowing to reset it.",
+    "reset-password":"Reset Password",
+    "this-email-is-not-register-with-us.":"This email is not register with us.",
+    "new-password":"New Password",
+    "confirm-new-password":"Confirm New Password",
+    "password-does-not-match":"Password does not match",
+
+    "verification-link-sent":"Verification Link Sent",
+    "verification-link-text":"The email containing a link to verify your account has been sent to your email address. Please check your inbox.",
+
+    "edit-profile":"Edit Profile",
+    "dashboard":"Dashboard",
+    "language":"Language"
+
+
+}

@@ -1,0 +1,82 @@
+<div class="centersecwrapper">
+    <div class="tutor-banner">
+        <div class="tutor-banner-inner">
+            <h1>
+                    {{'find-a-tutor-&-study-partner' | translate}}
+                </h1>
+            <p>
+                    {{'find-a-tutor-page-text' | translate}}
+            </p>
+        </div>
+    </div>
+    <div class="tutor-list-wrapper">
+        <div class="container">
+            <app-teacher-filter></app-teacher-filter>
+            <div class="tutorlist-combine">
+                <div class="tutortime-schedule" *ngIf="showVideo">
+                    <div class="video-wrapper">
+                        <app-teacher-video></app-teacher-video>
+                    </div>
+                    <app-teacher-calendar></app-teacher-calendar>
+                </div>
+                <div class="tutorlisting-container">
+                    <a href="javascript:void(0)" (mouseover)="getDetailsofTeacher($event,teacher)" *ngFor="let teacher of teacherList" [routerLink]="[ '../details',teacher._id]" class="tutorlisting-column  checked hvr-grow-shadow">
+                        <div class="figure-section">
+                            <figure [style.background-image]="'url('+ teacher.image +')'"></figure>
+                            <!-- <figure style="background-image: url('assets/images/user1.jpg')"></figure> -->
+                            <div class="doller-btn">$23 - 25</div>
+                            <p>USD/h</p>
+                        </div>
+                        <div class="content">
+                            <div class="button-wrap">
+                                <button type="button" class="message-icon"><img src="assets/images/message-green.png" alt=""></button>
+                                <button type="button" class="custom-btn gradient-lr">{{'book-lesson' | translate}}</button>
+                            </div>
+                            <div class="left">
+                                <h2 class="name"> {{teacher.firstName}} {{teacher.lastName}}
+                                </h2>
+                                <span class="rating-star"><span style="width:76%"></span></span><span class="count">(100)</span>
+                                <label class="hours">450 Hours</label>
+                            </div>
+                            <div class="clearfix"></div>
+                            <h3 class="about">{{'about' | translate}}</h3>
+                            <p class="description">{{teacher.aboutMe}}.</p>
+                            <div class="specification-wrap row">
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12  pd">
+                                    <div class="details-column">
+                                        <span class="icon"><img src="assets/images/request-icon.png" alt=""></span>
+                                        <h4>{{'from' | translate}}: </h4>
+                                        <p>{{teacher.countryName}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12  pd">
+                                    <div class="details-column">
+                                        <span class="icon"><img src="assets/images/marker.png" alt=""></span>
+                                        <h4>{{'living' | translate}}:</h4>
+                                        <p>({{teacher.timeZone}}) {{teacher.counrty}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12  pd">
+                                    <div class="details-column">
+                                        <span class="icon"><img src="assets/images/edu-icon.png" alt=""></span>
+                                        <h4>{{'teaching-language' | translate}}: </h4>
+                                        <p>{{teacher.teachLanguage}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="tutorlisting-container" *ngIf="noTeacherFound">
+                    <div class="no-found-wrapper">
+                        <figure><img src="assets/images/sad.svg" alt="{{'sorry-no-tutor-found' | translate}}"></figure>
+                        <h2 class="head">{{'sorry-no-tutor-found' | translate}}</h2>
+                    </div>
+                </div>
+                <!-- teacher list end -->
+            </div>
+        </div>
+    </div>
+</div>

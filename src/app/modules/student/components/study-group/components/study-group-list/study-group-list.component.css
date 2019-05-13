@@ -1,0 +1,81 @@
+.yourStudygroup {
+    position: relative;
+    padding-right: 250px;
+    margin: 25px 0;
+}
+
+.yourStudygroup-wrapper {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    border: solid 1px #ececec;
+}
+
+.yourStudygroup-inner {
+    padding: 20px 15px;
+}
+
+.yourStudygroup .searchWrapper.filter {
+    padding: 25px 15px 30px;
+    box-shadow: 0 3px 4px -3px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.yourStudygroup .searchWrapper .input-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.yourStudygroup .button-wrap {
+    padding: 25px 15px 0;
+    text-align: right;
+}
+
+.yourStudygroup-table {
+    overflow: hidden;
+    position: relative;
+}
+
+.yourStudygroup-table table {
+    border: solid 1px #ececec;
+}
+
+.yourStudygroup-table .table thead th {
+    background: #52686e;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.yourStudygroup-table .table tbody td {
+    text-align: center;
+}
+
+.yourStudygroup-filter {
+    border-bottom: solid 1px #ececec;
+    padding: 20px 20px 10px;
+    margin: 20px 0 0 0;
+}
+
+.yourStudygroup-filter .selectWraper {
+    width: 200px;
+    float: left;
+}
+
+.yourStudygroup-filter .button-wrap {
+    float: right;
+    padding: 0 0 0 20px;
+}
+
+.yourStudygroup-filter .button-wrap .custom-btn {
+    padding: 10px 20px;
+}
+
+.searchWrapper.overflow {
+    overflow: hidden;
+    padding: 0 0 10px 20px;
+}
+
+@media (max-width:1400px) {}

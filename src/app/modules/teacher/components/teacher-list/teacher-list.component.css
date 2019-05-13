@@ -1,0 +1,313 @@
+/* tutor-banner */
+
+.centersecwrapper {
+    background-color: #ececec;
+}
+
+.tutor-banner {
+    background-image: url(../../../../../assets/images/tutor-bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    position: relative;
+    display: table;
+    width: 100%;
+}
+
+.tutor-banner:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.tutor-banner-inner {
+    vertical-align: bottom;
+    display: table-cell;
+    position: relative;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.tutor-banner h1 {
+    font-size: 40px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.tutor-banner p {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 100;
+    padding: 10px 0 85px 0;
+}
+
+.tutorlist-combine {
+    position: relative;
+    min-height: 800px;
+    padding: 0 400px 0 0;
+}
+
+
+/* column  */
+
+.tutorlisting-column {
+    background: #ffffff;
+    border: solid 1px #e3e3e3;
+    overflow: hidden;
+    position: relative;
+    margin: 0 0 20px 0;
+    box-shadow: 0 0 6px rgba(139, 139, 139, 0.13);
+    display: block;
+}
+
+.tutorlisting-column.hvr-grow-shadow:hover,
+.tutorlisting-column.hvr-grow-shadow:focus {
+    border-bottom: none;
+}
+
+.tutorlisting-column:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 0;
+    background: #60a02e;
+    height: 4px;
+    z-index: 1;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+}
+
+.tutorlisting-column:hover:before,
+.tutorlisting-column:focus:before {
+    width: 100%;
+}
+
+.tutorlisting-column .content {
+    overflow: hidden;
+    position: relative;
+    border-left: solid 1px #ececec;
+    padding: 15px 15px 5px;
+}
+
+.tutorlisting-column .figure-section {
+    float: left;
+    width: 200px;
+    padding: 25px 20px;
+    position: relative;
+    text-align: center;
+}
+
+.tutorlisting-column.checked .figure-section:before {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: url('../../../../../assets/images/green-check.png');
+    width: 27px;
+    height: 19px;
+}
+
+.tutorlisting-column.online .figure-section:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #6bc524;
+    border-radius: 50%;
+    display: block;
+    border: solid 1px #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: absolute;
+    top: 145px;
+    left: 55px;
+}
+
+.tutorlisting-column .figure-section figure {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    border: solid 2px #fff;
+}
+
+.tutorlisting-column .doller-btn {
+    color: #89bd60;
+    font-size: 18px;
+    font-weight: 500;
+    border: solid 1px #89bd60;
+    display: inline-block;
+    padding: 4px 20px;
+    border-radius: 4px;
+    margin: 20px 0 5px 0;
+}
+
+.tutorlisting-column .doller-btn:hover,
+.tutorlisting-column .doller-btn:focus {
+    background: #89bd60;
+    color: #fff;
+}
+
+.tutorlisting-column .left {
+    overflow: hidden;
+    float: left;
+}
+
+.tutorlisting-column .button-wrap {
+    float: right;
+}
+
+.tutorlisting-column .custom-btn {
+    padding: 8px 15px;
+}
+
+.message-icon {
+    background: #fff;
+    padding: 10px 14px;
+    border: solid 1px #60a12d;
+    border-radius: 4px;
+    vertical-align: top;
+    margin: 0 10px 0 0;
+}
+
+.tutorlisting-column .rating-star {
+    margin: 0;
+    font-size: 16px;
+}
+
+.tutorlisting-column .name {
+    font-size: 24px;
+    color: #52686e;
+    font-weight: 400;
+    margin: 8px 0 5px;
+}
+
+.tutorlisting-column .count {
+    font-size: 16px;
+    color: #8499a2;
+}
+
+.tutorlisting-column .hours {
+    font-size: 15px;
+    color: #52686e;
+    font-weight: 600;
+    display: block;
+}
+
+.tutorlisting-column .about {
+    font-size: 18px;
+    color: #5a9c26;
+    font-weight: 400;
+    margin: 20px 0 0 0;
+}
+
+.tutorlisting-column p {
+    font-size: 16px;
+    color: #8499a2;
+}
+
+.tutorlisting-column .description {
+    margin: 0 0 25px 0;
+}
+
+.specification-wrap {
+    border-top: solid 1px #ececec;
+    padding: 15px 5px 0 5px;
+    margin: 0 -15px 0 -15px;
+}
+
+.specification-wrap .pd {
+    padding: 0 5px;
+}
+
+.tutorlisting-column .details-column {
+    position: relative;
+    padding: 10px 10px 10px 40px;
+    background: #f8f8f8;
+    border: solid 1px #e3e3e3;
+    display: block;
+    min-height: 55px;
+}
+
+.tutorlisting-column .details-column .icon {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.tutorlisting-column .details-column h4 {
+    font-size: 14px;
+    color: #52686e;
+    font-weight: 500;
+}
+
+.tutorlisting-column .details-column p {
+    font-size: 14px;
+    margin: 0;
+}
+
+
+/* tutortime-schedule */
+
+.tutortime-schedule {
+    width: 380px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #ffffff;
+    border: solid 1px #e3e3e3;
+    /* overflow: hidden; */
+    margin: 0 0 20px 0;
+    box-shadow: 0 0 6px rgba(139, 139, 139, 0.13);
+    transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.video-wrapper {
+    width: 100%;
+    height: 230px;
+    position: relative;
+    padding: 5px;
+}
+
+.tutortime-schedule:before {
+    content: '';
+    pointer-events: none;
+    display: block;
+    position: absolute;
+    top: 10%;
+    left: -20px;
+    z-index: 0;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid #ffffff;
+}
+
+.tutortime-schedule.topView:before {
+    top: 10%;
+}
+
+.tutortime-schedule.bottomView:before {
+    top: 90%;
+}
+
+@media (min-width: 1220px) {
+    .container {
+        width: 1300px;
+    }
+}

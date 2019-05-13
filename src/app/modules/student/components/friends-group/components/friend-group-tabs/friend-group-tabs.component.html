@@ -1,0 +1,17 @@
+<ul class="friend-group-tabs">
+    <li>
+        <a href="javascript:void(0);" [routerLink]="[ './friends']" routerLinkActive="active">Friends</a>
+    </li>
+    <li>
+        <a href="javascript:void(0);" [routerLink]="[ './groups']" routerLinkActive="active">Groups</a>
+    </li>
+    <li>
+        <a href="javascript:void(0);" [routerLink]="[ './requests']" routerLinkActive="active">Requests</a>
+    </li>
+    <li>
+        <a href="javascript:void(0);" [routerLink]="[ './owner-group']" routerLinkActive="active">Owner Group</a>
+    </li>
+</ul>
+<div class="datasecwrapper-inner">
+    <router-outlet></router-outlet>
+</div>
